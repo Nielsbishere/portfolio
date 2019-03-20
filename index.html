@@ -1,0 +1,237 @@
+<!DOCTYPE HTML>
+<html style="font-size: 12px;" lang="en-US">
+
+	<head>
+	
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		
+		<!-- Setup icon and website keywords / title -->
+		
+		<link rel="icon" href="favicon.ico" type="image/x-icon">
+		
+		<title>Niels Brunekreef Portfolio - Graphics Programmer</title>
+		
+		<meta name="Keywords" content="C++, CPP, C, C#, CSharp, Assembly, Asm, ARM, ARM7, ARM9, Java, JavaScript, PHP, CSS, HTML, HTML5, VBS, Bash, Batch, CMake, MySQL, JQuery, Bootstrap, Swift, OpenGL, OpenGL 4.5, ES, OpenGL ES 2.0, OpenGL ES, GLES, GLESv2, Vulkan, DirectX, D3D, D3D11, D3D12, DirectX11, DirectX12, Vulkan, Switch, Nintendo, DS, Windows, Android, SDK, NDK, Linux, Raspberry pi, Visual Studio, Notepad++, MSVC, MinGW Makefiles, RenderDoc, NSight, Qt, Qt5, RTX, DXR, Raytracing, Rasterizer, Compute, Shader, Glsl, Hlsl, Unreal Engine, Unity Engine, Perforce, GitHub, Jira, Trello, Graphics, Programmer, Engine, Reverse Engineering, Portfolio">
+		
+		<meta name="Description" content="Well organized and easy to understand Web building tutorials with lots of examples of how to use HTML, CSS, JavaScript, SQL, PHP, Python, Bootstrap, Java and XML.">
+		
+		<!-- Setup bootstrap, jquery and ajax -->
+		
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+		
+		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+		
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+		
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+		
+		<!-- Custom styles and scripts -->
+		
+		<style>
+		
+			hr { padding-bottom: 25px; }
+			.display-2 { padding-top: 50px; }
+			
+			video::-webkit-media-controls {
+				display:none !important;
+			}
+			
+			video { width: 100%; border: 1px solid black; }
+			
+			.overlay {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				background-color: rgba(0,0,0,.5);
+				color: white;
+				z-index: 2;
+			}
+			
+		</style>
+		
+		<script>
+			$(function () {
+			
+				//Show tooltips
+				$('[data-toggle="tooltip"]').tooltip()
+				
+				//Videos as gifs
+				$("video").hover(
+					function(){ this.play(); }, 
+					function(){ this.pause(); this.currentTime = 0; }
+				);
+				
+			})
+		</script>
+		
+	</head>
+	
+	<body>
+		
+		<!-- Navbar -->
+		
+		<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+		
+			<a class="navbar-brand" href="#">
+				<h1>Niels Brunekreef</h1>
+				<h6 style="color: #C0C0C0;">Graphics & game programmer</h6>
+			</a>
+			
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item">
+						<a class="nav-link" href="#about">About</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#projects">Projects</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#resume">Resume</a>
+					</li>
+				</ul>
+			</div>
+		</nav>
+		
+		<!-- Content -->
+		
+		<!-- About me -->
+		
+		<div class="jumbotron">
+		
+			<h1 class="display-2" id="about">About me</h1>
+		
+			<hr />
+			
+			<div class "row">
+			
+				<!-- About me section -->
+			
+				<div class="col-6">
+				
+					<p class="lead"> Something about me </p>
+				
+				</div>
+				
+				<!-- Trailer -->
+				
+				<div class="col-3">
+				
+					<p class="lead"> Trailer here </p>
+				
+				</div>
+			
+			</div>
+			
+		</div>
+		
+		<div class="container-fluid">
+			
+			<!-- Projects -->
+			
+			<h1 class="display-2" id="projects">Projects</h1>
+		
+			<hr />
+		
+			<div class="container-fluid">
+			
+				<div class="row">
+					
+					<!-- Wisp -->
+					
+					<div class="col-md-6" id="wisp">
+						<div class="overlay">
+							<div class="h-100 my-auto">
+								<h1 class="display-4 row justify-content-center align-self-center">Wisp</h1>
+								<h1 class="display-5 row justify-content-center align-self-center">Real time raytracer</h1>
+								<p class="lead row justify-content-center align-self-center">Lorem ipsum</p>
+							</div>
+						</div>
+						<video src="previews/wisp.mp4" data-toggle="tooltip" data-placement="top" title="Wisp Raytracing Renderer" loop paused />
+					</div>
+				
+					<!-- Rail recon -->
+				
+					<div class="col-md-6" id="railrecon">
+						<video src="previews/railrecon.mp4" data-toggle="tooltip" data-placement="top" title="Rail recon" loop paused />
+					</div>
+				
+				</div>
+			
+				<div class="row">
+				
+				
+					<!-- Nintendo File System Utils -->
+						
+					<div class="col-md-6" id="nfsu">
+						<video src="previews/nfsu.mp4" data-toggle="tooltip" data-placement="top" title="Nintendo (DS) File System Utilities" loop paused />
+						<h1>Nintendo File System Utilities</h1>
+					</div>
+					
+					<!-- Switchbait -->
+				
+					<div class="col-md-6" id="switchbait">
+						<video src="previews/switchbait.mp4" data-toggle="tooltip" data-placement="top" title="Switchbait" loop paused />
+					</div>
+				
+				</div>
+			
+				<div class="row">
+					
+					<!-- Harpoon -->
+				
+					<div class="col-md-6" id="harpoon">
+					
+					</div>
+					
+					<!-- Oxsomi Core -->
+				
+					<div class="col-md-6" id="ocore">
+					
+					</div>
+				
+				</div>
+			
+				<div class="row">
+				
+					<!-- Mineblower -->
+					
+					<!-- Joker -->
+					
+				</div>
+			
+				<div class="row">
+				
+					<!-- Armulator -->
+				
+					<div class="col-md-6" id="armulator">
+						<video src="previews/armulator.mp4" data-toggle="tooltip" data-placement="top" title="ARM9 Thumb Emulator" loop paused />
+					</div>
+					
+				</div>
+			
+			</div>
+		
+			<!-- Resume -->
+			
+			<h1 class="display-2" id="resume">Resume</h1>
+		
+			<hr />
+		
+		</div>
+		
+		<!-- Footer -->
+		
+		<footer>
+		
+		</footer>
+	
+	</body>
+
+</html>
