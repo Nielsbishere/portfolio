@@ -1,377 +1,538 @@
-<!DOCTYPE HTML>
+﻿<!DOCTYPE HTML>
 <html style="font-size: 12px;" lang="en-US">
 
-	<head>
-	
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-		
-		<!-- Setup icon and website keywords / title -->
-		
-		<link rel="icon" href="favicon.ico" type="image/x-icon">
-		
-		<title>Niels Brunekreef Portfolio - Graphics Programmer</title>
-		
-		<meta name="Keywords" content="C++, CPP, C, C#, CSharp, Assembly, Asm, ARM, ARM7, ARM9, Java, JavaScript, PHP, CSS, HTML, HTML5, VBS, Bash, Batch, CMake, MySQL, JQuery, Bootstrap, Swift, OpenGL, OpenGL 4.5, ES, OpenGL ES 2.0, OpenGL ES, GLES, GLESv2, Vulkan, DirectX, D3D, D3D11, D3D12, DirectX11, DirectX12, Vulkan, Switch, Nintendo, DS, Windows, Android, SDK, NDK, Linux, Raspberry pi, Visual Studio, Notepad++, MSVC, MinGW Makefiles, RenderDoc, NSight, Qt, Qt5, RTX, DXR, Raytracing, Rasterizer, Compute, Shader, Glsl, Hlsl, Unreal Engine, Unity Engine, Perforce, GitHub, Jira, Trello, Graphics, Programmer, Engine, Reverse Engineering, Portfolio">
-		
-		<meta name="Description" content="Well organized and easy to understand Web building tutorials with lots of examples of how to use HTML, CSS, JavaScript, SQL, PHP, Python, Bootstrap, Java and XML.">
-		
-		<!-- Setup bootstrap, jquery and ajax -->
-		
-		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-		
-		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-		
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-		
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-		
-		<!-- Custom styles and scripts -->
-		
-		<style>
-			
-			video::-webkit-media-controls {
-				display:none !important;
-			}
-			
-			header {
-				position: relative;
-				background-color: black;
-				min-height: 20rem;
-				width: 100%;
-				overflow: hidden;
-			}
+    <head>
+    
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+        <!-- Setup icon and website keywords / title -->
+    
+        <link rel="icon" href="favicon.ico" type="image/x-icon">
+    
+        <title>Niels Brunekreef Portfolio - Graphics Programmer</title>
+    
+        <meta name="Keywords" content="C++, CPP, C, C#, CSharp, Assembly, Asm, ARM, ARM7, Thumb mode, ARM9, Java, JavaScript, PHP, CSS, HTML, HTML5, VBS, Bash, Batch, CMake, MySQL, JQuery, Bootstrap, Swift, OpenGL, OpenGL 4.5, ES, OpenGL ES 2.0, OpenGL ES, GLES, GLESv2, Vulkan, DirectX, D3D, D3D11, D3D12, DirectX11, DirectX12, Vulkan, Switch, Nintendo, DS, Windows, Android, SDK, NDK, Linux, Raspberry pi, Visual Studio, Notepad++, MSVC, MinGW Makefiles, RenderDoc, NSight, Qt, Qt5, RTX, DXR, Raytracing, Rasterizer, Compute, Shader, Glsl, Hlsl, Unreal Engine, Unity Engine, Perforce, GitHub, Jira, Trello, Graphics, Programmer, Engine, Reverse Engineering, Portfolio">
+    
+        <meta name="Description" content="Well organized and easy to understand Web building tutorials with lots of examples of how to use HTML, CSS, JavaScript, SQL, PHP, Python, Bootstrap, Java and XML.">
+    
+        <!-- Setup bootstrap, jquery and ajax -->
+    
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    
+        <!-- Custom styles and scripts -->
+    
+        <style>
+    
+            video::-webkit-media-controls {
+                display: none !important;
+            }
+    
+            header {
+                position: relative;
+                background-color: black;
+                min-height: 20rem;
+                width: 100%;
+                overflow: hidden;
+            }
+    
+            header video {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                min-width: 100%;
+                width: auto;
+                height: auto;
+                z-index: 0;
+                -ms-transform: translateX(-50%) translateY(-50%);
+                -moz-transform: translateX(-50%) translateY(-50%);
+                -webkit-transform: translateX(-50%) translateY(-50%);
+                transform: translateX(-50%) translateY(-50%);
+                width: 100%;
+            }
+    
+            header {
+                margin-bottom: 20px;
+            }
+    
+             header .overlay {
+                 position: absolute;
+                 top: 0;
+                 left: 0;
+                 height: 100%;
+                 width: 100%;
+                 background-color: rgba(0, 0, 0, 0.6);
+                 z-index: 5;
+                 border: 1px solid #505050;
+             }
+    
+            .bg-primary, .btn-primary, .badge-primary, .alert-primary {
+                background-color: #0066cc;
+            }
+    
+            .navbar {
+                background-color: #0044aa;
+            }
+    
+            hr {
+                border-top: 1px solid #cccccc;
+                margin-top: 20px;
+                margin-left: 15px;
+                margin-right: 15px;
+                margin-bottom: 25px;
+            }
+    
+            .anchor {
+                position: absolute;
+                margin-top: -250px;
+            }
 
-			header video {
-				position: absolute;
-				top: 50%;
-				left: 50%;
-				min-width: 100%;
-				width: auto;
-				height: auto;
-				z-index: 0;
-				-ms-transform: translateX(-50%) translateY(-50%);
-				-moz-transform: translateX(-50%) translateY(-50%);
-				-webkit-transform: translateX(-50%) translateY(-50%);
-				transform: translateX(-50%) translateY(-50%);
-				width: 100%;
-			}
-			
-			header {
-				margin-bottom: 20px;
-			}
-			
-			header .overlay {
-				position: absolute;
-				top: 0;
-				left: 0;
-				height: 100%;
-				width: 100%;
-				background-color: rgba(0, 0, 0, 0.6);
-				z-index: 1;
-				border: 1px solid #505050;
-			}
-			
-			.bg-primary, .btn-primary, .badge-primary, .alert-primary {
-				background-color: #0066cc;
-			}
-			
-			.navbar {
-				background-color: #0044aa;
-			}
-			
-			hr { 
-				border-top: 1px solid #cccccc; 
-				margin-top: 20px; 
-				margin-left: 15px; 
-				margin-right: 15px; 
-				margin-bottom: 25px;  
-			}
-			
-			.anchor {
-				position: absolute; 
-				margin-top: -250px;
-			}
-			
-		</style>
-		
-		<script>
-			$(function () {
-			
-				//Show tooltips
-				$('[data-toggle="tooltip"]').tooltip()
-				
-				//Videos as gifs
-				$("video").hover(
-					function(){ this.play(); }, 
-					function(){ this.load(); }
-				);
-				
-				$(".overlay").hover(
-					function(){ $("#v" + $(this).attr("video")).get(0).play(); }, 
-					function(){  $("#v" + $(this).attr("video")).get(0).load(); }
-				);
-				
-			});
-		</script>
-		
-	</head>
-	
-	<!-- TODO: On mobile: Don't load videos -->
-	<!-- TODO: Add meta -->
-					
-	<body style="background-color: #202020;  margin-bottom: 2000px;"">
-		
-		<!-- Navbar -->
-		
-		<nav class="navbar fixed-top navbar-expand-lg navbar-dark" style="border-bottom: 1px solid black;">
-		
-			<a class="navbar-brand" href="#">
-				<h1>Niels Brunekreef</h1>
-				<h6 style="color: #C0C0C0;">Graphics & game programmer</h6>
-			</a>
-			
-			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-			
-			<div class="collapse navbar-collapse" id="navbarSupportedContent">
-				<ul class="navbar-nav ml-auto">
-					<li class="nav-item">
-						<a class="nav-link" href="#about">About</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="#projects">Projects</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="#resume">Resume</a>
-					</li>
-				</ul>
-			</div>
-		</nav>
-		
-		<!-- Content -->
-		
-		<!-- About me -->
-		
-		<div class="container-fluid  text-white" style="margin-top: 200px;">
-		
-			<h1 class="display-2">About me</h1>
-			<div id="about" class="anchor"></div>
-		
-			<hr />
-			
-			<div class "row">
-			
-				<!-- About me section -->
-			
-				<div class="col-6">
-				
-					<p class="lead"> Something about me </p>
-				
-				</div>
-				
-				<!-- Trailer -->
-				
-				<div class="col-3">
-				
-					<p class="lead"> Trailer here </p>
-				
-				</div>
-			
-			</div>
-			
-			<!-- Projects -->
-			
-			<h1 class="display-2">Projects</h1>
-			<div id="projects" class="anchor"></div>
-		
-			<hr />
-		
-			<div class="container-fluid">
-			
-				<div class="row">
-					
-					<!-- Wisp -->
-					
-					<div class="col-md-6">
-						<header>
-							<div class="overlay" video="wisp" style="z-index: 2;">
-								<div class="d-flex h-100 text-center align-items-center">
-									<div class="w-100">
-									
-										<h1 class="display-5">Wisp</h1>
-										<h4>Realtime raytracing</h4>
-										
-										<a href="wisp.html" style="color: white;">
-											<button class="btn btn-primary" type="button" style=" margin-bottom: 5px;">
-												Learn more &raquo;
-											</button>
-										</a><br>
-										
-										<a href="https://github.com/TeamWisp">
-											<img src="icons/team.svg" data-toggle="tooltip" data-placement="top" title="Team Wisp" alt="Team Wisp">
-											</img>
-										</a>
-										
-										<img src="icons/desktop.svg" data-toggle="tooltip" data-placement="top" title="Windows" alt="Windows">
-										</img>
-										
-										<a href="https://github.com/TeamWisp/Procedural-Ray-Tracing">
-											<img src="icons/github.svg" data-toggle="tooltip" data-placement="top" title="View on GitHub" alt="Ray tracing renderer on GitHub">
-											</img>
-										</a>
-										
-									</div>
-								</div>
-							</div>
-								
-							<video poster="screenshots/wisp.png" id="vwisp" muted loop paused playsinline>
-								<source src="previews/wisp.mp4" type="video/mp4">
-							</video>
-						</header>
-					</div>
-				
-					<!-- Rail recon -->
-					
-					<div class="col-md-6">
-						<header>
-							<div class="overlay" video="railrecon" style="z-index: 2;">
-								<div class="d-flex h-100 text-center align-items-center">
-									<div class="w-100">
-									
-										<h1 class="display-5">Rail recon</h1>
-										<h4>Twin stick shooter</h4>
-										
-										<a href="railrecon.html" style="color: white;">
-											<button class="btn btn-primary" type="button" style=" margin-bottom: 5px;">
-												Learn more &raquo;
-											</button>
-										</a><br>
-										
-										<img src="icons/team.svg" data-toggle="tooltip" data-placement="top" title="Triggered Studios" alt="Triggered Studios">
-										</img>
-										
-										<img src="icons/desktop.svg" data-toggle="tooltip" data-placement="top" title="Windows" alt="Windows">
-										</img>
-										
-										<a href="http://rail-recon.com">
-											<img src="icons/website.svg" data-toggle="tooltip" data-placement="top" title="View on website" alt="Rail recon website">
-											</img>
-										</a>
-										
-									</div>
-								</div>
-							</div>
-								
-							<video poster="screenshots/railrecon.jpg" id="vrailrecon" muted loop paused playsinline>
-								<source src="previews/railrecon.mp4" type="video/mp4">
-							</video>
-						</header>
-					</div>
-				
-				</div>
-			
-				<div class="row">
-				
-					<!-- Nintendo File System Utilities -->
-					
-					<div class="col-md-6">
-						<header>
-							<div class="overlay" video="nfsu" style="z-index: 2;">
-								<div class="d-flex h-100 text-center align-items-center">
-									<div class="w-100">
-										<h1 class="display-5">NFSU</h1>
-										<h4>NDS Rom editor</h4>
-										
-										<a href="railrecon.html" style="color: white;">
-											<button class="btn btn-primary" type="button" style=" margin-bottom: 5px;">
-												Learn more &raquo;
-											</button>
-										</a><br>
-										
-										<a href="https://github.com/Nielsbishere">
-											<img src="icons/solo.svg" data-toggle="tooltip" data-placement="top" title="Solo project" alt="Nielsbishere solo project">
-											</img>
-										</a>
-										
-										<img src="icons/desktop.svg" data-toggle="tooltip" data-placement="top" title="Windows" alt="Windows">
-										</img>
-										
-										<a href="https://github.com/nfsu/NFS">
-											<img src="icons/github.svg" data-toggle="tooltip" data-placement="top" title="View on GitHub" alt="Nintendo File System NDS Rom Hacking Project on GitHub">
-											</img>
-										</a>
-										
-									</div>
-								</div>
-							</div>
-								
-							<video poster="screenshots/nfsu.png" id="vnfsu" muted loop paused playsinline>
-								<source src="previews/nfsu.mp4" type="video/mp4">
-							</video>
-						</header>
-					</div>
-					
-					<!-- Switchbait -->
-				
-					<!-- <div class="col-md-6" id="switchbait"> -->
-						<!-- <video src="previews/switchbait.mp4" data-toggle="tooltip" data-placement="top" title="Switchbait" loop paused /> -->
-					<!-- </div> -->
-				
-				</div>
-			
-				<div class="row">
-					
-					<!-- Harpoon -->
-				
-					<!-- <div class="col-md-6" id="harpoon"> -->
-					
-					<!-- </div> -->
-					
-					<!-- Oxsomi Core -->
-				
-					<!-- <div class="col-md-6" id="ocore"> -->
-					
-					<!-- </div> -->
-				
-				</div>
-			
-				<div class="row">
-				
-					<!-- Mineblower -->
-					
-					<!-- Joker -->
-					
-				</div>
-			
-				<div class="row">
-				
-					<!-- Armulator -->
-				
-					<!-- <div class="col-md-6" id="armulator"> -->
-						<!-- <video src="previews/armulator.mp4" data-toggle="tooltip" data-placement="top" title="ARM9 Thumb Emulator" loop paused /> -->
-					<!-- </div> -->
-					
-				</div>
-			
-			</div>
-		
-			<!-- Resume -->
-			
-			<h1 class="display-2">Resume</h1>
-			<div class="anchor" id="resume"></div>
-		
-			<hr />
-		
-		</div>
-		
-		<!-- Footer -->
-		
-		<footer>
-		
-		</footer>
-	
-	</body>
+            .tooltip-inner, .tooltip {
+                z-index: 2;
+            }
+
+        </style>
+    
+        <script>
+            $(function () {
+    
+                //Show tooltips
+                $('[data-toggle="tooltip"]').tooltip();
+    
+                //Showing current year
+                $(".year").replaceWith(new Date().getFullYear());
+
+                //If you use a touch screen, the overlay is used as a video, otherwise it's a link
+
+                var touchDevice = (navigator.maxTouchPoints || 'ontouchstart' in document.documentElement);
+
+                if (touchDevice) {
+
+                } else {
+
+                    //Videos as gifs
+
+                    $("video").hover(
+                        function () { this.play(); },
+                        function () { this.load(); }
+                    );
+
+                    $(".overlay").hover(
+                        function () { $("#v" + $(this).attr("video")).get(0).play(); },
+                        function () { $("#v" + $(this).attr("video")).get(0).load(); }
+                    );
+
+                    //Go to the info by clicking the overlay
+
+                    $(".overlay").click(
+                        function () { $(location).attr('href', $(this).attr("video") + ".html"); console.log("/" + $(this).attr("video") + ".html");}
+                    );
+
+                }
+    
+            });
+        </script>
+    
+    </head>
+
+    <!-- TODO: On mobile: Don't load videos -->
+    <!-- TODO: Add meta -->
+
+    <body style="background-color: #202020;">
+
+        <!-- Navbar -->
+
+        <nav class="navbar fixed-top navbar-expand-lg navbar-dark" style="border-bottom: 1px solid black;">
+
+            <a class="navbar-brand" href="#">
+                <h1>Niels Brunekreef</h1>
+                <h6 style="color: #C0C0C0;">Graphics & game programmer</h6>
+            </a>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#projects">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#resume">Resume</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Content -->
+        <!-- About me -->
+
+        <div class="container-fluid  text-white" style="margin-top: 200px;">
+
+            <h1 class="display-2">About me</h1>
+            <div id="about" class="anchor"></div>
+
+            <hr />
+
+            <div class "row">
+
+                <!-- About me section -->
+                <h2 class="display-5">
+                    Hello, my name is Niels Brunekreef, I'm a <b>graphics</b> & <b>game programming</b> student at <a href="https://buas.nl">Breda University of Applied Sciences</a>.
+                    I specialize in graphics optimization & architecture and my hobbies are reverse engineering and modding games.<br />
+                    On this page are my favorite projects that demonstrate my work best.
+                </h2>
+
+            </div>
+
+            <!-- Projects -->
+
+            <h1 class="display-2">Projects</h1>
+            <div id="projects" class="anchor"></div>
+
+            <hr />
+
+            <div class="container-fluid">
+
+                <div class="row">
+
+                    <!-- Wisp -->
+
+                    <div class="col-md-6">
+                        <header>
+                            <div class="overlay" video="wisp">
+                                <div class="d-flex h-100 text-center align-items-center">
+                                    <div class="w-100">
+
+                                        <h1 class="display-5">Wisp</h1>
+                                        <h4>Realtime raytracing</h4>
+
+                                        <button class="btn btn-primary" type="button" style=" margin-bottom: 5px;">
+                                            Learn more &raquo;
+                                        </button>
+                                        <br>
+
+                                        <a href="https://github.com/TeamWisp">
+                                            <img src="icons/team.svg" data-toggle="tooltip" data-placement="bottom" title="Team Wisp" alt="Team Wisp">
+                                            </img>
+                                        </a>
+
+                                        <img src="icons/desktop.svg" data-toggle="tooltip" data-placement="bottom" title="Windows" alt="Windows">
+                                        </img>
+
+                                        <a href="https://github.com/TeamWisp/Procedural-Ray-Tracing">
+                                            <img src="icons/github.svg" data-toggle="tooltip" data-placement="bottom" title="View on GitHub" alt="Ray tracing renderer on GitHub">
+                                            </img>
+                                        </a>
+
+                                        <span class="font-small">DXR</span>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <video poster="screenshots/wisp.png" id="vwisp" muted loop paused playsinline>
+                                <source src="previews/wisp.mp4" type="video/mp4">
+                            </video>
+                        </header>
+                    </div>
+
+                    <!-- Rail recon -->
+
+                    <div class="col-md-6">
+                        <header>
+                            <div class="overlay" video="railrecon">
+                                <div class="d-flex h-100 text-center align-items-center">
+                                    <div class="w-100" style="z-index: 0;">
+
+                                        <h1 class="display-5">Rail recon</h1>
+                                        <h4>Twin stick shooter</h4>
+
+                                        <button class="btn btn-primary" type="button" style=" margin-bottom: 5px;">
+                                            Learn more &raquo;
+                                        </button>
+                                        <br>
+
+                                        <img src="icons/team.svg" data-toggle="tooltip" data-placement="bottom" title="Triggered Studios" alt="Triggered Studios" />
+                                        <img src="icons/desktop.svg" data-toggle="tooltip" data-placement="bottom" title="Windows" alt="Windows" />
+
+                                        <a href="http://rail-recon.com">
+                                            <img src="icons/website.svg" data-toggle="tooltip" data-placement="bottom" title="View on website" alt="Rail recon website" />
+                                        </a>
+
+                                        <img src="icons/unreal.svg" data-toggle="tooltip" data-placement="bottom" title="Unreal Engine 4 C++" alt="UE4 C++" />
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <video poster="screenshots/railrecon.jpg" id="vrailrecon" muted loop paused playsinline>
+                                <source src="previews/railrecon.mp4" type="video/mp4">
+                            </video>
+                        </header>
+                    </div>
+
+                </div>
+
+                <div class="row">
+
+
+                    <!-- Mineblowers -->
+
+                    <div class="col-md-6">
+                        <header>
+                            <div class="overlay" video="mineblowers">
+                                <div class="d-flex h-100 text-center align-items-center">
+                                    <div class="w-100">
+                                        <h1 class="display-5">Mineblowers</h1>
+                                        <h4>Custom controller game</h4>
+
+                                        <button class="btn btn-primary" type="button" style=" margin-bottom: 5px;">
+                                            Learn more &raquo;
+                                        </button>
+                                        <br>
+
+                                        <img src="icons/team.svg" data-toggle="tooltip" data-placement="bottom" title="Team Moose" alt="Team moose"/>
+                                        <img src="icons/desktop.svg" data-toggle="tooltip" data-placement="bottom" title="Windows" alt="Windows"/>
+                                        <img src="icons/unreal.svg" data-toggle="tooltip" data-placement="bottom" title="Unreal Engine 4 Blueprints" alt="UE4 Blueprints"/>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <video poster="screenshots/mineblowers.jpg" id="vmineblowers" muted loop paused playsinline>
+                                <source src="previews/mineblowers.mp4" type="video/mp4">
+                            </video>
+                        </header>
+                    </div>
+
+                    <!-- Nintendo File System Utilities -->
+
+                    <div class="col-md-6">
+                        <header>
+                            <div class="overlay" video="nfsu">
+                                <div class="d-flex h-100 text-center align-items-center">
+                                    <div class="w-100">
+                                        <h1 class="display-5">NFSU</h1>
+                                        <h4>NDS Rom editor</h4>
+
+                                        <button class="btn btn-primary" type="button" style=" margin-bottom: 5px;">
+                                            Learn more &raquo;
+                                        </button>
+                                        <br>
+
+                                        <a href="https://github.com/Nielsbishere">
+                                            <img src="icons/solo.svg" data-toggle="tooltip" data-placement="bottom" title="Solo project" alt="Nielsbishere solo project" />
+                                        </a>
+
+                                        <img src="icons/desktop.svg" data-toggle="tooltip" data-placement="bottom" title="Windows" alt="Windows" />
+
+                                        <a href="https://github.com/nfsu/NFS/tree/NFS_Reloaded">
+                                            <img src="icons/github.svg" data-toggle="tooltip" data-placement="bottom" title="View on GitHub" alt="Nintendo File System NDS Rom Hacking Project on GitHub" />
+                                        </a>
+
+                                        <img src="icons/qt.svg" data-toggle="tooltip" data-placement="bottom" title="Qt 5" alt="Qt5" />
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <video poster="screenshots/nfsu.png" id="vnfsu" muted loop paused playsinline>
+                                <source src="previews/nfsu.mp4" type="video/mp4">
+                            </video>
+                        </header>
+                    </div>
+
+                </div>
+
+                <div class="row">
+
+                    <!-- Harpoon -->
+
+                    <div class="col-md-6">
+                        <header>
+                            <div class="overlay" video="harpoon">
+                                <div class="d-flex h-100 text-center align-items-center">
+                                    <div class="w-100">
+                                        <h1 class="display-5">Harpoon</h1>
+                                        <h4>Unity C# Injector</h4>
+
+                                        <button class="btn btn-primary" type="button" style=" margin-bottom: 5px;">
+                                            Learn more &raquo;
+                                        </button>
+                                        <br>
+
+                                        <a href="https://github.com/Nielsbishere">
+                                            <img src="icons/solo.svg" data-toggle="tooltip" data-placement="bottom" title="Solo project" alt="Nielsbishere solo project">
+                                            </img>
+                                        </a>
+
+                                        <img src="icons/desktop.svg" data-toggle="tooltip" data-placement="bottom" title="Windows" alt="Windows" />
+
+                                        <a href="https://github.com/Nielsbishere/Harpoon">
+                                            <img src="icons/github.svg" data-toggle="tooltip" data-placement="bottom" title="View on GitHub" alt="Unity C# Mono Injector" />
+                                        </a>
+
+                                        <img src="icons/unity.svg" data-toggle="tooltip" data-placement="bottom" title="Unity C#" alt="Unity C#" />
+
+                                        <img src="icons/c.svg" data-toggle="tooltip" data-placement="bottom" title="C" alt="C" />
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <video poster="screenshots/nfsu.png" id="vharpoon" muted loop paused playsinline>
+                                <source src="previews/nfsu.mp4" type="video/mp4">
+                            </video>
+                        </header>
+                    </div>
+
+                    <!-- Oxsomi Core -->
+
+                    <div class="col-md-6">
+                        <header>
+                            <div class="overlay" video="ocore">
+                                <div class="d-flex h-100 text-center align-items-center">
+                                    <div class="w-100">
+                                        <h1 class="display-5">Oxsomi Core</h1>
+                                        <h4>Cross platform framework</h4>
+
+                                        <button class="btn btn-primary" type="button" style=" margin-bottom: 5px;">
+                                            Learn more &raquo;
+                                        </button>
+                                        <br>
+
+                                        <a href="https://github.com/Nielsbishere">
+                                            <img src="icons/solo.svg" data-toggle="tooltip" data-placement="bottom" title="Solo project" alt="Nielsbishere solo project" />
+                                        </a>
+
+                                        <img src="icons/desktop.svg" data-toggle="tooltip" data-placement="bottom" title="Windows" alt="Windows" />
+
+                                        <img src="icons/mobile.svg" data-toggle="tooltip" data-placement="bottom" title="Android" alt="Android" />
+
+                                        <a href="https://github.com/oxsomi/core">
+                                            <img src="icons/github.svg" data-toggle="tooltip" data-placement="bottom" title="View on GitHub" alt="Cross platform Vulkan framework" />
+                                        </a>
+
+                                        <img src="icons/vulkan.svg" data-toggle="tooltip" data-placement="bottom" title="Vulkan" alt="Vulkan" />
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <video poster="screenshots/ocore.png" id="vocore" muted loop paused playsinline>
+                                <source src="previews/ocore.mp4" type="video/mp4">
+                            </video>
+                        </header>
+                    </div>
+
+
+                </div>
+
+                <div class="row">
+
+
+                    <!-- Armulator -->
+
+                    <div class="col-md-6">
+                        <header>
+                            <div class="overlay" video="armulator">
+                                <div class="d-flex h-100 text-center align-items-center">
+                                    <div class="w-100">
+                                        <h1 class="display-5">Armulator</h1>
+                                        <h4>ARM7 Thumb emulator</h4>
+
+                                        <button class="btn btn-primary" type="button" style=" margin-bottom: 5px;">
+                                            Learn more &raquo;
+                                        </button>
+                                        <br>
+
+                                        <a href="https://github.com/Nielsbishere">
+                                            <img src="icons/solo.svg" data-toggle="tooltip" data-placement="bottom" title="Solo project" alt="Nielsbishere solo project" />
+                                        </a>
+
+                                        <img src="icons/desktop.svg" data-toggle="tooltip" data-placement="bottom" title="Desktop" alt="Desktop" />
+
+                                        <a href="https://github.com/nfsu/NFS/blob/NFS_Reloaded/nfs/src/armulator.cpp">
+                                            <img src="icons/github.svg" data-toggle="tooltip" data-placement="bottom" title="View on GitHub" alt="Nintendo ARM7 Thumb Mode Emulator" />
+                                        </a>
+
+                                        <img src="icons/cpp.svg" data-toggle="tooltip" data-placement="bottom" title="C++" alt="CPP" />
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <video poster="screenshots/armulator.png" id="varmulator" muted loop paused playsinline>
+                                <source src="previews/armulator.mp4" type="video/mp4">
+                            </video>
+                        </header>
+                    </div>
+
+                    <!-- Switchbait -->
+
+                    <div class="col-md-6">
+                        <header>
+                            <div class="overlay" video="switchbait">
+                                <div class="d-flex h-100 text-center align-items-center">
+                                    <div class="w-100">
+                                        <h1 class="display-5">Switchbait</h1>
+                                        <h4>Switch &amp; Windows project</h4>
+
+                                        <button class="btn btn-primary" type="button" style=" margin-bottom: 5px;">
+                                            Learn more &raquo;
+                                        </button>
+                                        <br>
+
+                                        <a href="https://github.com/Nielsbishere">
+                                            <img src="icons/solo.svg" data-toggle="tooltip" data-placement="bottom" title="Solo project" alt="Nielsbishere solo project" />
+                                        </a>
+
+                                        <img src="icons/desktop.svg" data-toggle="tooltip" data-placement="bottom" title="Windows" alt="Windows" />
+                                        <img src="icons/switch.svg" data-toggle="tooltip" data-placement="bottom" title="Nintendo Switch" alt="Switch" />
+                                        <img src="icons/cpp.svg" data-toggle="tooltip" data-placement="bottom" title="C++" alt="CPP" />
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <video poster="screenshots/switchbait.png" id="vswitchbait" muted loop paused playsinline>
+                                <source src="previews/switchbait.mp4" type="video/mp4">
+                            </video>
+                        </header>
+                    </div>
+
+                </div>
+
+            <!-- Resume -->
+
+            <h1 class="display-2">Resume</h1>
+            <div class="anchor" id="resume"></div>
+
+            <hr />
+
+        </div>
+
+        <!-- Footer -->
+
+        <footer class="page-footer font-small pt-4 mt-auto">
+
+            <p class="text-white text-center">
+                Copyright <a href="https://nielsbishere.com">Niels Brunekreef</a> © 2019 - <span class="year"></span>
+            </p>
+
+        </footer>
+
+    </body>
 
 </html>
