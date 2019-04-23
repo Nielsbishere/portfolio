@@ -111,6 +111,9 @@
                 //Showing current year
                 $(".year").replaceWith(new Date().getFullYear());
 
+                $("button").replaceWith("");
+                $("br").replaceWith("");
+
                 //If you use a touch screen, the overlay is used as a video, otherwise it's a link
 
                 var touchDevice = (navigator.maxTouchPoints || 'ontouchstart' in document.documentElement);
@@ -118,7 +121,7 @@
                 if (touchDevice) {
 
                     $("button").click(function (e) {
-                        $(location).attr('href', $(this).parent().parent().parent().attr("video") + ".html");
+                        //$(location).attr('href', $(this).parent().parent().parent().attr("video") + ".html");
                         e.stopPropagation();
                     });
 
@@ -164,9 +167,9 @@
 
                     //Go to the info by clicking the overlay
 
-                    $(".overlay").click(
-                        function () { $(location).attr('href', $(this).attr("video") + ".html"); console.log("/" + $(this).attr("video") + ".html");}
-                    );
+                    //$(".overlay").click(
+                    //    function () { $(location).attr('href', $(this).attr("video") + ".html");
+                    //);
 
                 }
     
@@ -201,9 +204,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#projects">Projects</a>
                     </li>
-                    <li class="nav-item">
+                    <!--<li class="nav-item">
                         <a class="nav-link" href="#resume">Resume</a>
-                    </li>
+                    </li>-->
                 </ul>
             </div>
         </nav>
@@ -425,8 +428,8 @@
                                 </div>
                             </div>
 
-                            <video poster="screenshots/nfsu.png" id="vharpoon" muted loop paused playsinline>
-                                <source src="previews/nfsu.mp4" type="video/mp4">
+                            <video poster="screenshots/harpoon.png" id="vharpoon" muted loop paused playsinline>
+                                <source src="previews/harpoon.mp4" type="video/mp4">
                             </video>
                         </header>
                     </div>
@@ -550,10 +553,10 @@
 
             <!-- Resume -->
 
-            <h1 class="display-2">Resume</h1>
+            <!--<h1 class="display-2">Resume</h1>
             <div class="anchor" id="resume"></div>
 
-            <hr />
+            <hr />-->
 
         </div>
 
