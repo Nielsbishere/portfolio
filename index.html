@@ -100,6 +100,9 @@
         </style>
     
         <script>
+
+            var current = null;
+
             $(function () {
     
                 //Show tooltips
@@ -113,6 +116,37 @@
                 var touchDevice = (navigator.maxTouchPoints || 'ontouchstart' in document.documentElement);
 
                 if (touchDevice) {
+
+                    $("button").click(function (e) {
+                        $(location).attr('href', $(this).parent().parent().parent().attr("video") + ".html");
+                        e.stopPropagation();
+                    });
+
+                    $(".overlay").click(
+                        function () {
+                            
+                            var curr = $("#v" + $(this).attr("video")).get(0);
+
+                            if (curr == current)
+                                return;
+
+                            if (current != null)
+                                current.load();
+
+                            current = curr;
+                            current.play();
+                        }
+                    );
+
+                    //TODO: When it scrolls out of view stop playing it
+                    //TODO: When you click something else stop playing it
+
+                    //$(window).scroll(function () {
+                    //    if (current != null && !isInView(current)) {
+                    //        current.load();
+                    //        current = null;
+                    //    }
+                    //});
 
                 } else {
 
