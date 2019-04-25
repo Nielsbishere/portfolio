@@ -85,15 +85,38 @@
     
             .anchor {
                 position: absolute;
-                margin-top: -190px;
+                margin-top: -160px;
             }
     
             .tooltip-inner, .tooltip {
                 z-index: 2;
             }
 
-            .display-3 {
-                margin-top: 40px;
+            .display-5 {
+                margin-top: 100px;
+            }
+
+            hr {
+                margin-left: 5%;
+                margin-right: 5%;
+            }
+
+            h5 {
+                margin-top: 45px;
+            }
+
+            .logo {
+                min-width: 70px;
+                width: 15%;
+                margin: auto;
+                padding: 5px 5px 5px 5px;
+            }
+
+            .logo-sm {
+                min-width: 35px;
+                width: 10%;
+                margin: auto;
+                padding: 5px 5px 5px 5px;
             }
 
         </style>
@@ -195,8 +218,7 @@
         <nav class="navbar fixed-top navbar-expand-lg navbar-dark" style="border-bottom: 1px solid black;">
 
             <a class="navbar-brand" href="#">
-                <h4>Niels Brunekreef</h4>
-                <p style="font-size: 14px; color: #C0C0C0;">Graphics & game programmer</p>
+                <h6>Niels Brunekreef</h6>
             </a>
 
             <div class="collapse navbar-collapse">
@@ -206,6 +228,12 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#projects">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#competencies">Competencies</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact me</a>
                     </li>
                     <!--<li class="nav-item">
                     <a class="nav-link" href="#resume">Resume</a>
@@ -230,31 +258,29 @@
 
         <!-- Content -->
 
-        <div class="container-fluid text-white" style="margin-top: 120px;">
+        <div class="container-fluid text-white" style="margin-top: 100px;">
 
             <!-- About me -->
-            <h1 class="display-3 text-center">About me</h1>
+            <h2 class="display-5 text-center">About me</h2>
             <div id="about" class="anchor"></div>
-
             <hr />
 
             <!-- About me section -->
 
             <div class="row">
                 <div class="col-md-6" style="margin: auto;">
-                    <h5>
-                        Hello, my name is Niels Brunekreef, I'm a <b>graphics</b> & <b>game programming</b> student at <a href="https://buas.nl">Breda University of Applied Sciences</a>.
-                        I specialize in graphics optimization & architecture and my hobbies are reverse engineering and modding games. Which is what I started out doing; coding mods and plugins in Java, where after I expanded my knowledge to other languages.<br />
-                        On this page are my favorite projects that demonstrate my work best, these include C#, C, C++, Java, Unity and Unreal projects.
-                    </h5>
+                    <p class="lead">
+                        My passion lies at <b>graphics</b> & <b>game programming</b>, which I study at <a href="https://buas.nl">Breda University of Applied Sciences</a>,
+                        I specialize in graphics optimization & architecture. My hobbies are reverse engineering and modding games, which is what sparked my interest into programming; coding mods and plugins in Java. Afterwards, I expanded my knowledge to other languages.<br />
+                        On this page are my favorite projects that demonstrate my work best, these include C#, C, C++, Unity and Unreal projects.
+                    </p>
                 </div>
             </div>
 
             <!-- Projects -->
 
-            <h1 class="display-3 text-center">Projects</h1>
+            <h2 class="display-5 text-center">Projects</h2>
             <div id="projects" class="anchor"></div>
-
             <hr />
 
             <div class="container-fluid">
@@ -269,7 +295,7 @@
                                 <div class="d-flex h-100 text-center align-items-center">
                                     <div class="w-100">
 
-                                        <h1 class="display-5">Wisp</h1>
+                                        <h1 class="display-6">Wisp</h1>
                                         <h4>Realtime raytracing</h4>
 
                                         <button class="btn btn-primary" type="button" style=" margin-bottom: 5px;">
@@ -286,8 +312,6 @@
                                         <a href="https://github.com/TeamWisp/Procedural-Ray-Tracing">
                                             <img src="icons/github.svg" data-toggle="tooltip" data-placement="bottom" title="View on GitHub" alt="Ray tracing renderer on GitHub" />
                                         </a>
-
-                                        <span class="font-small">DXR</span>
 
                                     </div>
                                 </div>
@@ -307,7 +331,7 @@
                                 <div class="d-flex h-100 text-center align-items-center">
                                     <div class="w-100" style="z-index: 0;">
 
-                                        <h1 class="display-5">Rail recon</h1>
+                                        <h1 class="display-6">Rail recon</h1>
                                         <h4>Twin stick shooter</h4>
 
                                         <button class="btn btn-primary" type="button" style=" margin-bottom: 5px;">
@@ -346,7 +370,7 @@
                             <div class="overlay" id="mineblowers">
                                 <div class="d-flex h-100 text-center align-items-center">
                                     <div class="w-100">
-                                        <h1 class="display-5">Mineblowers</h1>
+                                        <h1 class="display-6">Mineblowers</h1>
                                         <h4>Custom controller game</h4>
 
                                         <button class="btn btn-primary" type="button" style=" margin-bottom: 5px;">
@@ -375,7 +399,7 @@
                             <div class="overlay" id="nfsu">
                                 <div class="d-flex h-100 text-center align-items-center">
                                     <div class="w-100">
-                                        <h1 class="display-5">NFSU</h1>
+                                        <h1 class="display-6">NFSU</h1>
                                         <h4>NDS Rom editor</h4>
 
                                         <button class="btn btn-primary" type="button" style=" margin-bottom: 5px;">
@@ -416,7 +440,7 @@
                             <div class="overlay" id="harpoon">
                                 <div class="d-flex h-100 text-center align-items-center">
                                     <div class="w-100">
-                                        <h1 class="display-5">Harpoon</h1>
+                                        <h1 class="display-6">Harpoon</h1>
                                         <h4>Unity C# Injector</h4>
 
                                         <button class="btn btn-primary" type="button" style=" margin-bottom: 5px;">
@@ -455,7 +479,7 @@
                             <div class="overlay" id="ocore">
                                 <div class="d-flex h-100 text-center align-items-center">
                                     <div class="w-100">
-                                        <h1 class="display-5">Oxsomi Core</h1>
+                                        <h1 class="display-6">Oxsomi Core</h1>
                                         <h4>Cross platform framework</h4>
 
                                         <button class="btn btn-primary" type="button" style=" margin-bottom: 5px;">
@@ -500,7 +524,7 @@
                             <div class="overlay" id="armulator">
                                 <div class="d-flex h-100 text-center align-items-center">
                                     <div class="w-100">
-                                        <h1 class="display-5">Armulator</h1>
+                                        <h1 class="display-6">Armulator</h1>
                                         <h4>ARM7 Thumb emulator</h4>
 
                                         <button class="btn btn-primary" type="button" style=" margin-bottom: 5px;">
@@ -537,7 +561,7 @@
                             <div class="overlay" id="switchbait">
                                 <div class="d-flex h-100 text-center align-items-center">
                                     <div class="w-100">
-                                        <h1 class="display-5">Switchbait</h1>
+                                        <h1 class="display-6">Switchbait</h1>
                                         <h4>Switch &amp; Windows project</h4>
 
                                         <button class="btn btn-primary" type="button" style=" margin-bottom: 5px;">
@@ -566,9 +590,68 @@
                 </div>
 
                 <!-- Resume -->
-                <!--<h1 class="display-3">Resume</h1>
+                <!--<h2 class="display-5 text-center"">Resume</h2>
                 <div class="anchor" id="resume"></div>
                 <hr />-->
+
+                <h2 class="display-5 text-center">Competencies</h2>
+                <div class="anchor" id="competencies"></div>
+                <hr />
+
+                <div class="container col-md-4 col-md-offset-4">
+
+                    <h5 class="text-center" id="graphics">Graphics frameworks</h5>
+
+                    <div class="row">
+                        <img src="icons/openglL.svg" alt="OpenGL 4.4" data-toggle="tooltip" data-placement="bottom" title="OpenGL 4.4+" class="logo" />
+                        <img src="icons/openglesL.svg" alt="OpenGL ES 2.0" data-toggle="tooltip" data-placement="bottom" title="OpenGL ES 2.0" class="logo" />
+                        <img src="icons/dx11L.svg" alt="DirectX 11" data-toggle="tooltip" data-placement="bottom" title="DirectX 11" class="logo" />
+                        <img src="icons/dx12L.svg" alt="DirectX 12" data-toggle="tooltip" data-placement="bottom" title="DirectX 12" class="logo" />
+                        <img src="icons/vulkanL.svg" alt="Vulkan 1.1" data-toggle="tooltip" data-placement="bottom" title="Vulkan 1.1" class="logo" />
+                        <img src="icons/qtL.svg" alt="Qt5" data-toggle="tooltip" data-placement="bottom" title="Qt5" class="logo" />
+                    </div>
+
+                    <h5 class="text-center" id="languages">Programming languages</h5>
+
+                    <div class="row">
+                        <img src="icons/cpp.svg" alt="C++17" data-toggle="tooltip" data-placement="bottom" title="C++17" class="logo-sm" />
+                        <img src="icons/c.svg" alt="C99" data-toggle="tooltip" data-placement="bottom" title="C99" class="logo-sm" />
+                        <img src="icons/armL.svg" alt="ARM9 Assembly" data-toggle="tooltip" data-placement="bottom" title="ARM9 Assembly" class="logo-sm" />
+                        <img src="icons/javaL.svg" alt="Java 7" data-toggle="tooltip" data-placement="bottom" title="Java 7" class="logo-sm" />
+                        <img src="icons/javascriptL.svg" alt="JavaScript 5" data-toggle="tooltip" data-placement="bottom" title="JavaScript 5" class="logo-sm" />
+                        <img src="icons/csharpL.svg" alt="C# 6" data-toggle="tooltip" data-placement="bottom" title="C# 6" class="logo-sm" />
+                        <img src="icons/glslL.svg" alt="GLSL 1.20 & 3.3+" data-toggle="tooltip" data-placement="bottom" title="GLSL 1.20 & 3.3+" class="logo" />
+                        <img src="icons/hlslL.svg" alt="HLSL 6+" data-toggle="tooltip" data-placement="bottom" title="HLSL 6+" class="logo" />
+                    </div>
+
+                    <h5 class="text-center" id="tools">Tools</h5>
+
+                    <div class="row">
+                        <img src="icons/vsL.svg" alt="Visual Studio 2019" data-toggle="tooltip" data-placement="bottom" title="Visual Studio 2019" class="logo-sm" />
+                        <img src="icons/gitL.svg" alt="Git/GitHub" data-toggle="tooltip" data-placement="bottom" title="Git/GitHub" class="logo-sm" />
+                        <img src="icons/trelloL.svg" alt="Trello" data-toggle="tooltip" data-placement="bottom" title="Trello" class="logo-sm" />
+                        <img src="icons/renderdocL.svg" alt="RenderDoc" data-toggle="tooltip" data-placement="bottom" title="RenderDoc" class="logo-sm" />
+                        <img src="icons/spirvL.svg" alt="SPIR-V" data-toggle="tooltip" data-placement="bottom" title="SPIR-V" class="logo" />
+                        <img src="icons/perforceL.svg" alt="Perforce" class="logo" />
+                        <img src="icons/jiraL.svg" alt="Jira" class="logo" />
+                    </div>
+
+                    <h5 class="text-center" id="engines">Engines</h5>
+
+                    <div class="row">
+                        <div style="margin: auto;">
+                            <img src="icons/unrealL.svg" style="width: 20%; margin-left: 25%;" alt="Unreal Engine 4" data-toggle="tooltip" data-placement="bottom" title="Unreal Engine 4" class="float-left" />
+                            <img src="icons/unityL.svg" style="width: 25%; padding-top: 15px; margin-right: 25%;" alt="Unity 5" data-toggle="tooltip" data-placement="bottom" title="Unity 5" class="float-right" />
+                        </div>
+                    </div>
+
+                </div>
+
+                <!--<h2 class="display-5 text-center">Contact me</h2>
+                <div class="anchor" id="contact"></div>
+                <hr />-->
+
+                <!-- @, LinkedIn, GitHub -->
 
             </div>
 
