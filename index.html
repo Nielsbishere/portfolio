@@ -37,35 +37,35 @@
                 overflow: hidden;
             }
     
-                header video {
-                    position: absolute;
-                    top: 50%;
-                    left: 50%;
-                    min-width: 100%;
-                    width: auto;
-                    height: auto;
-                    z-index: 0;
-                    -ms-transform: translateX(-50%) translateY(-50%);
-                    -moz-transform: translateX(-50%) translateY(-50%);
-                    -webkit-transform: translateX(-50%) translateY(-50%);
-                    transform: translateX(-50%) translateY(-50%);
-                    width: 100%;
-                }
+            header video {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                min-width: 100%;
+                width: auto;
+                height: auto;
+                z-index: 0;
+                -ms-transform: translateX(-50%) translateY(-50%);
+                -moz-transform: translateX(-50%) translateY(-50%);
+                -webkit-transform: translateX(-50%) translateY(-50%);
+                transform: translateX(-50%) translateY(-50%);
+                width: 100%;
+            }
     
             header {
                 margin-bottom: 20px;
             }
     
-                header .overlay {
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    height: 100%;
-                    width: 100%;
-                    background-color: rgba(0, 0, 0, 0.6);
-                    z-index: 5;
-                    border: 1px solid #505050;
-                }
+            header .overlay {
+                position: absolute;
+                top: 0;
+                left: 0;
+                height: 100%;
+                width: 100%;
+                background-color: rgba(0, 0, 0, 0.6);
+                z-index: 5;
+                border: 1px solid #505050;
+            }
     
             .bg-primary, .btn-primary, .badge-primary, .alert-primary {
                 background-color: #0066cc;
@@ -85,12 +85,17 @@
     
             .anchor {
                 position: absolute;
-                margin-top: -250px;
+                margin-top: -190px;
             }
     
             .tooltip-inner, .tooltip {
                 z-index: 2;
             }
+
+            .display-3 {
+                margin-top: 40px;
+            }
+
         </style>
     
     </head>
@@ -225,24 +230,29 @@
 
         <!-- Content -->
 
-        <div class="container-fluid text-white" style="margin-top: 200px;">
+        <div class="container-fluid text-white" style="margin-top: 120px;">
 
             <!-- About me -->
-            <h1 class="display-2">About me</h1>
+            <h1 class="display-3 text-center">About me</h1>
             <div id="about" class="anchor"></div>
 
             <hr />
 
             <!-- About me section -->
-            <h4 class="display-5">
-                Hello, my name is Niels Brunekreef, I'm a <b>graphics</b> & <b>game programming</b> student at <a href="https://buas.nl">Breda University of Applied Sciences</a>.
-                I specialize in graphics optimization & architecture and my hobbies are reverse engineering and modding games. Which is what I started out doing; coding mods and plugins in Java, where after I expanded my knowledge to other languages.<br />
-                On this page are my favorite projects that demonstrate my work best, these include C#, C, C++, Java, Unity and Unreal projects.
-            </h4>
+
+            <div class="row">
+                <div class="col-md-6" style="margin: auto;">
+                    <h5>
+                        Hello, my name is Niels Brunekreef, I'm a <b>graphics</b> & <b>game programming</b> student at <a href="https://buas.nl">Breda University of Applied Sciences</a>.
+                        I specialize in graphics optimization & architecture and my hobbies are reverse engineering and modding games. Which is what I started out doing; coding mods and plugins in Java, where after I expanded my knowledge to other languages.<br />
+                        On this page are my favorite projects that demonstrate my work best, these include C#, C, C++, Java, Unity and Unreal projects.
+                    </h5>
+                </div>
+            </div>
 
             <!-- Projects -->
 
-            <h1 class="display-2">Projects</h1>
+            <h1 class="display-3 text-center">Projects</h1>
             <div id="projects" class="anchor"></div>
 
             <hr />
@@ -536,7 +546,7 @@
                                         <br>
 
                                         <a href="https://github.com/Nielsbishere">
-                                            <img src="icons/solo.svg" data-toggle="tooltip" data-placement="bottom" title="Solo project" alt="Nielsbishere solo project" />
+                                            <img src="icons/team.svg" data-toggle="tooltip" data-placement="bottom" title="Switchbait Team" alt="Switchbait Team" />
                                         </a>
 
                                         <img src="icons/desktop.svg" data-toggle="tooltip" data-placement="bottom" title="Windows" alt="Windows" />
@@ -556,9 +566,9 @@
                 </div>
 
                 <!-- Resume -->
-                <!--<h1 class="display-2">Resume</h1>
-            <div class="anchor" id="resume"></div>
-            <hr />-->
+                <!--<h1 class="display-3">Resume</h1>
+                <div class="anchor" id="resume"></div>
+                <hr />-->
 
             </div>
 
