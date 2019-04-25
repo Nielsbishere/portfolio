@@ -1,1 +1,3 @@
 https://octicons.github.com/icon
+
+Other icons are modified from their original source (recolored to fit the scheme and resized)
