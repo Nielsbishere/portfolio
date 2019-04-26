@@ -101,6 +101,10 @@
                 padding: 1px 4px 1px 4px;
             }
 
+            .bs-tooltip-auto[x-placement^=bottom] .arrow::before, .bs-tooltip-bottom .arrow::before {
+                border-bottom-color: white;
+            }
+
             .display-5 {
                 margin-top: 100px;
             }
@@ -157,6 +161,10 @@
 
                 //Show tooltips
                 $('[data-toggle="tooltip"]').tooltip();
+
+                $('[data-toggle="tooltip"]').click(function () {
+                    $(this).tooltip("show");
+                });
 
                 //Showing current year
                 $(".year").replaceWith(new Date().getFullYear());
