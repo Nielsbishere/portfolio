@@ -161,8 +161,14 @@
                 //Showing current year
                 $(".year").replaceWith(new Date().getFullYear());
 
-                $("button").replaceWith("");
-                $("br").replaceWith("");
+                //Handle video aspect (clamp to overlay size)
+
+                $("video").each(function () {
+                    if ($(this).parent().width() * 9 >= $(this).parent().height() * 16)
+                        $(this).attr("class", "widthVideo");
+                    else
+                        $(this).attr("class", "heightVideo");
+                });
 
                 $(window).resize(function () {
                     $("video").each(function () {
@@ -320,10 +326,10 @@
                                         <h1 class="display-6">Wisp</h1>
                                         <h4>Realtime raytracing</h4>
 
-                                        <button class="btn btn-primary" type="button" style=" margin-bottom: 5px;">
+                                        <!--<button class="btn btn-primary" type="button" style=" margin-bottom: 5px;">
                                             Learn more &raquo;
                                         </button>
-                                        <br>
+                                        <br>-->
 
                                         <a href="https://github.com/TeamWisp">
                                             <img src="icons/team.svg" data-toggle="tooltip" data-placement="bottom" title="Team Wisp" alt="Team Wisp" />
@@ -356,10 +362,10 @@
                                         <h1 class="display-6">Rail recon</h1>
                                         <h4>Twin stick shooter</h4>
 
-                                        <button class="btn btn-primary" type="button" style=" margin-bottom: 5px;">
+                                        <!--<button class="btn btn-primary" type="button" style=" margin-bottom: 5px;">
                                             Learn more &raquo;
                                         </button>
-                                        <br>
+                                        <br>-->
 
                                         <img src="icons/team.svg" data-toggle="tooltip" data-placement="bottom" title="Triggered Studios" alt="Triggered Studios" />
                                         <img src="icons/desktop.svg" data-toggle="tooltip" data-placement="bottom" title="Windows" alt="Windows" />
@@ -395,10 +401,10 @@
                                         <h1 class="display-6">Mineblowers</h1>
                                         <h4>Custom controller game</h4>
 
-                                        <button class="btn btn-primary" type="button" style=" margin-bottom: 5px;">
+                                        <!--<button class="btn btn-primary" type="button" style=" margin-bottom: 5px;">
                                             Learn more &raquo;
                                         </button>
-                                        <br>
+                                        <br>-->
 
                                         <img src="icons/team.svg" data-toggle="tooltip" data-placement="bottom" title="Team Moose" alt="Team moose" />
                                         <img src="icons/desktop.svg" data-toggle="tooltip" data-placement="bottom" title="Windows" alt="Windows" />
@@ -424,10 +430,10 @@
                                         <h1 class="display-6">NFSU</h1>
                                         <h4>NDS Rom editor</h4>
 
-                                        <button class="btn btn-primary" type="button" style=" margin-bottom: 5px;">
+                                        <!--<button class="btn btn-primary" type="button" style=" margin-bottom: 5px;">
                                             Learn more &raquo;
                                         </button>
-                                        <br>
+                                        <br>-->
 
                                         <a href="https://github.com/Nielsbishere">
                                             <img src="icons/solo.svg" data-toggle="tooltip" data-placement="bottom" title="Solo project" alt="Nielsbishere solo project" />
@@ -465,10 +471,10 @@
                                         <h1 class="display-6">Harpoon</h1>
                                         <h4>Unity C# Injector</h4>
 
-                                        <button class="btn btn-primary" type="button" style=" margin-bottom: 5px;">
+                                        <!--<button class="btn btn-primary" type="button" style=" margin-bottom: 5px;">
                                             Learn more &raquo;
                                         </button>
-                                        <br>
+                                        <br>-->
 
                                         <a href="https://github.com/Nielsbishere">
                                             <img src="icons/solo.svg" data-toggle="tooltip" data-placement="bottom" title="Solo project" alt="Nielsbishere solo project" />
@@ -504,10 +510,10 @@
                                         <h1 class="display-6">Oxsomi Core</h1>
                                         <h4>Cross platform framework</h4>
 
-                                        <button class="btn btn-primary" type="button" style=" margin-bottom: 5px;">
+                                        <!--<button class="btn btn-primary" type="button" style=" margin-bottom: 5px;">
                                             Learn more &raquo;
                                         </button>
-                                        <br>
+                                        <br>-->
 
                                         <a href="https://github.com/Nielsbishere">
                                             <img src="icons/solo.svg" data-toggle="tooltip" data-placement="bottom" title="Solo project" alt="Nielsbishere solo project" />
@@ -549,10 +555,10 @@
                                         <h1 class="display-6">Armulator</h1>
                                         <h4>ARM7 Thumb emulator</h4>
 
-                                        <button class="btn btn-primary" type="button" style=" margin-bottom: 5px;">
+                                        <!--<button class="btn btn-primary" type="button" style=" margin-bottom: 5px;">
                                             Learn more &raquo;
                                         </button>
-                                        <br>
+                                        <br>-->
 
                                         <a href="https://github.com/Nielsbishere">
                                             <img src="icons/solo.svg" data-toggle="tooltip" data-placement="bottom" title="Solo project" alt="Nielsbishere solo project" />
@@ -586,10 +592,10 @@
                                         <h1 class="display-6">Switchbait</h1>
                                         <h4>Switch &amp; Windows project</h4>
 
-                                        <button class="btn btn-primary" type="button" style=" margin-bottom: 5px;">
+                                        <!--<button class="btn btn-primary" type="button" style=" margin-bottom: 5px;">
                                             Learn more &raquo;
                                         </button>
-                                        <br>
+                                        <br>-->
 
                                         <a href="https://github.com/Nielsbishere">
                                             <img src="icons/team.svg" data-toggle="tooltip" data-placement="bottom" title="Switchbait Team" alt="Switchbait Team" />
