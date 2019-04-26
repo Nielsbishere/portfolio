@@ -195,7 +195,7 @@
 
                 if (touchDevice) {
 
-                    $("button").click(function (e) {
+                    $("button.btn").click(function (e) {
                         //$(location).attr('href', $(this).parent().parent().parent().attr("id") + ".html");
                         e.stopPropagation();
                     });
@@ -255,11 +255,20 @@
 
         <nav class="navbar fixed-top navbar-expand-lg navbar-dark" style="border-bottom: 1px solid black;">
 
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="#" style="padding-top: .5em;">
                 <h6>Niels Brunekreef</h6>
             </a>
 
-            <div class="collapse navbar-collapse">
+            <div class="ml-auto" style="padding-right: 1em;">
+                <a href="https://www.linkedin.com/in/niels-brunekreef-644025177/">
+                    <img src="icons/linkedin32.svg" width="32" height="32" alt="LinkedIn" />
+                </a>
+                <a href="https://github.com/Nielsbishere">
+                    <img src="icons/github32.svg" width="32" height="32" alt="GitHub" />
+                </a>
+            </div>
+
+            <div class="collapse navbar-collapse" id="collapsibleNavbar">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
                         <a class="nav-link" href="#about">About</a>
@@ -279,18 +288,9 @@
                 </ul>
             </div>
 
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="collapse" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
                 <span class="navbar-toggler-icon"></span>
             </button>
-
-            <div style="margin-left: 1%;">
-                <a href="https://www.linkedin.com/in/niels-brunekreef-644025177/">
-                    <img src="icons/linkedin32.svg" alt="LinkedIn" />
-                </a>
-                <a href="https://github.com/Nielsbishere">
-                    <img src="icons/github32.svg" alt="GitHub" />
-                </a>
-            </div>
 
         </nav>
 
