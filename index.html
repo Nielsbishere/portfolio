@@ -37,7 +37,7 @@
                 overflow: hidden;
             }
     
-            header video {
+            .video, header video {
                 position: absolute;
                 top: 50%;
                 left: 50%;
@@ -177,26 +177,24 @@
 
                 //Showing current year
 
-                if (new Date().getFullYear() == 2019)
-                    $(".year").replaceWith("2019");
-                else
+                if (new Date().getFullYear() != 2019)
                     $(".year").replaceWith("2019 - " + new Date().getFullYear());
 
                 //Handle video aspect (clamp to overlay size)
 
-                $("video").each(function () {
+                $("video, .video").each(function () {
                     if ($(this).parent().width() * 9 >= $(this).parent().height() * 16)
-                        $(this).attr("class", "widthVideo");
+                        $(this).attr("class", "widthVideo video");
                     else
-                        $(this).attr("class", "heightVideo");
+                        $(this).attr("class", "heightVideo video");
                 });
 
                 $(window).resize(function () {
-                    $("video").each(function () {
+                    $("video, .video").each(function () {
                         if ($(this).parent().width() * 9 >= $(this).parent().height() * 16)
-                            $(this).attr("class", "widthVideo");
+                            $(this).attr("class", "widthVideo video");
                         else
-                            $(this).attr("class", "heightVideo");
+                            $(this).attr("class", "heightVideo video");
                     });
                 });
 
@@ -214,7 +212,12 @@
                     $(".overlay").click(
                         function () {
 
-                            var curr = $("#v" + $(this).attr("id")).get(0);
+                            var vid = $("#v" + $(this).attr("id"));
+
+                            if (vid.length == 0)
+                                return;
+
+                            var curr = vid.get(0);
 
                             if (curr == current)
                                 return;
@@ -247,8 +250,16 @@
                     );
 
                     $(".overlay").hover(
-                        function () { $("#v" + $(this).attr("id")).get(0).play(); },
-                        function () { $("#v" + $(this).attr("id")).get(0).load(); }
+                        function () {
+                            var vid = $("#v" + $(this).attr("id"));
+                            if (vid.length)
+                                vid.get(0).play(); 
+                        },
+                        function () {
+                            var vid = $("#v" + $(this).attr("id"));
+                            if (vid.length)
+                                vid.get(0).load();
+                        }
                     );
 
                     //Go to the info by clicking the overlay
@@ -311,7 +322,7 @@
 
             <!-- About me -->
             <div class="text-center">
-                <img src="favicon.ico" class="rounded" style="width: 64px; margin-right: 32px; margin-top: -16px !important;" />
+                <img src="favicon.ico" class="rounded" style="width: 64px; margin-right: 32px; margin-top: -16px !important;" alt="Me" />
                 <h2 class="display-5" style="display: inline;">About me</h2>
             </div>
             <div id="about" class="anchor"></div>
@@ -493,7 +504,7 @@
 
                     <div class="col-md-6">
                         <header>
-                            <div class="overlay" id="harpoon">
+                            <div class="overlay">
                                 <div class="d-flex h-100 text-center align-items-center">
                                     <div class="w-100">
                                         <h1 class="display-6">Harpoon</h1>
@@ -522,9 +533,8 @@
                                 </div>
                             </div>
 
-                            <video poster="screenshots/harpoon.png" id="vharpoon" muted loop playsinline>
-                                <source src="previews/harpoon.mp4" type="video/mp4">
-                            </video>
+                            <img src="screenshots/harpoon.png" class="video" alt="Harpoon screenshot" />
+
                         </header>
                     </div>
 
@@ -656,15 +666,15 @@
 
                 <div class="container col-md-4 col-md-offset-4">
                     <div class="text-center">
-                        <img class="logo-sm" src="icons/mail.svg" />
+                        <img class="logo-sm" src="icons/mail.svg" alt="Mail" />
                         <a href="mailto:n@oxsomi.com" class="lead">n@oxsomi.com</a>
                     </div>
                     <div class="text-center">
-                        <img class="logo-sm" src="icons/linkedin32.svg" />
+                        <img class="logo-sm" src="icons/linkedin32.svg" alt="Linkedin" />
                         <a href="https://www.linkedin.com/in/niels-brunekreef-644025177/" class="lead">Niels Brunekreef</a>
                     </div>
                     <div class="text-center">
-                        <img class="logo-sm" src="icons/github.svg" />
+                        <img class="logo-sm" src="icons/github.svg" alt="GitHub" />
                         <a href="https://github.com/Nielsbishere" class="lead" style="margin-right: 1em; margin-left: 1em;">Nielsbishere</a>
                     </div>
                 </div>
@@ -737,7 +747,7 @@
         <footer class="page-footer font-small pt-4 mt-auto">
 
             <p class="text-white text-center">
-                Copyright <a href="https://nielsbishere.com">Niels Brunekreef</a> &copy; <span class="year"></span>
+                Copyright <a href="https://nielsbrunekreef.com">Niels Brunekreef</a> &copy; <span class="year">2019</span>
             </p>
 
         </footer>
