@@ -270,6 +270,10 @@
 
                     });
 
+                    $("#resumeContent").replaceWith(
+                        "<p class='text-center'>Resume cannot be displayed inline.<br/><a href='Niels Brunekreef Resume.pdf' target='_blank'>View here</a></p>"
+                    );
+
                 } else {
 
                     //Videos as gifs
@@ -283,6 +287,12 @@
                             var name = $(this).attr("id");
                             stopVid(name);
                         }
+                    );
+
+                    $("#resumeContent").replaceWith(
+                        "<object style='width: 100%; height: 1300px;' type='application/pdf' data='Niels Brunekreef Resume.pdf#view=FitH'>" + 
+                            "<p class='text-center'>Resume cannot be displayed inline.<br/><a href='Niels Brunekreef Resume.pdf' target='_blank'>View here</a></p>" +
+                        "</object>"
                     );
 
                     //Go to the info by clicking the overlay
@@ -745,9 +755,7 @@
                 <hr />
 
                 <div class="col-md-6" style="margin: auto;">
-                    <object style="width: 100%; height: 1300px;" type="application/pdf" data="Niels Brunekreef Resume.pdf#view=FitH">
-                        <p class="text-center">Resume cannot be displayed inline.<br/><a href="Niels Brunekreef Resume.pdf" target="_blank">View here</a></p>
-                    </object>
+                    <span id="resumeContent"></span>
                 </div>
 
             </div>
