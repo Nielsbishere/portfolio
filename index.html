@@ -13,13 +13,13 @@
     
         <title>Niels Brunekreef Portfolio - Graphics Programmer</title>
     
-        <meta name="Keywords" content="C++, CPP, C, C#, CSharp, Assembly, Asm, ARM, ARM7, Thumb mode, ARM9, Java, JavaScript, PHP, CSS, HTML, HTML5, VBS, Bash, Batch, CMake, MySQL, JQuery, Bootstrap, Swift, OpenGL, OpenGL 4.5, ES, OpenGL ES 2.0, OpenGL ES, GLES, GLESv2, Vulkan, DirectX, D3D, D3D11, D3D12, DirectX11, DirectX12, Vulkan, Switch, Nintendo, DS, Windows, Android, SDK, NDK, Linux, Raspberry pi, Visual Studio, Notepad++, MSVC, MinGW Makefiles, RenderDoc, NSight, Qt, Qt5, RTX, DXR, Raytracing, Rasterizer, Compute, Shader, Glsl, Hlsl, Unreal Engine, Unity Engine, Perforce, GitHub, Jira, Trello, Graphics, Programmer, Engine, Reverse Engineering, Portfolio" />
+        <meta name="Keywords" content="Niels, Brunekreef, Portfolio, Graphics, Game, Programmer, Engineer, Programming, C++, CPP, C, C#, CSharp, Assembly, Asm, ARM, ARM7, Thumb mode, ARM9, Java, JavaScript, PHP, CSS, HTML, HTML5, VBS, Bash, Batch, CMake, MySQL, JQuery, Bootstrap, Swift, OpenGL, OpenGL 4.5, ES, OpenGL ES 2.0, OpenGL ES, GLES, GLESv2, Vulkan, DirectX, D3D, D3D11, D3D12, DirectX11, DirectX12, Vulkan, Switch, Nintendo, DS, Windows, Android, SDK, NDK, Linux, Raspberry pi, Visual Studio, Notepad++, MSVC, MinGW Makefiles, RenderDoc, NSight, Qt, Qt5, RTX, DXR, Raytracing, Rasterizer, Compute, Shader, Glsl, Hlsl, Unreal Engine, Unity Engine, Perforce, GitHub, Jira, Trello, Graphics, Programmer, Engine, Reverse Engineering, Portfolio" />
     
-        <meta name="Description" content="Well organized and easy to understand Web building tutorials with lots of examples of how to use HTML, CSS, JavaScript, SQL, PHP, Python, Bootstrap, Java and XML." />
+        <meta name="Description" content="Niels Brunkereef Portfolio Graphics and Game Programmer" />
     
-        <!-- Setup bootstrap, jquery and ajax -->
+        <!-- Setup stylesheet -->
     
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous" />
+        <link rel="stylesheet" href="deps/bootstrap-4.1.3.min.css" />
     
         <!-- Custom styles and scripts -->
     
@@ -149,20 +149,46 @@
     
     </head>
 
-    <!-- TODO: On mobile: Don't load videos -->
-    <!-- TODO: Add meta -->
-
     <body>
 
-        <!-- Scripts -->
+        <!-- Scripts & deps; jquery, popper and bootstrap -->
 
-        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <script src="deps/jquery-3.2.1.slim.min.js"></script>
+        <script src="deps/popper-1.12.9.min.js"></script>
+        <script src="deps/bootstrap-4.0.0.min.js"></script>
 
         <script>
+
+            function playVid(name){
+                
+                var vid = $("#v" + name);
+
+                if(!vid.length)
+                    return;
+
+                vid.replaceWith(
+                    "<video id='v" + name + "' class='" + vid.attr("class") + "' muted loop playsinline>" +
+                        "<source src='previews/" + name + ".mp4' type='video/mp4'>" +
+                    "</video>"
+                );
+
+                $("#v" + name).get(0).play();
+            }
+
+            function stopVid(name){
+                
+                var vid = $("#v" + name);
+
+                if(!vid.length)
+                    return;
+                                
+                vid.replaceWith("<img src='screenshots/" + name + ".png' class='" + vid.attr("class") + " video' alt='" + name +" screenshot' id='v" + name + "' />");
+
+            }
+
+            function isInView(elem){
+
+            }
 
             var current = null;
 
@@ -204,61 +230,58 @@
 
                 if (touchDevice) {
 
+                    //Reroute button clicks to the respective link
                     $("button.btn").click(function (e) {
                         //$(location).attr('href', $(this).parent().parent().parent().attr("id") + ".html");
                         e.stopPropagation();
                     });
 
+                    //Playing and stopping videos
                     $(".overlay").click(
-                        function () {
+                        function (e) {
 
-                            var vid = $("#v" + $(this).attr("id"));
+                            var name = $(this).attr("id");
+                            var vid = $("#v" + name);
 
                             if (vid.length == 0)
                                 return;
 
+                            e.stopPropagation();
                             var curr = vid.get(0);
 
-                            if (curr == current)
+                            if (current == name)
                                 return;
 
                             if (current != null)
-                                current.load();
+                                stopVid(current);
 
-                            current = curr;
-                            current.play();
+                            current = name;
+                            playVid(current);
                         }
                     );
 
-                    //TODO: When it scrolls out of view stop playing it
-                    //TODO: When you click something else stop playing it
+                    //Stop videos when clicking on background or other buttons
+                    $(document).click(function(){
+                        
+                        if(current != null){
+                            stopVid(current);
+                            current = null;
+                        }
 
-                    //$(window).scroll(function () {
-                    //    if (current != null && !isInView(current)) {
-                    //        current.load();
-                    //        current = null;
-                    //    }
-                    //});
+                    });
 
                 } else {
 
                     //Videos as gifs
 
-                    $("video").hover(
-                        function () { this.play(); },
-                        function () { this.load(); }
-                    );
-
                     $(".overlay").hover(
                         function () {
-                            var vid = $("#v" + $(this).attr("id"));
-                            if (vid.length)
-                                vid.get(0).play(); 
+                            var name = $(this).attr("id");
+                            playVid(name);
                         },
                         function () {
-                            var vid = $("#v" + $(this).attr("id"));
-                            if (vid.length)
-                                vid.get(0).load();
+                            var name = $(this).attr("id");
+                            stopVid(name);
                         }
                     );
 
@@ -380,9 +403,7 @@
                                 </div>
                             </div>
 
-                            <video poster="screenshots/wisp.png" id="vwisp" muted loop playsinline>
-                                <source src="previews/wisp.mp4" type="video/mp4">
-                            </video>
+                            <img src='screenshots/wisp.png' class='video' alt='wisp screenshot' id='vwisp' />
                         </header>
                     </div>
 
@@ -419,9 +440,7 @@
                                 </div>
                             </div>
 
-                            <video poster="screenshots/railrecon.jpg" id="vrailrecon" muted loop playsinline>
-                                <source src="previews/railrecon.mp4" type="video/mp4">
-                            </video>
+                            <img src='screenshots/railrecon.png' class='video' alt='railrecon screenshot' id='vrailrecon' />
                         </header>
                     </div>
 
@@ -453,9 +472,7 @@
                                 </div>
                             </div>
 
-                            <video poster="screenshots/mineblowers.jpg" id="vmineblowers" muted loop playsinline>
-                                <source src="previews/mineblowers.mp4" type="video/mp4">
-                            </video>
+                            <img src='screenshots/mineblowers.png' class='video' alt='mineblowers screenshot' id='vmineblowers' />
                         </header>
                     </div>
 
@@ -490,9 +507,7 @@
                                 </div>
                             </div>
 
-                            <video poster="screenshots/nfsu.png" id="vnfsu" muted loop playsinline>
-                                <source src="previews/nfsu.mp4" type="video/mp4">
-                            </video>
+                            <img src='screenshots/nfsu.png' class='video' alt='nfsu screenshot' id='vnfsu' />
                         </header>
                     </div>
 
@@ -533,19 +548,18 @@
                                 </div>
                             </div>
 
-                            <img src="screenshots/harpoon.png" class="video" alt="Harpoon screenshot" />
-
+                            <img src="screenshots/harpoon.png" class="video" alt="harpoon screenshot" />
                         </header>
                     </div>
 
-                    <!-- Oxsomi Core -->
+                    <!-- Osomi Core -->
 
                     <div class="col-md-6">
                         <header>
                             <div class="overlay" id="ocore">
                                 <div class="d-flex h-100 text-center align-items-center">
                                     <div class="w-100">
-                                        <h1 class="display-6">Oxsomi Core</h1>
+                                        <h1 class="display-6">Osomi Core</h1>
                                         <h4>Cross platform framework</h4>
 
                                         <!--<button class="btn btn-primary" type="button" style=" margin-bottom: 5px;">
@@ -571,9 +585,7 @@
                                 </div>
                             </div>
 
-                            <video poster="screenshots/ocore.png" id="vocore" muted loop playsinline>
-                                <source src="previews/ocore.mp4" type="video/mp4">
-                            </video>
+                            <img src='screenshots/ocore.png' class='video' alt='ocore screenshot' id='vocore' />
                         </header>
                     </div>
 
@@ -614,9 +626,7 @@
                                 </div>
                             </div>
 
-                            <video poster="screenshots/armulator.png" id="varmulator" muted loop playsinline>
-                                <source src="previews/armulator.mp4" type="video/mp4">
-                            </video>
+                            <img src="screenshots/armulator.png" class="video" alt="Armulator screenshot" id="varmulator" />
                         </header>
                     </div>
 
@@ -644,9 +654,7 @@
                                 </div>
                             </div>
 
-                            <video poster="screenshots/switchbait.png" id="vswitchbait" muted loop playsinline>
-                                <source src="previews/switchbait.mp4" type="video/mp4">
-                            </video>
+                            <img src='screenshots/switchbait.png' class='video' alt='switchbait screenshot' id='vswitchbait' />
                         </header>
                     </div>
 
@@ -664,7 +672,7 @@
                 <div class="container col-md-4 col-md-offset-4">
                     <div class="text-center">
                         <img class="logo-sm" src="icons/mail.svg" alt="Mail" />
-                        <a target="_blank" href="mailto:n@oxsomi.com" class="lead">n@oxsomi.com</a>
+                        <a target="_blank" href="mailto:n@osomi.com" class="lead">n@osomi.com</a>
                     </div>
                     <div class="text-center">
                         <img class="logo-sm" src="icons/linkedin32.svg" alt="Linkedin" />
