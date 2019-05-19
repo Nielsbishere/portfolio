@@ -66,7 +66,7 @@
                 height: auto;
             }
     
-            header {
+            .project, header {
                 margin-bottom: 20px;
             }
     
@@ -121,6 +121,21 @@
                 margin-right: 5%;
             }
 
+            .projectInfo {
+                margin-left: 12.5%;
+                margin-right: 12.5%;
+                width: 75%;
+            }
+
+            hr.info {
+                width: 100%;
+                margin-left: -5%; 
+                margin-right: -5%;
+                padding-bottom: 10px; 
+                margin-bottom: 0px;
+                border-top: 5px dotted white;
+            }
+
             h5 {
                 margin-top: 45px;
             }
@@ -153,7 +168,7 @@
 
         <!-- Scripts & deps; jquery, popper and bootstrap -->
 
-        <script src="deps/jquery-3.2.1.slim.min.js"></script>
+        <script src="deps/jquery-3.4.0.min.js"></script>
         <script src="deps/popper-1.12.9.min.js"></script>
         <script src="deps/bootstrap-4.0.0.min.js"></script>
 
@@ -186,11 +201,8 @@
 
             }
 
-            function isInView(elem){
-
-            }
-
             var current = null;
+            var selectedProject = null;
 
             $(function () {
 
@@ -255,20 +267,14 @@
                             if (current != null)
                                 stopVid(current);
 
+                            if(selectedProject != null)
+                                selectedProject.hide(500);
+
                             current = name;
                             playVid(current);
+                            (selectedProject = $(this).parent().parent().find(".projectInfo")).show(500);
                         }
                     );
-
-                    //Stop videos when clicking on background or other buttons
-                    $(document).click(function(){
-                        
-                        if(current != null){
-                            stopVid(current);
-                            current = null;
-                        }
-
-                    });
 
                     $("#resumeContent").replaceWith(
                         "<p class='text-center'>Resume cannot be displayed inline.<br/><a href='Niels Brunekreef Resume.pdf' target='_blank'>View here</a></p>"
@@ -281,11 +287,20 @@
                     $(".overlay").hover(
                         function () {
                             var name = $(this).attr("id");
-                            playVid(name);
+
+                            if (current == name)
+                                return;
+
+                            if(selectedProject != null)
+                                selectedProject.hide(500);
+
+                            if(current != null)
+                                stopVid(current);
+
+                            (selectedProject = $(this).parent().parent().find(".projectInfo")).show(500);
+                            playVid(current = name);
                         },
                         function () {
-                            var name = $(this).attr("id");
-                            stopVid(name);
                         }
                     );
 
@@ -294,12 +309,6 @@
                             "<p class='text-center'>Resume cannot be displayed inline.<br/><a href='Niels Brunekreef Resume.pdf' target='_blank'>View here</a></p>" +
                         "</object>"
                     );
-
-                    //Go to the info by clicking the overlay
-
-                    //$(".overlay").click(
-                    //    function () { $(location).attr('href', $(this).attr("id") + ".html");
-                    //);
 
                 }
 
@@ -385,7 +394,7 @@
 
                     <!-- Wisp -->
 
-                    <div class="col-md-6">
+                    <div class="col-md-6 project">
                         <header>
                             <div class="overlay" id="wisp">
                                 <div class="d-flex h-100 text-center align-items-center">
@@ -393,11 +402,6 @@
 
                                         <h1 class="display-6">Wisp</h1>
                                         <h4>Realtime raytracing</h4>
-
-                                        <!--<button class="btn btn-primary" type="button" style=" margin-bottom: 5px;">
-                                    Learn more &raquo;
-                                </button>
-                                <br>-->
 
                                         <a target="_blank" href="https://github.com/TeamWisp">
                                             <img src="icons/team.svg" data-toggle="tooltip" data-placement="bottom" title="Team Wisp" alt="Team Wisp" />
@@ -409,17 +413,51 @@
                                             <img src="icons/github.svg" data-toggle="tooltip" data-placement="bottom" title="View on GitHub" alt="Ray tracing renderer on GitHub" />
                                         </a>
 
+                                        <a target="_blank" href="https://twitter.com/wisprenderer">
+                                            <img src="icons/twitter.svg" data-toggle="tooltip" data-placement="bottom" title="View on Twitter" alt="Wisp renderer on Twitter" />
+                                        </a><br/>
+
                                     </div>
                                 </div>
                             </div>
 
                             <img src='screenshots/wisp.png' class='video' alt='wisp screenshot' id='vwisp' />
                         </header>
+                        <div class="projectInfo" style="display: none;">
+                            <hr class="info" />
+                            <h4>Description</h4>
+                            <p class="small">
+                                Wisp is a real time raytracing library that can be integraded into your favorite engine or tool, made by a team of nine students.
+                                It is currently used in a Maya extension that allows you to view a deferred, full raytracing, hybrid and path traced preview of the current scene. <br />
+                                The goal of the project is to allow artists to have a quick overview of what their end-product would look like; saving time and increasing their workflow.
+                                Maya currently doesn't provide that in the regular viewport, so even the deferred preview is a step up to view the effects of modeling real-time.
+                                Previewing the reflections, global illumination and shadows is a nice bonus for RTX and GTX Pascal cards.
+                            </p>
+                            <h4>Information</h4>
+                            <p class="small">
+                                <i>Duration:</i> October 2018 - present <br />
+                                <i>Role:</i> Graphics/Optimization programmer <br />
+                                <i>Skills:</i> C++, HLSL, DirectX12, Raytracing <br />
+                                <i>Tools:</i> GitHub/Git, CMake, Visual Studio, Jira, PIX, Nsight <br />
+                                <i>Team members:</i> 9
+                            </p>
+                            <h4>Tasks</h4>
+                            <p class="small">
+                                Raytraced reflections <br />
+                                Variable roughness; filtering reflections (spatial reconstruction) <br />
+                                Optimizations, refactoring and bug fixing<br />
+                                Frustum culling<br />
+                                Basic deferred rendering <br />
+                                Scene graph parenting <br />
+                            </p>
+
+                            <hr class="info" />
+                        </div>
                     </div>
 
                     <!-- Rail recon -->
 
-                    <div class="col-md-6">
+                    <div class="col-md-6 project">
                         <header>
                             <div class="overlay" id="railrecon">
                                 <div class="d-flex h-100 text-center align-items-center">
@@ -452,6 +490,9 @@
 
                             <img src='screenshots/railrecon.png' class='video' alt='railrecon screenshot' id='vrailrecon' />
                         </header>
+                        <div class="w-100 projectInfo" hidden>
+                            <h4>Test</h4>
+                        </div>
                     </div>
 
                 </div>
@@ -461,7 +502,7 @@
 
                     <!-- Mineblowers -->
 
-                    <div class="col-md-6">
+                    <div class="col-md-6 project">
                         <header>
                             <div class="overlay" id="mineblowers">
                                 <div class="d-flex h-100 text-center align-items-center">
@@ -484,11 +525,14 @@
 
                             <img src='screenshots/mineblowers.png' class='video' alt='mineblowers screenshot' id='vmineblowers' />
                         </header>
+                        <div class="w-100 projectInfo" hidden>
+                            <h4>Test</h4>
+                        </div>
                     </div>
 
                     <!-- Nintendo File System Utilities -->
 
-                    <div class="col-md-6">
+                    <div class="col-md-6 project">
                         <header>
                             <div class="overlay" id="nfsu">
                                 <div class="d-flex h-100 text-center align-items-center">
@@ -519,6 +563,9 @@
 
                             <img src='screenshots/nfsu.png' class='video' alt='nfsu screenshot' id='vnfsu' />
                         </header>
+                        <div class="w-100 projectInfo" hidden>
+                            <h4>Test</h4>
+                        </div>
                     </div>
 
                 </div>
@@ -527,7 +574,7 @@
 
                     <!-- Harpoon -->
 
-                    <div class="col-md-6">
+                    <div class="col-md-6 project">
                         <header>
                             <div class="overlay">
                                 <div class="d-flex h-100 text-center align-items-center">
@@ -560,11 +607,14 @@
 
                             <img src="screenshots/harpoon.png" class="video" alt="harpoon screenshot" />
                         </header>
+                        <div class="w-100 projectInfo" hidden>
+                            <h4>Test</h4>
+                        </div>
                     </div>
 
                     <!-- Osomi Core -->
 
-                    <div class="col-md-6">
+                    <div class="col-md-6 project">
                         <header>
                             <div class="overlay" id="ocore">
                                 <div class="d-flex h-100 text-center align-items-center">
@@ -597,6 +647,9 @@
 
                             <img src='screenshots/ocore.png' class='video' alt='ocore screenshot' id='vocore' />
                         </header>
+                        <div class="w-100 projectInfo" hidden>
+                            <h4>Test</h4>
+                        </div>
                     </div>
 
 
@@ -607,7 +660,7 @@
 
                     <!-- Armulator -->
 
-                    <div class="col-md-6">
+                    <div class="col-md-6 project">
                         <header>
                             <div class="overlay" id="armulator">
                                 <div class="d-flex h-100 text-center align-items-center">
@@ -638,11 +691,14 @@
 
                             <img src="screenshots/armulator.png" class="video" alt="Armulator screenshot" id="varmulator" />
                         </header>
+                        <div class="w-100 projectInfo" hidden>
+                            <h4>Test</h4>
+                        </div>
                     </div>
 
                     <!-- Switchbait -->
 
-                    <div class="col-md-6">
+                    <div class="col-md-6 project">
                         <header>
                             <div class="overlay" id="switchbait">
                                 <div class="d-flex h-100 text-center align-items-center">
@@ -666,6 +722,9 @@
 
                             <img src='screenshots/switchbait.png' class='video' alt='switchbait screenshot' id='vswitchbait' />
                         </header>
+                        <div class="w-100 projectInfo" hidden>
+                            <h4>Test</h4>
+                        </div>
                     </div>
 
                 </div>
