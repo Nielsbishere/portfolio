@@ -242,12 +242,6 @@
 
                 if (touchDevice) {
 
-                    //Reroute button clicks to the respective link
-                    $("button.btn").click(function (e) {
-                        //$(location).attr('href', $(this).parent().parent().parent().attr("id") + ".html");
-                        e.stopPropagation();
-                    });
-
                     //Playing and stopping videos
                     $(".overlay").click(
                         function (e) {
@@ -255,24 +249,25 @@
                             var name = $(this).attr("id");
                             var vid = $("#v" + name);
 
+                            if (current == name)
+                                return;
+
+                            if(selectedProject != null)
+                                selectedProject.hide(500);
+
+                            (selectedProject = $(this).parent().parent().find(".projectInfo")).show(500);
+                            current = name;
+                                
                             if (vid.length == 0)
                                 return;
 
                             e.stopPropagation();
                             var curr = vid.get(0);
 
-                            if (current == name)
-                                return;
-
                             if (current != null)
                                 stopVid(current);
 
-                            if(selectedProject != null)
-                                selectedProject.hide(500);
-
-                            current = name;
                             playVid(current);
-                            (selectedProject = $(this).parent().parent().find(".projectInfo")).show(500);
                         }
                     );
 
@@ -427,7 +422,7 @@
                             <hr class="info" />
                             <h4>Description</h4>
                             <p class="small">
-                                Wisp is a real time raytracing library that can be integraded into your favorite engine or tool, made by a team of nine students.
+                                Wisp is a real time raytracing library that can be integrated into your favorite engine or tool, made by a team of nine students.
                                 It is currently used in a Maya extension that allows you to view a deferred, full raytracing, hybrid and path traced preview of the current scene. <br />
                                 The goal of the project is to allow artists to have a quick overview of what their end-product would look like; saving time and increasing their workflow.
                                 Maya currently doesn't provide that in the regular viewport, so even the deferred preview is a step up to view the effects of modeling real-time.
@@ -438,8 +433,8 @@
                                 <i>Duration:</i> October 2018 - present <br />
                                 <i>Role:</i> Graphics/Optimization programmer <br />
                                 <i>Skills:</i> C++, HLSL, DirectX12, Raytracing <br />
-                                <i>Tools:</i> GitHub/Git, CMake, Visual Studio, Jira, PIX, Nsight <br />
-                                <i>Team members:</i> 9
+                                <i>Tools:</i> GitHub/Git, Sourcetree, CMake, Visual Studio, Jira, PIX, Nsight <br />
+                                <i>Team members:</i> 8 graphics programmers, 1 engine programmer
                             </p>
                             <h4>Tasks</h4>
                             <p class="small">
@@ -466,11 +461,6 @@
                                         <h1 class="display-6">Rail recon</h1>
                                         <h4>Twin stick shooter</h4>
 
-                                        <!--<button class="btn btn-primary" type="button" style=" margin-bottom: 5px;">
-                                    Learn more &raquo;
-                                </button>
-                                <br>-->
-
                                         <img src="icons/team.svg" data-toggle="tooltip" data-placement="bottom" title="Triggered Studios" alt="Triggered Studios" />
                                         <img src="icons/desktop.svg" data-toggle="tooltip" data-placement="bottom" title="Windows" alt="Windows" />
 
@@ -490,8 +480,35 @@
 
                             <img src='screenshots/railrecon.png' class='video' alt='railrecon screenshot' id='vrailrecon' />
                         </header>
-                        <div class="w-100 projectInfo" hidden>
-                            <h4>Test</h4>
+                        <div class="projectInfo" style="display: none;">
+                            <hr class="info" />
+                            <h4>Description</h4>
+                            <p class="small">
+                                Rail recon is a twin stick shooter with a neon theme based on a few old arcade games, made by a twelve student team. 
+                                It was created as a concept within 2 weeks, it was developed further after 6 weeks of development. <br/>
+                                It started as a three person team, two weeks later became a six person team and finally six more people joined in. I was among the six who joined in at the last four weeks of development until release.
+                                The game is released on steam and has had a few thousand downloads, several reviews and has been released in multiple languages.
+                            </p>
+                            <h4>Information</h4>
+                            <p class="small">
+                                <i>Duration:</i> May 2017 - January 2018 <br />
+                                <i>Role:</i> Gameplay programmer <br />
+                                <i>Skills:</i> Unreal, C++, Blueprints <br />
+                                <i>Tools:</i> Perforce, Visual Studio, Hacknplan <br />
+                                <i>Team members:</i> 4 programmers, 4 artists, 2 designers, 1 producer, 1 audio designer
+                            </p>
+                            <h4>Tasks</h4>
+                            <p class="small">
+                                Implementation and communication of mechanics: <br>
+                                - Energy; shield & charge system <br />
+                                - Gameplay elements such as triggerable buttons, doors, rotators, exit door <br />
+                                Implementation of graphical effects and gameplay: <br />
+                                - Charging station animation and logic <br />
+                                - Door animations and logic <br />
+                                Communication with designers, artist and producers
+                            </p>
+
+                            <hr class="info" />
                         </div>
                     </div>
 
@@ -510,11 +527,6 @@
                                         <h1 class="display-6">Mineblowers</h1>
                                         <h4>Custom controller game</h4>
 
-                                        <!--<button class="btn btn-primary" type="button" style=" margin-bottom: 5px;">
-                                    Learn more &raquo;
-                                </button>
-                                <br>-->
-
                                         <img src="icons/team.svg" data-toggle="tooltip" data-placement="bottom" title="Team Moose" alt="Team moose" />
                                         <img src="icons/desktop.svg" data-toggle="tooltip" data-placement="bottom" title="Windows" alt="Windows" />
                                         <img src="icons/unreal.svg" data-toggle="tooltip" data-placement="bottom" title="Unreal Engine 4 Blueprints" alt="UE4 Blueprints" />
@@ -525,8 +537,32 @@
 
                             <img src='screenshots/mineblowers.png' class='video' alt='mineblowers screenshot' id='vmineblowers' />
                         </header>
-                        <div class="w-100 projectInfo" hidden>
-                            <h4>Test</h4>
+                        <div class="projectInfo" style="display: none;">
+                            <hr class="info" />
+                            <h4>Description</h4>
+                            <p class="small">
+                                Mineblowers was a marmalade game (made in 3 weeks) with a custom controller. The idea was to create a unique user experience with an unexpected controller. <br />
+                                We chose for a bike pump as a controller, because it was easy to obtain and it fit in with our minecart-style game. <br />
+                                The faster you pump, the faster you travel. 
+                                If you travel too fast, you fall off and have to start over. The fastest score wins, this was implemented with a simple leaderboard.
+                                Since I had done Rail Recon before, I spoke to one of my team members on how he generated rails and implemented it with a tool in our project.
+                            </p>
+                            <h4>Information</h4>
+                            <p class="small">
+                                <i>Duration:</i> November 2017 - January 2018 <br />
+                                <i>Role:</i> Gameplay/tools programmer <br />
+                                <i>Skills:</i> Unreal, Blueprints <br />
+                                <i>Tools:</i> Perforce, Trello <br />
+                                <i>Team members:</i> 2 programmers, 3 artists, 3 designers
+                            </p>
+                            <h4>Tasks</h4>
+                            <p class="small">
+                                Implementation of the spline system of the cart and procedural generation of the rails. <br />
+                                Worked together with designers to get the spline editing system to be more user-friendly. <br />
+                                Worked on the death system alongside another programmer.
+                            </p>
+
+                            <hr class="info" />
                         </div>
                     </div>
 
@@ -539,11 +575,6 @@
                                     <div class="w-100">
                                         <h1 class="display-6">NFSU</h1>
                                         <h4>NDS Rom editor</h4>
-
-                                        <!--<button class="btn btn-primary" type="button" style=" margin-bottom: 5px;">
-                                    Learn more &raquo;
-                                </button>
-                                <br>-->
 
                                         <a target="_blank" href="https://github.com/Nielsbishere">
                                             <img src="icons/solo.svg" data-toggle="tooltip" data-placement="bottom" title="Solo project" alt="Nielsbishere solo project" />
@@ -563,8 +594,31 @@
 
                             <img src='screenshots/nfsu.png' class='video' alt='nfsu screenshot' id='vnfsu' />
                         </header>
-                        <div class="w-100 projectInfo" hidden>
-                            <h4>Test</h4>
+                        <div class="projectInfo" style="display: none;">
+                            <hr class="info" />
+                            <h4>Description</h4>
+                            <p class="small">
+                                NFSU (Nintendo File System Utils) is a project created for parsing a Nintendo ds rom.
+                                This was done since the current modding tools are very fragmented and there's a tool for every separate functionality, reducing the workflow. <br />
+                                The goal is to have an expandable editor allowing for extensions and editing of files on the fly, without exporting and reimporting them for everything you do.
+                            </p>
+                            <h4>Information</h4>
+                            <p class="small">
+                                <i>Duration:</i> November 2017 - present <br />
+                                <i>Role:</i> UI & tool programmer / reverse engineer <br />
+                                <i>Skills:</i> Qt, C++, GLSL, OpenGL, reverse engineering, binary file parsing, problem solving, C++ template magic <br />
+                                <i>Tools:</i> Perforce, Trello, Sourcetree, GitHub, CMake, Visual Studio <br />
+                                <i>Team members:</i> Solo project, with feedback from friends & colleagues and help on creating icons
+                            </p>
+                            <h4>Tasks</h4>
+                            <p class="small">
+                                Parsing nds files and their file system, alongside palette, tilemap, map, archive and other files. <br />
+                                Creation of a file explorer with descriptions on each file type. <br />
+                                Creating an expandible struct parser through C++ templates. <br />
+                                Writing shader code and CPU code for parsing older texture types and dealing with tiled BGR5 images.
+                            </p>
+
+                            <hr class="info" />
                         </div>
                     </div>
 
@@ -581,11 +635,6 @@
                                     <div class="w-100">
                                         <h1 class="display-6">Harpoon</h1>
                                         <h4>Unity C# Injector</h4>
-
-                                        <!--<button class="btn btn-primary" type="button" style=" margin-bottom: 5px;">
-                                    Learn more &raquo;
-                                </button>
-                                <br>-->
 
                                         <a target="_blank" href="https://github.com/Nielsbishere">
                                             <img src="icons/solo.svg" data-toggle="tooltip" data-placement="bottom" title="Solo project" alt="Nielsbishere solo project" />
@@ -607,8 +656,35 @@
 
                             <img src="screenshots/harpoon.png" class="video" alt="harpoon screenshot" />
                         </header>
-                        <div class="w-100 projectInfo" hidden>
-                            <h4>Test</h4>
+                        <div class="projectInfo" style="display: none;">
+                            <hr class="info" />
+                            <h4>Description</h4>
+                            <p class="small">
+                                Harpoon was a project that was used in Shiploader; a modloader for the game Raft. This API was intended to be used by the modding community as an alternative.
+                                This was due to the existing modding tool using the source code of the game and distributing it and mods being very version dependent. <br />
+                                The alternative was code injection and not just patching a dll; where an executable requests Unity to load mods, which use a library for wrapping the low-level code. <br />
+                                This is accomplished by loading a C DLL into memory, which calls functions provided onto a heap; these functions are Unity mono functions, which load a C# dll and execute it. 
+                                The C# dll is then able to access everything in Unity through C# reflection and Harmony through patching functions
+                                (<a href="https://github.com/Nielsbishere/Harpoon/blob/master/docs/main.md">More info here</a>).
+                            </p>
+                            <h4>Information</h4>
+                            <p class="small">
+                                <i>Duration:</i> August 2018 - February 2019 <br />
+                                <i>Role:</i> Programmer <br />
+                                <i>Skills:</i> C, C++, C#, Unity, Harmony, Code injection, Mono injection, Reflection, Reverse engineering <br />
+                                <i>Tools:</i> GitHub, Sourcetree, Visual Studio <br />
+                                <i>Team members:</i> Solo project, but used in team project
+                            </p>
+                            <h4>Tasks</h4>
+                            <p class="small">
+                                Getting an understanding of how the Windows API works with multiple processes. <br />
+                                Being able to call functions in other programs through the WinApi. <br />
+                                Loading and executing a payload in a different address space (defeating ASLR). <br />
+                                Using mono to load dlls into C#. <br />
+                                Using C# reflection and patching an already existing program.
+                            </p>
+
+                            <hr class="info" />
                         </div>
                     </div>
 
@@ -621,11 +697,6 @@
                                     <div class="w-100">
                                         <h1 class="display-6">Osomi Core</h1>
                                         <h4>Cross platform framework</h4>
-
-                                        <!--<button class="btn btn-primary" type="button" style=" margin-bottom: 5px;">
-                                    Learn more &raquo;
-                                </button>
-                                <br>-->
 
                                         <a target="_blank" href="https://github.com/Nielsbishere">
                                             <img src="icons/solo.svg" data-toggle="tooltip" data-placement="bottom" title="Solo project" alt="Nielsbishere solo project" />
@@ -647,8 +718,40 @@
 
                             <img src='screenshots/ocore.png' class='video' alt='ocore screenshot' id='vocore' />
                         </header>
-                        <div class="w-100 projectInfo" hidden>
-                            <h4>Test</h4>
+                        <div class="projectInfo" style="display: none;">
+                            <hr class="info" />
+                            <h4>Description</h4>
+                            <p class="small">
+                                Osomi core is a cross platform framework, designed to be API and platform independent. 
+                                It is created with Vulkan, Android and Windows in mind, so it has things like memory management (CPU & GPU), file management, input and serialization. <br />
+                                Other features include shader reflection, custom file types for models (to support sized shader inputs), shaders (to support reflection) and more.
+                                The architecture is created to be abstract so that the user doesn't have to think about platform/API specifics.
+                            </p>
+                            <h4>Information</h4>
+                            <p class="small">
+                                <i>Duration:</i> December 2017 - present <br />
+                                <i>Role:</i> Graphics/engine/architecture programmer <br />
+                                <i>Skills:</i> 
+                                    Vulkan, GLSL, C++17, Bash, Windows, Android, Shader compiler, Custom shader language, Custom file types, Resource baking, Serialization, C++ templates,
+                                    GPU & CPU Memory management, File management, Manual fbx & obj parsing, Node management, Architecture, Procedural generation, Optimization, Shader reflection
+                                <br />
+                                <i>Tools:</i> Git/GitHub, Sourcetree, CMake, Jira, Visual Studio, Appveyor, Travis, MSBuild, RenderDoc, Notepad++ <br />
+                                <i>Libraries:</i> zlib, rapidjson, stbi, spirv-cross, glslang, spirv-tools, vulkan <br />
+                                <i>Team members:</i> Solo project
+                            </p>
+                            <h4>Tasks</h4>
+                            <p class="small">
+                                Packaging a build and resources for both Windows and Android. <br />
+                                Using the Android NDK and Windows API to create an application which handles inputs. <br />
+                                Rendering to a surface on both Android & Windows and handling their platform-dependent traits. <br />
+                                Creating a basic serializer and handling custom file types. <br />
+                                Handling CPU & GPU & File memory management. <br />
+                                Baking and handling conversions to custom file types. <br />
+                                Handling tools and multiple platform development. <br />
+                                Understanding and implementation of various data types.
+                            </p>
+
+                            <hr class="info" />
                         </div>
                     </div>
 
@@ -666,12 +769,7 @@
                                 <div class="d-flex h-100 text-center align-items-center">
                                     <div class="w-100">
                                         <h1 class="display-6">Armulator</h1>
-                                        <h4>ARM7 Thumb emulator</h4>
-
-                                        <!--<button class="btn btn-primary" type="button" style=" margin-bottom: 5px;">
-                                    Learn more &raquo;
-                                </button>
-                                <br>-->
+                                        <h4>ARM7/9 Thumb emulator</h4>
 
                                         <a target="_blank" href="https://github.com/Nielsbishere">
                                             <img src="icons/solo.svg" data-toggle="tooltip" data-placement="bottom" title="Solo project" alt="Nielsbishere solo project" />
@@ -691,8 +789,30 @@
 
                             <img src="screenshots/armulator.png" class="video" alt="Armulator screenshot" id="varmulator" />
                         </header>
-                        <div class="w-100 projectInfo" hidden>
-                            <h4>Test</h4>
+                        <div class="projectInfo" style="display: none;">
+                            <hr class="info" />
+                            <h4>Description</h4>
+                            <p class="small">
+                                Armulator is a basic ARM9/ARM7 Thumb emulator, which was created as both a learning project for assembly and as a part of the NFSU project.
+                                It is not actively used in the project it was meant for, though it can be used to emulate a decent part of the thumb instruction set. <br />
+                                The main idea of this is to provide the users of the Nintendo ds rom hacking project a way of reading, potentially writing and stepping through arm assembly.
+                            </p>
+                            <h4>Information</h4>
+                            <p class="small">
+                                <i>Duration:</i> February 2019 - present <br />
+                                <i>Role:</i> Low-level programmer <br />
+                                <i>Skills:</i> (ARM9/ARM7 Thumb) Assembly, C++, Emulation <br />
+                                <i>Tools:</i> GitHub, Sourcetree, Visual Studio, CMake <br />
+                                <i>Team members:</i> Solo project
+                            </p>
+                            <h4>Tasks</h4>
+                            <p class="small">
+                                Getting an understanding of low-level assembly. <br />
+                                Implementing assembly concepts in C++ to emulate (registers, banks, etc.). <br />
+                                Implementation of opcodes through a technical document.
+                            </p>
+
+                            <hr class="info" />
                         </div>
                     </div>
 
@@ -706,11 +826,6 @@
                                         <h1 class="display-6">Switchbait</h1>
                                         <h4>Switch &amp; Windows project</h4>
 
-                                        <!--<button class="btn btn-primary" type="button" style=" margin-bottom: 5px;">
-                                    Learn more &raquo;
-                                </button>
-                                <br>-->
-
                                         <img src="icons/team.svg" data-toggle="tooltip" data-placement="bottom" title="Switchbait Team" alt="Switchbait Team" />
                                         <img src="icons/desktop.svg" data-toggle="tooltip" data-placement="bottom" title="Windows" alt="Windows" />
                                         <img src="icons/switch.svg" data-toggle="tooltip" data-placement="bottom" title="Nintendo Switch" alt="Switch" />
@@ -722,8 +837,31 @@
 
                             <img src='screenshots/switchbait.png' class='video' alt='switchbait screenshot' id='vswitchbait' />
                         </header>
-                        <div class="w-100 projectInfo" hidden>
-                            <h4>Test</h4>
+                        <div class="projectInfo" style="display: none;">
+                            <hr class="info" />
+                            <h4>Description</h4>
+                            <p class="small">
+                                Switchbait was a custom voxel engine, created for a top-down shooter and mainly meant as a learning opportunity for everyone in the team.
+                                We each had our goals set (optimization, serialization, etc.) and improved the engine with these points. <br />
+                                Unfortunately, the game's direction wasn't aligned with the engine's capabilities and the producers pushed the game to areas the engine wasn't built for.
+                            </p>
+                            <h4>Information</h4>
+                            <p class="small">
+                                <i>Duration:</i> May 2018 - June 2018 <br />
+                                <i>Role:</i> Graphics, optimization and gameplay programmer <br />
+                                <i>Skills:</i> OpenGL, GLSL, C++, Nintendo switch and Windows development <br />
+                                <i>Tools:</i> Perforce, Jira, Visual Studio <br />
+                                <i>Team members:</i> 18 people
+                            </p>
+                            <h4>Tasks</h4>
+                            <p class="small">
+                                Spawning and maintaining particles through compute shaders. <br />
+                                Creating a particle editing tool useable for artists. <br />
+                                Implementing a batching system (multi draw indirect) to prevent draw call overhead. <br />
+                                Basic mesh culling and instancing.
+                            </p>
+
+                            <hr class="info" />
                         </div>
                     </div>
 
@@ -776,6 +914,7 @@
                         <img src="icons/javascriptL.svg" alt="JavaScript 5" data-toggle="tooltip" data-placement="bottom" title="JavaScript 5" class="logo-sm" />
                         <img src="icons/glslL.svg" alt="GLSL 1.20 & 3.3+" data-toggle="tooltip" data-placement="bottom" title="GLSL 1.20 & 3.3+" class="logo-sm" />
                         <img src="icons/hlslL.svg" alt="HLSL 6+" data-toggle="tooltip" data-placement="bottom" title="HLSL 6+" class="logo-sm" />
+                        <img src="icons/python.svg" alt="Python 3.7" data-toggle="tooltip" data-placement="bottom" title="Python 3.7" class="logo-sm" />
                         <img src="icons/css3.svg" alt="CSS 3" data-toggle="tooltip" data-placement="bottom" title="CSS 3" class="logo-sm" />
                         <img src="icons/html5.svg" alt="HTML 5" data-toggle="tooltip" data-placement="bottom" title="HTML 5" class="logo-sm" />
                     </div>
