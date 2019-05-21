@@ -625,68 +625,61 @@
                 </div>
 
                 <div class="row">
-
-                    <!-- Harpoon -->
+                    <!-- Armulator -->
 
                     <div class="col-md-6 project">
                         <header>
-                            <div class="overlay">
+                            <div class="overlay" id="armulator">
                                 <div class="d-flex h-100 text-center align-items-center">
                                     <div class="w-100">
-                                        <h1 class="display-6">Harpoon</h1>
-                                        <h4>Unity C# Injector</h4>
+                                        <h1 class="display-6">Armulator</h1>
+                                        <h4>ARM7/9 Thumb emulator</h4>
 
                                         <a target="_blank" href="https://github.com/Nielsbishere">
                                             <img src="icons/solo.svg" data-toggle="tooltip" data-placement="bottom" title="Solo project" alt="Nielsbishere solo project" />
                                         </a>
 
-                                        <img src="icons/desktop.svg" data-toggle="tooltip" data-placement="bottom" title="Windows" alt="Windows" />
+                                        <img src="icons/desktop.svg" data-toggle="tooltip" data-placement="bottom" title="Desktop" alt="Desktop" />
 
-                                        <a target="_blank" href="https://github.com/Nielsbishere/Harpoon">
-                                            <img src="icons/github.svg" data-toggle="tooltip" data-placement="bottom" title="View on GitHub" alt="Unity C# Mono Injector" />
+                                        <a target="_blank" href="https://github.com/nfsu/NFS/blob/NFS_Reloaded/nfs/src/armulator.cpp">
+                                            <img src="icons/github.svg" data-toggle="tooltip" data-placement="bottom" title="View on GitHub" alt="Nintendo ARM7 Thumb Mode Emulator" />
                                         </a>
 
-                                        <img src="icons/unity.svg" data-toggle="tooltip" data-placement="bottom" title="Unity C#" alt="Unity C#" />
-
-                                        <img src="icons/c.svg" data-toggle="tooltip" data-placement="bottom" title="C" alt="C" />
+                                        <img src="icons/cpp.svg" data-toggle="tooltip" data-placement="bottom" title="C++" alt="CPP" />
 
                                     </div>
                                 </div>
                             </div>
 
-                            <img src="screenshots/harpoon.png" class="video" alt="harpoon screenshot" />
+                            <img src="screenshots/armulator.png" class="video" alt="Armulator screenshot" id="varmulator" />
                         </header>
                         <div class="projectInfo" style="display: none;">
                             <hr class="info" />
                             <h4>Description</h4>
                             <p class="small">
-                                Harpoon was a project that was used in Shiploader; a modloader for the game Raft. This API was intended to be used by the modding community as an alternative.
-                                This was due to the existing modding tool using the source code of the game and distributing it and mods being very version dependent. <br />
-                                The alternative was code injection and not just patching a dll; where an executable requests Unity to load mods, which use a library for wrapping the low-level code. <br />
-                                This is accomplished by loading a C DLL into memory, which calls functions provided onto a heap; these functions are Unity mono functions, which load a C# dll and execute it. 
-                                The C# dll is then able to access everything in Unity through C# reflection and Harmony through patching functions
-                                (<a href="https://github.com/Nielsbishere/Harpoon/blob/master/docs/main.md">More info here</a>).
+                                Armulator is a basic ARM9/ARM7 Thumb emulator, which was created as both a learning project for assembly and as a part of the NFSU project.
+                                It is not actively used in the project it was meant for, though it can be used to emulate a decent part of the thumb instruction set. <br />
+                                The main idea of this is to provide the users of the Nintendo ds rom hacking project a way of reading, potentially writing and stepping through arm assembly.
                             </p>
                             <h4>Information</h4>
                             <p class="small">
-                                <i>Duration:</i> August 2018 - February 2019 <br />
-                                <i>Role:</i> Programmer <br />
-                                <i>Skills:</i> C, C++, C#, Unity, Harmony, Code injection, Mono injection, Reflection, Reverse engineering <br />
-                                <i>Tools:</i> GitHub, Sourcetree, Visual Studio <br />
-                                <i>Team members:</i> Solo project, but used in team project
+                                <i>Duration:</i> February 2019 - present <br />
+                                <i>Role:</i> Low-level programmer <br />
+                                <i>Skills:</i> (ARM9/ARM7 Thumb) Assembly, C++, Emulation <br />
+                                <i>Tools:</i> GitHub, Sourcetree, Visual Studio, CMake <br />
+                                <i>Team members:</i> Solo project
                             </p>
                             <h4>Tasks</h4>
                             <p class="small">
-                                Getting an understanding of how the Windows API works with multiple processes. <br />
-                                Being able to call functions in other programs through the WinApi. <br />
-                                Loading and executing a payload in a different address space (defeating ASLR). <br />
-                                Using mono to load dlls into C#. <br />
-                                Using C# reflection and patching an already existing program.
+                                Getting an understanding of low-level assembly. <br />
+                                Implementing assembly concepts in C++ to emulate (registers, banks, etc.). <br />
+                                Implementation of opcodes through a technical document.
                             </p>
 
                             <hr class="info" />
                         </div>
                     </div>
+
 
                     <!-- Osomi Core -->
 
@@ -760,56 +753,62 @@
 
                 <div class="row">
 
-
-                    <!-- Armulator -->
+                    <!-- Harpoon -->
 
                     <div class="col-md-6 project">
                         <header>
-                            <div class="overlay" id="armulator">
+                            <div class="overlay">
                                 <div class="d-flex h-100 text-center align-items-center">
                                     <div class="w-100">
-                                        <h1 class="display-6">Armulator</h1>
-                                        <h4>ARM7/9 Thumb emulator</h4>
+                                        <h1 class="display-6">Harpoon</h1>
+                                        <h4>Unity C# Injector</h4>
 
                                         <a target="_blank" href="https://github.com/Nielsbishere">
                                             <img src="icons/solo.svg" data-toggle="tooltip" data-placement="bottom" title="Solo project" alt="Nielsbishere solo project" />
                                         </a>
 
-                                        <img src="icons/desktop.svg" data-toggle="tooltip" data-placement="bottom" title="Desktop" alt="Desktop" />
+                                        <img src="icons/desktop.svg" data-toggle="tooltip" data-placement="bottom" title="Windows" alt="Windows" />
 
-                                        <a target="_blank" href="https://github.com/nfsu/NFS/blob/NFS_Reloaded/nfs/src/armulator.cpp">
-                                            <img src="icons/github.svg" data-toggle="tooltip" data-placement="bottom" title="View on GitHub" alt="Nintendo ARM7 Thumb Mode Emulator" />
+                                        <a target="_blank" href="https://github.com/Nielsbishere/Harpoon">
+                                            <img src="icons/github.svg" data-toggle="tooltip" data-placement="bottom" title="View on GitHub" alt="Unity C# Mono Injector" />
                                         </a>
 
-                                        <img src="icons/cpp.svg" data-toggle="tooltip" data-placement="bottom" title="C++" alt="CPP" />
+                                        <img src="icons/unity.svg" data-toggle="tooltip" data-placement="bottom" title="Unity C#" alt="Unity C#" />
+
+                                        <img src="icons/c.svg" data-toggle="tooltip" data-placement="bottom" title="C" alt="C" />
 
                                     </div>
                                 </div>
                             </div>
 
-                            <img src="screenshots/armulator.png" class="video" alt="Armulator screenshot" id="varmulator" />
+                            <img src="screenshots/harpoon.png" class="video" alt="harpoon screenshot" />
                         </header>
                         <div class="projectInfo" style="display: none;">
                             <hr class="info" />
                             <h4>Description</h4>
                             <p class="small">
-                                Armulator is a basic ARM9/ARM7 Thumb emulator, which was created as both a learning project for assembly and as a part of the NFSU project.
-                                It is not actively used in the project it was meant for, though it can be used to emulate a decent part of the thumb instruction set. <br />
-                                The main idea of this is to provide the users of the Nintendo ds rom hacking project a way of reading, potentially writing and stepping through arm assembly.
+                                Harpoon was a project that was used in Shiploader; a modloader for the game Raft. This API was intended to be used by the modding community as an alternative.
+                                This was due to the existing modding tool using the source code of the game and distributing it and mods being very version dependent. <br />
+                                The alternative was code injection and not just patching a dll; where an executable requests Unity to load mods, which use a library for wrapping the low-level code. <br />
+                                This is accomplished by loading a C DLL into memory, which calls functions provided onto a heap; these functions are Unity mono functions, which load a C# dll and execute it. 
+                                The C# dll is then able to access everything in Unity through C# reflection and Harmony through patching functions
+                                (<a href="https://github.com/Nielsbishere/Harpoon/blob/master/docs/main.md">More info here</a>).
                             </p>
                             <h4>Information</h4>
                             <p class="small">
-                                <i>Duration:</i> February 2019 - present <br />
-                                <i>Role:</i> Low-level programmer <br />
-                                <i>Skills:</i> (ARM9/ARM7 Thumb) Assembly, C++, Emulation <br />
-                                <i>Tools:</i> GitHub, Sourcetree, Visual Studio, CMake <br />
-                                <i>Team members:</i> Solo project
+                                <i>Duration:</i> August 2018 - February 2019 <br />
+                                <i>Role:</i> Programmer <br />
+                                <i>Skills:</i> C, C++, C#, Unity, Harmony, Code injection, Mono injection, Reflection, Reverse engineering <br />
+                                <i>Tools:</i> GitHub, Sourcetree, Visual Studio <br />
+                                <i>Team members:</i> Solo project, but used in team project
                             </p>
                             <h4>Tasks</h4>
                             <p class="small">
-                                Getting an understanding of low-level assembly. <br />
-                                Implementing assembly concepts in C++ to emulate (registers, banks, etc.). <br />
-                                Implementation of opcodes through a technical document.
+                                Getting an understanding of how the Windows API works with multiple processes. <br />
+                                Being able to call functions in other programs through the WinApi. <br />
+                                Loading and executing a payload in a different address space (defeating ASLR). <br />
+                                Using mono to load dlls into C#. <br />
+                                Using C# reflection and patching an already existing program.
                             </p>
 
                             <hr class="info" />
