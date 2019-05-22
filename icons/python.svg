@@ -3,13 +3,13 @@
 <svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://web.resource.org/cc/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" width="110.4211" height="109.8461" id="svg2169" sodipodi:version="0.32" inkscape:version="0.45.1" version="1.0" sodipodi:docbase="/home/bene/Desktop" sodipodi:docname="dessin-1.svg" inkscape:output_extension="org.inkscape.output.svg.inkscape">
   <defs id="defs2171">
     <linearGradient id="linearGradient11301" inkscape:collect="always">
-      <stop id="stop11303" offset="0" style="stop-color:#e0e0e0;stop-opacity:1"/>
-      <stop id="stop11305" offset="1" style="stop-color:#e0e0e0;stop-opacity:1"/>
+      <stop id="stop11303" offset="0" style="stop-color:#d0d0d0;stop-opacity:1"/>
+      <stop id="stop11305" offset="1" style="stop-color:#d0d0d0;stop-opacity:1"/>
     </linearGradient>
     <linearGradient gradientUnits="userSpaceOnUse" y2="168.1012" x2="147.77737" y1="111.92053" x1="89.136749" id="linearGradient11307" xlink:href="#linearGradient11301" inkscape:collect="always"/>
     <linearGradient id="linearGradient9515" inkscape:collect="always">
-      <stop id="stop9517" offset="0" style="stop-color:#ffffff;stop-opacity:1"/>
-      <stop id="stop9519" offset="1" style="stop-color:#ffffff;stop-opacity:1"/>
+      <stop id="stop9517" offset="0" style="stop-color:#dfdfdf;stop-opacity:1"/>
+      <stop id="stop9519" offset="1" style="stop-color:#dfdfdf;stop-opacity:1"/>
     </linearGradient>
     <linearGradient gradientUnits="userSpaceOnUse" y2="131.85291" x2="110.14919" y1="77.070274" x1="55.549179" id="linearGradient9521" xlink:href="#linearGradient9515" inkscape:collect="always"/>
   </defs>
