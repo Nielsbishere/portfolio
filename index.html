@@ -208,70 +208,65 @@
                 
                 var vid = $("#v" + name);
 
-                if(!vid.length)
-                    return;
-                                
-                vid.replaceWith("<img src='screenshots/" + name + ".png' class='" + vid.attr("class") + " video' alt='" + name +" screenshot' id='v" + name + "' />");
-                
                 if(hideOverlay)
                     $("#" + name).animate({
                         opacity: 1
                     });
+
+                if(!vid.length)
+                    return;
+                                
+                vid.replaceWith("<img src='screenshots/" + name + ".png' class='" + vid.attr("class") + " video' alt='" + name +" screenshot' id='v" + name + "' />");
+            }
+            
+            function hideProject(hideOverlay){
+            
+                if(current != null)
+                    stopVid(current, hideOverlay);
+            
+                if(selectedProject != null){
+                    selectedProject.hide(500);
+                    selectedProject = null;
+                }
+            
             }
 
-            function switchToProject(name, hideOverlay){
+            function switchToProject(name, hideOverlay, sameIsToggle){
                 
                 var vid = $("#v" + name);
 
-                if (current == name)
+                if (current == name){
+
+                    if(sameIsToggle){
+                        hideProject(hideOverlay);
+                        current = null;
+                    }
+
                     return;
+                }
 
-                if(selectedProject != null)
-                    selectedProject.hide(500);
-
-                if (current != null)
-                    stopVid(current, hideOverlay);
+                hideProject(hideOverlay);
 
                 (selectedProject = $("#" + name).parent().parent().find(".projectInfo")).show(500);
                 var prev = current;
                 current = name;
     
-                if (vid.length == 0)
+                if (vid.length == 0){
+                    if(hideOverlay)
+                        $("#" + name).animate({
+                            opacity: 0
+                        });
                     return;
+                }
 
                 var curr = vid.get(0);
-
-                if (current != null)
-                    stopVid(prev, hideOverlay);
-
                 playVid(current, hideOverlay);
             }
 
             var current = null;
             var selectedProject = null;
             var hoverTimeout = null;
-
-            function hideProject(hideOverlay){
-
-                if(current != null)
-                    stopVid(current, hideOverlay);
-
-                if(selectedProject != null){
-                    selectedProject.hide(500);
-                    selectedProject = null;
-                }
-
-            }
-
-            function toggleProject(name, hideOverlay){
-
-                if(current != null){
-                    hideProject(hideOverlay);
-                    current = null;
-                } else
-                    switchToProject(name, hideOverlay);
-
-            }
+            var useHover = true;
 
             $(function () {
 
@@ -329,7 +324,7 @@
                     $(".overlay").click(
                         function (e) {
                             var name = $(this).attr("id");
-                            switchToProject(name);
+                            switchToProject(name, true, true);
                         }
                     );
 
@@ -353,9 +348,11 @@
                     $(".overlay").hover(
                         function () {
                             var name = $(this).attr("id");
-                            hoverTimeout = setTimeout(function(){
-                                switchToProject(name, false);
-                            }, 500);
+
+                            if(useHover)
+                                hoverTimeout = setTimeout(function(){
+                                    switchToProject(name, false, false);
+                                }, 500);
                         },
                         function () {
                             if(hoverTimeout != null){
@@ -367,8 +364,9 @@
 
                     $(".overlay").click(
                         function(){
+                            useHover = false;
                             var name = $(this).attr("id");
-                            toggleProject(name, false);
+                            switchToProject(name, true, true);
                         }
                     )
 
