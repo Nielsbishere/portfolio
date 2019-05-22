@@ -25,6 +25,10 @@
     
         <style>
     
+            html {
+                scroll-behavior: smooth;
+            }
+
             video::-webkit-media-controls {
                 display: none !important;
             }
@@ -142,18 +146,23 @@
 
             .logo {
                 min-width: 50px;
-                width: 16%;
-                height: 16%;
+                width: 13%;
+                height: 13%;
                 margin: auto;
                 padding: 2vh .5vw 2vh .5vw;
             }
 
             .logo-sm {
-                min-width: 30px;
-                width: 10%;
-                height: 10%;
+                min-width: 25px;
+                width: 7.5%;
+                height: 7.5%;
                 margin: auto;
                 padding: 2vh .5vw 2vh .5vw;
+            }
+
+            .icon, .icon-linked {
+                width: 24px;
+                height: 24px;
             }
 
             body {
@@ -174,7 +183,7 @@
 
         <script>
 
-            function playVid(name){
+            function playVid(name, hideOverlay){
                 
                 var vid = $("#v" + name);
 
@@ -188,9 +197,14 @@
                 );
 
                 $("#v" + name).get(0).play();
+
+                if(hideOverlay)
+                    $("#" + name).animate({
+                        opacity: 0
+                    });
             }
 
-            function stopVid(name){
+            function stopVid(name, hideOverlay){
                 
                 var vid = $("#v" + name);
 
@@ -198,20 +212,68 @@
                     return;
                                 
                 vid.replaceWith("<img src='screenshots/" + name + ".png' class='" + vid.attr("class") + " video' alt='" + name +" screenshot' id='v" + name + "' />");
+                
+                if(hideOverlay)
+                    $("#" + name).animate({
+                        opacity: 1
+                    });
+            }
 
+            function switchToProject(name, hideOverlay){
+                
+                var vid = $("#v" + name);
+
+                if (current == name)
+                    return;
+
+                if(selectedProject != null)
+                    selectedProject.hide(500);
+
+                if (current != null)
+                    stopVid(current, hideOverlay);
+
+                (selectedProject = $("#" + name).parent().parent().find(".projectInfo")).show(500);
+                var prev = current;
+                current = name;
+    
+                if (vid.length == 0)
+                    return;
+
+                var curr = vid.get(0);
+
+                if (current != null)
+                    stopVid(prev, hideOverlay);
+
+                playVid(current, hideOverlay);
             }
 
             var current = null;
             var selectedProject = null;
+            var hoverTimeout = null;
+
+            function hideProject(hideOverlay){
+
+                if(current != null)
+                    stopVid(current, hideOverlay);
+
+                if(selectedProject != null){
+                    selectedProject.hide(500);
+                    selectedProject = null;
+                }
+
+            }
+
+            function toggleProject(name, hideOverlay){
+
+                if(current != null){
+                    hideProject(hideOverlay);
+                    current = null;
+                } else
+                    switchToProject(name, hideOverlay);
+
+            }
 
             $(function () {
-
-                //Show tooltips
-                $('[data-toggle="tooltip"]').tooltip();
-
-                $('[data-toggle="tooltip"]').click(function () {
-                    $(this).tooltip("show");
-                });
 
                 //Showing current year
 
@@ -227,6 +289,10 @@
                         $(this).attr("class", "heightVideo video");
                 });
 
+                setTimeout(function(){
+                    $("#resumePdf").height($("#resumePdf").width() * 1.5);
+                }, 100);
+
                 $(window).resize(function () {
                     $("video, .video").each(function () {
                         if ($(this).parent().width() * 9 >= $(this).parent().height() * 16)
@@ -234,40 +300,36 @@
                         else
                             $(this).attr("class", "heightVideo video");
                     });
+
+                    $("#resumePdf").height($("#resumePdf").width() * 1.5);
                 });
 
                 //If you use a touch screen, the overlay is used as a video, otherwise it's a link
 
                 var touchDevice = (navigator.maxTouchPoints || 'ontouchstart' in document.documentElement);
 
+                //Disable clicking on links when hidden
+                $(".icon-link, .icon").click(function(e){
+                    if($(this).is("a") && $(this).parent().parent().parent().css("opacity") != 1)
+                        e.preventDefault();
+                    else
+                        e.stopPropagation();
+                });
+
                 if (touchDevice) {
+                   
+                    //Toggle tooltips if visible
+
+                    $('[data-toggle="tooltip"]').click(function () {
+                        if($(this).parent().parent().parent().css("opacity") == 1)
+                            $(this).tooltip("toggle");
+                    });
 
                     //Playing and stopping videos
                     $(".overlay").click(
                         function (e) {
-
                             var name = $(this).attr("id");
-                            var vid = $("#v" + name);
-
-                            if (current == name)
-                                return;
-
-                            if(selectedProject != null)
-                                selectedProject.hide(500);
-
-                            (selectedProject = $(this).parent().parent().find(".projectInfo")).show(500);
-                            current = name;
-                                
-                            if (vid.length == 0)
-                                return;
-
-                            e.stopPropagation();
-                            var curr = vid.get(0);
-
-                            if (current != null)
-                                stopVid(current);
-
-                            playVid(current);
+                            switchToProject(name);
                         }
                     );
 
@@ -277,30 +339,41 @@
 
                 } else {
 
+                    //Show tooltips
+
+                    // $('[data-toggle="tooltip"]').tooltip();
+
+                    $('[data-toggle="tooltip"]').hover(function(){
+                        if($(this).parent().parent().parent().css("opacity") == 1)
+                            $(this).tooltip("toggle");
+                    });
+
                     //Videos as gifs
 
                     $(".overlay").hover(
                         function () {
                             var name = $(this).attr("id");
-
-                            if (current == name)
-                                return;
-
-                            if(selectedProject != null)
-                                selectedProject.hide(500);
-
-                            if(current != null)
-                                stopVid(current);
-
-                            (selectedProject = $(this).parent().parent().find(".projectInfo")).show(500);
-                            playVid(current = name);
+                            hoverTimeout = setTimeout(function(){
+                                switchToProject(name, false);
+                            }, 500);
                         },
                         function () {
+                            if(hoverTimeout != null){
+                                clearTimeout(hoverTimeout);
+                                hoverTimeout = null;
+                            }
                         }
                     );
 
+                    $(".overlay").click(
+                        function(){
+                            var name = $(this).attr("id");
+                            toggleProject(name, false);
+                        }
+                    )
+
                     $("#resumeContent").replaceWith(
-                        "<object style='width: 100%; height: 1300px;' type='application/pdf' data='Niels Brunekreef Resume.pdf#view=FitH'>" + 
+                        "<object style='width: 100%;' id='resumePdf' type='application/pdf' data='Niels Brunekreef Resume.pdf#view=FitW'>" + 
                             "<p class='text-center'>Resume cannot be displayed inline.<br/><a href='Niels Brunekreef Resume.pdf' target='_blank'>View here</a></p>" +
                         "</object>"
                     );
@@ -357,7 +430,6 @@
 
         <div class="container-fluid text-white" style="margin-top: 100px; margin-bottom: 100px;">
 
-            <!-- About me -->
             <div class="text-center">
                 <img src="favicon.ico" class="rounded" style="width: 64px; margin-right: 32px; margin-top: -16px !important;" alt="Me" />
                 <h2 class="display-5" style="display: inline;">About me</h2>
@@ -365,12 +437,10 @@
             <div id="about" class="anchor"></div>
             <hr />
 
-            <!-- About me section -->
-
             <div class="row">
-                <div class="col-md-6" style="margin: auto;">
+                <div class="col-md-9" style="margin: auto;">
                     <p class="lead">
-                        My passion lies at <b>graphics</b> & <b>game programming</b>, which I study at <a href="https://buas.nl">Breda University of Applied Sciences</a>,
+                        My passion lies at <b>graphics</b> & <b>game programming</b>, which I study at <a href="https://buas.nl">Breda University of Applied Sciences</a>.
                         I specialize in graphics optimization & architecture. My hobbies are reverse engineering and modding games, which is what sparked my interest into programming; coding mods and plugins in Java. Afterwards, I expanded my knowledge to other languages.<br />
                         On this page are my favorite projects that demonstrate my work best, these include C#, C, C++, Unity and Unreal projects.
                     </p>
@@ -398,19 +468,19 @@
                                         <h1 class="display-6">Wisp</h1>
                                         <h4>Realtime raytracing</h4>
 
-                                        <a target="_blank" href="https://github.com/TeamWisp">
-                                            <img src="icons/team.svg" data-toggle="tooltip" data-placement="bottom" title="Team Wisp" alt="Team Wisp" />
+                                        <a class="icon-link" target="_blank" href="https://github.com/TeamWisp">
+                                            <img class="icon-linked" src="icons/team.svg" alt="Team Wisp" />
                                         </a>
 
-                                        <img src="icons/desktop.svg" data-toggle="tooltip" data-placement="bottom" title="Windows" alt="Windows" />
+                                        <img class="icon" src="icons/desktop.svg" data-toggle="tooltip" data-placement="bottom" title="Windows" alt="Windows" />
 
-                                        <a target="_blank" href="https://github.com/TeamWisp/Procedural-Ray-Tracing">
-                                            <img src="icons/github.svg" data-toggle="tooltip" data-placement="bottom" title="View on GitHub" alt="Ray tracing renderer on GitHub" />
+                                        <a class="icon-link" target="_blank" href="https://github.com/TeamWisp/Procedural-Ray-Tracing">
+                                            <img class="icon-linked" src="icons/github.svg" alt="Ray tracing renderer on GitHub" />
                                         </a>
 
-                                        <a target="_blank" href="https://twitter.com/wisprenderer">
-                                            <img src="icons/twitter.svg" data-toggle="tooltip" data-placement="bottom" title="View on Twitter" alt="Wisp renderer on Twitter" />
-                                        </a><br/>
+                                        <a class="icon-link" target="_blank" href="https://twitter.com/wisprenderer">
+                                            <img class="icon-linked" src="icons/twitter.svg" alt="Wisp renderer on Twitter" />
+                                        </a><br />
 
                                     </div>
                                 </div>
@@ -425,7 +495,7 @@
                                 Wisp is a real time raytracing library that can be integrated into your favorite engine or tool, made by a team of nine students.
                                 It is currently used in a Maya extension that allows you to view a deferred, full raytracing, hybrid and path traced preview of the current scene. <br />
                                 The goal of the project is to allow artists to have a quick overview of what their end-product would look like; saving time and increasing their workflow.
-                                Maya currently doesn't provide that in the regular viewport, so even the deferred preview is a step up to view the effects of modeling real-time.
+                                Maya currently doesn't provide that in the regular viewport, so the deferred preview is a step up to view the effects of modeling real-time.
                                 Previewing the reflections, global illumination and shadows is a nice bonus for RTX and GTX Pascal cards.
                             </p>
                             <h4>Information</h4>
@@ -461,18 +531,18 @@
                                         <h1 class="display-6">Rail recon</h1>
                                         <h4>Twin stick shooter</h4>
 
-                                        <img src="icons/team.svg" data-toggle="tooltip" data-placement="bottom" title="Triggered Studios" alt="Triggered Studios" />
-                                        <img src="icons/desktop.svg" data-toggle="tooltip" data-placement="bottom" title="Windows" alt="Windows" />
+                                        <img class="icon" src="icons/team.svg" data-toggle="tooltip" data-placement="bottom" title="Triggered Studios" alt="Triggered Studios" />
+                                        <img class="icon" src="icons/desktop.svg" data-toggle="tooltip" data-placement="bottom" title="Windows" alt="Windows" />
 
-                                        <a target="_blank" href="http://rail-recon.com">
-                                            <img src="icons/website.svg" data-toggle="tooltip" data-placement="bottom" title="View on website" alt="Rail recon website" />
+                                        <a class="icon-link" target="_blank" href="http://rail-recon.com">
+                                            <img class="icon-linked" src="icons/website.svg" alt="Rail recon website" />
                                         </a>
 
-                                        <a target="_blank" href="https://store.steampowered.com/app/746860/Rail_Recon/">
-                                            <img src="icons/steam.svg" data-toggle="tooltip" data-placement="bottom" title="Steam" alt="View on steam" />
+                                        <a class="icon-link" target="_blank" href="https://store.steampowered.com/app/746860/Rail_Recon/">
+                                            <img class="icon-linked" src="icons/steam.svg" alt="View on steam" />
                                         </a>
 
-                                        <img src="icons/unreal.svg" data-toggle="tooltip" data-placement="bottom" title="Unreal Engine 4 C++" alt="UE4 C++" />
+                                        <img class="icon" src="icons/unreal.svg" data-toggle="tooltip" data-placement="bottom" title="Unreal Engine 4 C++" alt="UE4 C++" />
 
                                     </div>
                                 </div>
@@ -484,8 +554,8 @@
                             <hr class="info" />
                             <h4>Description</h4>
                             <p class="small">
-                                Rail recon is a twin stick shooter with a neon theme based on a few old arcade games, made by a twelve student team. 
-                                It was created as a concept within 2 weeks, it was developed further after 6 weeks of development. <br/>
+                                Rail recon is a twin stick shooter with a neon theme based on a few old arcade games, made by a twelve student team.
+                                It was created as a concept within 2 weeks, it was then developed further for 6 weeks. <br />
                                 It started as a three person team, two weeks later became a six person team and finally six more people joined in. I was among the six who joined in at the last four weeks of development until release.
                                 The game is released on steam and has had a few thousand downloads, several reviews and has been released in multiple languages.
                             </p>
@@ -527,9 +597,9 @@
                                         <h1 class="display-6">Mineblowers</h1>
                                         <h4>Custom controller game</h4>
 
-                                        <img src="icons/team.svg" data-toggle="tooltip" data-placement="bottom" title="Team Moose" alt="Team moose" />
-                                        <img src="icons/desktop.svg" data-toggle="tooltip" data-placement="bottom" title="Windows" alt="Windows" />
-                                        <img src="icons/unreal.svg" data-toggle="tooltip" data-placement="bottom" title="Unreal Engine 4 Blueprints" alt="UE4 Blueprints" />
+                                        <img class="icon" src="icons/team.svg" data-toggle="tooltip" data-placement="bottom" title="Team Moose" alt="Team moose" />
+                                        <img class="icon" src="icons/desktop.svg" data-toggle="tooltip" data-placement="bottom" title="Windows" alt="Windows" />
+                                        <img class="icon" src="icons/unreal.svg" data-toggle="tooltip" data-placement="bottom" title="Unreal Engine 4 Blueprints" alt="UE4 Blueprints" />
 
                                     </div>
                                 </div>
@@ -541,11 +611,11 @@
                             <hr class="info" />
                             <h4>Description</h4>
                             <p class="small">
-                                Mineblowers was a marmalade game (made in 3 weeks) with a custom controller. The idea was to create a unique user experience with an unexpected controller. <br />
+                                Mineblowers was a marmalade game made in 3 weeks, which utilises a custom controller. The idea was to create a unique user experience with an unexpected controller. <br />
                                 We chose for a bike pump as a controller, because it was easy to obtain and it fit in with our minecart-style game. <br />
-                                The faster you pump, the faster you travel. 
+                                The faster you pump, the faster you travel.
                                 If you travel too fast, you fall off and have to start over. The fastest score wins, this was implemented with a simple leaderboard.
-                                Since I had done Rail Recon before, I spoke to one of my team members on how he generated rails and implemented it with a tool in our project.
+                                Since one of my team members had worked on this at Rail Recon before, I spoke to him and implemented it with a tool in our project.
                             </p>
                             <h4>Information</h4>
                             <p class="small">
@@ -576,17 +646,17 @@
                                         <h1 class="display-6">NFSU</h1>
                                         <h4>NDS Rom editor</h4>
 
-                                        <a target="_blank" href="https://github.com/Nielsbishere">
-                                            <img src="icons/solo.svg" data-toggle="tooltip" data-placement="bottom" title="Solo project" alt="Nielsbishere solo project" />
+                                        <a class="icon-link" target="_blank" href="https://github.com/Nielsbishere">
+                                            <img class="icon-linked" src="icons/solo.svg" alt="Nielsbishere solo project" />
                                         </a>
 
-                                        <img src="icons/desktop.svg" data-toggle="tooltip" data-placement="bottom" title="Windows" alt="Windows" />
+                                        <img class="icon" src="icons/desktop.svg" data-toggle="tooltip" data-placement="bottom" title="Windows" alt="Windows" />
 
-                                        <a target="_blank" href="https://github.com/nfsu/NFS/tree/NFS_Reloaded">
-                                            <img src="icons/github.svg" data-toggle="tooltip" data-placement="bottom" title="View on GitHub" alt="Nintendo File System NDS Rom Hacking Project on GitHub" />
+                                        <a class="icon-link" target="_blank" href="https://github.com/nfsu/NFS/tree/NFS_Reloaded">
+                                            <img class="icon-linked" src="icons/github.svg" alt="Nintendo File System NDS Rom Hacking Project on GitHub" />
                                         </a>
 
-                                        <img src="icons/qt.svg" data-toggle="tooltip" data-placement="bottom" title="Qt 5" alt="Qt5" />
+                                        <img class="icon" src="icons/qt.svg" data-toggle="tooltip" data-placement="bottom" title="Qt 5" alt="Qt5" />
 
                                     </div>
                                 </div>
@@ -635,17 +705,17 @@
                                         <h1 class="display-6">Armulator</h1>
                                         <h4>ARM7/9 Thumb emulator</h4>
 
-                                        <a target="_blank" href="https://github.com/Nielsbishere">
-                                            <img src="icons/solo.svg" data-toggle="tooltip" data-placement="bottom" title="Solo project" alt="Nielsbishere solo project" />
+                                        <a class="icon-link" target="_blank" href="https://github.com/Nielsbishere">
+                                            <img class="icon-linked" src="icons/solo.svg" alt="Nielsbishere solo project" />
                                         </a>
 
-                                        <img src="icons/desktop.svg" data-toggle="tooltip" data-placement="bottom" title="Desktop" alt="Desktop" />
+                                        <img class="icon" src="icons/desktop.svg" data-toggle="tooltip" data-placement="bottom" title="Desktop" alt="Desktop" />
 
-                                        <a target="_blank" href="https://github.com/nfsu/NFS/blob/NFS_Reloaded/nfs/src/armulator.cpp">
-                                            <img src="icons/github.svg" data-toggle="tooltip" data-placement="bottom" title="View on GitHub" alt="Nintendo ARM7 Thumb Mode Emulator" />
+                                        <a class="icon-link" target="_blank" href="https://github.com/nfsu/NFS/blob/NFS_Reloaded/nfs/src/armulator.cpp">
+                                            <img class="icon-linked" src="icons/github.svg" alt="Nintendo ARM7 Thumb Mode Emulator" />
                                         </a>
 
-                                        <img src="icons/cpp.svg" data-toggle="tooltip" data-placement="bottom" title="C++" alt="CPP" />
+                                        <img class="icon" src="icons/cpp.svg" data-toggle="tooltip" data-placement="bottom" title="C++" alt="CPP" />
 
                                     </div>
                                 </div>
@@ -691,19 +761,18 @@
                                         <h1 class="display-6">Osomi Core</h1>
                                         <h4>Cross platform framework</h4>
 
-                                        <a target="_blank" href="https://github.com/Nielsbishere">
-                                            <img src="icons/solo.svg" data-toggle="tooltip" data-placement="bottom" title="Solo project" alt="Nielsbishere solo project" />
+                                        <a class="icon-link" target="_blank" href="https://github.com/Nielsbishere">
+                                            <img class="icon-linked" src="icons/solo.svg" alt="Nielsbishere solo project" />
                                         </a>
 
-                                        <img src="icons/desktop.svg" data-toggle="tooltip" data-placement="bottom" title="Windows" alt="Windows" />
+                                        <img class="icon" src="icons/desktop.svg" data-toggle="tooltip" data-placement="bottom" title="Windows" alt="Windows" />
+                                        <img class="icon" src="icons/mobile.svg" data-toggle="tooltip" data-placement="bottom" title="Android" alt="Android" />
 
-                                        <img src="icons/mobile.svg" data-toggle="tooltip" data-placement="bottom" title="Android" alt="Android" />
-
-                                        <a target="_blank" href="https://github.com/oxsomi/core">
-                                            <img src="icons/github.svg" data-toggle="tooltip" data-placement="bottom" title="View on GitHub" alt="Cross platform Vulkan framework" />
+                                        <a class="icon-link" target="_blank" href="https://github.com/oxsomi/core">
+                                            <img class="icon-linked" src="icons/github.svg" alt="Cross platform Vulkan framework" />
                                         </a>
 
-                                        <img src="icons/vulkan.svg" data-toggle="tooltip" data-placement="bottom" title="Vulkan" alt="Vulkan" width="24" />
+                                        <img class="icon" src="icons/vulkan.svg" data-toggle="tooltip" data-placement="bottom" title="Vulkan" alt="Vulkan" width="24" />
 
                                     </div>
                                 </div>
@@ -715,7 +784,7 @@
                             <hr class="info" />
                             <h4>Description</h4>
                             <p class="small">
-                                Osomi core is a cross platform framework, designed to be API and platform independent. 
+                                Osomi core is a cross platform framework, designed to be API and platform independent.
                                 It is created with Vulkan, Android and Windows in mind, so it has things like memory management (CPU & GPU), file management, input and serialization. <br />
                                 Other features include shader reflection, custom file types for models (to support sized shader inputs), shaders (to support reflection) and more.
                                 The architecture is created to be abstract so that the user doesn't have to think about platform/API specifics.
@@ -724,9 +793,9 @@
                             <p class="small">
                                 <i>Duration:</i> December 2017 - present <br />
                                 <i>Role:</i> Graphics/engine/architecture programmer <br />
-                                <i>Skills:</i> 
-                                    Vulkan, GLSL, C++17, Bash, Windows, Android, Shader compiler, Custom shader language, Custom file types, Resource baking, Serialization, C++ templates,
-                                    GPU & CPU Memory management, File management, Manual fbx & obj parsing, Node management, Architecture, Procedural generation, Optimization, Shader reflection
+                                <i>Skills:</i>
+                                Vulkan, GLSL, C++17, Bash, Windows, Android, Shader compiler, Custom shader language, Custom file types, Resource baking, Serialization, C++ templates,
+                                GPU & CPU Memory management, File management, Manual fbx & obj parsing, Node management, Architecture, Procedural generation, Optimization, Shader reflection
                                 <br />
                                 <i>Tools:</i> Git/GitHub, Sourcetree, CMake, Jira, Visual Studio, Appveyor, Travis, MSBuild, RenderDoc, Notepad++ <br />
                                 <i>Libraries:</i> zlib, rapidjson, stbi, spirv-cross, glslang, spirv-tools, vulkan <br />
@@ -757,25 +826,25 @@
 
                     <div class="col-md-6 project">
                         <header>
-                            <div class="overlay">
+                            <div class="overlay" id="harpoon">
                                 <div class="d-flex h-100 text-center align-items-center">
                                     <div class="w-100">
                                         <h1 class="display-6">Harpoon</h1>
                                         <h4>Unity C# Injector</h4>
 
-                                        <a target="_blank" href="https://github.com/Nielsbishere">
-                                            <img src="icons/solo.svg" data-toggle="tooltip" data-placement="bottom" title="Solo project" alt="Nielsbishere solo project" />
+                                        <a class="icon-link" target="_blank" href="https://github.com/Nielsbishere">
+                                            <img class="icon-linked" src="icons/solo.svg" alt="Nielsbishere solo project" />
                                         </a>
 
-                                        <img src="icons/desktop.svg" data-toggle="tooltip" data-placement="bottom" title="Windows" alt="Windows" />
+                                        <img class="icon" src="icons/desktop.svg" data-toggle="tooltip" data-placement="bottom" title="Windows" alt="Windows" />
 
-                                        <a target="_blank" href="https://github.com/Nielsbishere/Harpoon">
-                                            <img src="icons/github.svg" data-toggle="tooltip" data-placement="bottom" title="View on GitHub" alt="Unity C# Mono Injector" />
+                                        <a class="icon-link" target="_blank" href="https://github.com/Nielsbishere/Harpoon">
+                                            <img class="icon-linked" src="icons/github.svg" alt="Unity C# Mono Injector" />
                                         </a>
 
-                                        <img src="icons/unity.svg" data-toggle="tooltip" data-placement="bottom" title="Unity C#" alt="Unity C#" />
+                                        <img class="icon" src="icons/unity.svg" data-toggle="tooltip" data-placement="bottom" title="Unity C#" alt="Unity C#" />
 
-                                        <img src="icons/c.svg" data-toggle="tooltip" data-placement="bottom" title="C" alt="C" />
+                                        <img class="icon" src="icons/c.svg" data-toggle="tooltip" data-placement="bottom" title="C" alt="C" />
 
                                     </div>
                                 </div>
@@ -790,7 +859,7 @@
                                 Harpoon was a project that was used in Shiploader; a modloader for the game Raft. This API was intended to be used by the modding community as an alternative.
                                 This was due to the existing modding tool using the source code of the game and distributing it and mods being very version dependent. <br />
                                 The alternative was code injection and not just patching a dll; where an executable requests Unity to load mods, which use a library for wrapping the low-level code. <br />
-                                This is accomplished by loading a C DLL into memory, which calls functions provided onto a heap; these functions are Unity mono functions, which load a C# dll and execute it. 
+                                This is accomplished by loading a C DLL into memory, which calls functions provided onto a heap; these functions are Unity mono functions, which load a C# dll and execute it.
                                 The C# dll is then able to access everything in Unity through C# reflection and Harmony through patching functions
                                 (<a href="https://github.com/Nielsbishere/Harpoon/blob/master/docs/main.md">More info here</a>).
                             </p>
@@ -825,10 +894,10 @@
                                         <h1 class="display-6">Switchbait</h1>
                                         <h4>Switch &amp; Windows project</h4>
 
-                                        <img src="icons/team.svg" data-toggle="tooltip" data-placement="bottom" title="Switchbait Team" alt="Switchbait Team" />
-                                        <img src="icons/desktop.svg" data-toggle="tooltip" data-placement="bottom" title="Windows" alt="Windows" />
-                                        <img src="icons/switch.svg" data-toggle="tooltip" data-placement="bottom" title="Nintendo Switch" alt="Switch" />
-                                        <img src="icons/cpp.svg" data-toggle="tooltip" data-placement="bottom" title="C++" alt="CPP" />
+                                        <img class="icon" src="icons/team.svg" data-toggle="tooltip" data-placement="bottom" title="Switchbait Team" alt="Switchbait Team" />
+                                        <img class="icon" src="icons/desktop.svg" data-toggle="tooltip" data-placement="bottom" title="Windows" alt="Windows" />
+                                        <img class="icon" src="icons/switch.svg" data-toggle="tooltip" data-placement="bottom" title="Nintendo Switch" alt="Switch" />
+                                        <img class="icon" src="icons/cpp.svg" data-toggle="tooltip" data-placement="bottom" title="C++" alt="CPP" />
 
                                     </div>
                                 </div>
@@ -870,7 +939,7 @@
                 <div class="anchor" id="contact"></div>
                 <hr />
 
-                <div class="container col-md-4 col-md-offset-4">
+                <div class="container col-md-6 col-md-offset-6">
                     <div class="text-center">
                         <img class="logo-sm" src="icons/mail.svg" alt="Mail" />
                         <a target="_blank" href="mailto:n@osomi.com" class="lead">n@osomi.com</a>
@@ -889,7 +958,7 @@
                 <div class="anchor" id="competencies"></div>
                 <hr />
 
-                <div class="container col-md-5 col-md-offset-5">
+                <div class="container col-md-8 col-md-offset-8" style="max-width: 900px;">
 
                     <h5 class="text-center" id="graphics">Graphics frameworks</h5>
 
@@ -947,11 +1016,11 @@
 
                 <!-- Resume -->
 
-                <h2 class="display-5 text-center"">Resume</h2>
-                    <div class="anchor" id="resume"></div>
+                <h2 class="display-5 text-center">Resume</h2>
+                <div class="anchor" id="resume"></div>
                 <hr />
 
-                <div class="col-md-6" style="margin: auto;">
+                <div class="col-md-6" style="margin: auto;" >
                     <span id="resumeContent"></span>
                 </div>
 
