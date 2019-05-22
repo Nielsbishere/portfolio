@@ -6,4 +6,4 @@
   <rect height="296" rx="23" width="132" x="97" y="95" fill="#000000"/>
 </mask>
   
-<rect fill="#ffffff" height="512" rx="15%" width="512" mask="url(#gaps)"/></svg>
+<rect fill="#d0d0d0" height="512" rx="15%" width="512" mask="url(#gaps)"/></svg>

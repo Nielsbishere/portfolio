@@ -18,7 +18,7 @@
      id="defs2" />
   <sodipodi:namedview
      id="base"
-     pagecolor="#ffffff"
+     pagecolor="#d0d0d0"
      bordercolor="#666666"
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
@@ -56,12 +56,12 @@
      inkscape:label="Bg"
      transform="translate(-1.3084371,-1.4184592)">
     <path
-       style="fill:none;stroke:#ffffff;stroke-width:3.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       style="fill:none;stroke:#d0d0d0;stroke-width:3.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        d="m 64.000001,2.8320579 -5e-6,122.4468921"
        id="path4534"
        inkscape:connector-curvature="0" />
     <path
-       style="fill:none;stroke:#ffffff;stroke-width:3.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       style="fill:none;stroke:#d0d0d0;stroke-width:3.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        d="m 2.723266,64.055505 122.553464,-5e-6"
        id="path4536"
        inkscape:connector-curvature="0" />
@@ -72,7 +72,7 @@
      id="layer1"
      transform="translate(-1.3084371,-1.4184592)">
     <rect
-       style="fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:4;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       style="fill:none;fill-opacity:1;stroke:#d0d0d0;stroke-width:4;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="rect4504"
        width="86.62072"
        height="86.62072"
@@ -80,14 +80,14 @@
        y="47.238602"
        transform="matrix(0.7074143,-0.70679913,0.7074143,0.70679913,0,0)" />
     <rect
-       style="fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:3.5;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       style="fill:none;fill-opacity:1;stroke:#d0d0d0;stroke-width:3.5;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="rect4532"
        width="60"
        height="60"
        x="34.188988"
        y="34.117558" />
     <path
-       style="fill:none;stroke:#ffffff;stroke-width:3.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       style="fill:none;stroke:#d0d0d0;stroke-width:3.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        d="M 34.188987,34.117557 94.188985,94.117553"
        id="path4538"
        inkscape:connector-curvature="0" />
