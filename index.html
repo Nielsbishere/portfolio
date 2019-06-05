@@ -61,7 +61,7 @@
                 transform: translateX(-50%) translateY(-50%);
             }
 
-            #varmulator {
+            #varmulator, #sarmulator {
                 -ms-transform: translateX(-19%) translateY(-50%);
                 -moz-transform: translateX(-19%) translateY(-50%);
                 -webkit-transform: translateX(-19%) translateY(-50%);
@@ -218,11 +218,8 @@
                 if(!vid.length)
                     return;
 
-                vid.replaceWith(
-                    "<video id='v" + name + "' class='" + vid.attr("class") + "' muted loop playsinline>" +
-                        "<source src='previews/" + name + ".mp4' type='video/mp4'>" +
-                    "</video>"
-                );
+                vid.show();
+                vid[0].play();
 
                 $("#v" + name).get(0).play();
 
@@ -246,7 +243,8 @@
                 if(!vid.length)
                     return;
                                 
-                vid.replaceWith("<img src='screenshots/" + name + ".jpg' class='" + vid.attr("class") + " video' alt='" + name +" screenshot' id='v" + name + "' />");
+                vid.hide();
+                vid[0].currentTime = 0;
             }
             
             function hideProject(hideOverlay){
@@ -339,7 +337,7 @@
 
                 //If you use a touch screen, the overlay is used as a video, otherwise it's a link
 
-                var touchDevice = (navigator.maxTouchPoints || 'ontouchstart' in document.documentElement);
+                var touchDevice = (navigator.maxTouchPoints || "ontouchstart" in document.documentElement);
 
                 //Disable clicking on links when hidden
 
@@ -518,7 +516,12 @@
                                 </div>
                             </div>
 
-                            <img src='screenshots/wisp.jpg' class='video' alt='wisp screenshot' id='vwisp' />
+                            <img src="screenshots/wisp.jpg" class="video" alt="wisp screenshot" />
+
+                            <video id="vwisp" muted loop playsinline preload="none" style="position: absolute;" >
+                                <source src="previews/wisp.mp4" type="video/mp4">
+                            </video>
+                            
                         </section>
                         <div class="projectInfo" style="display: none;">
                             <hr class="info" />
@@ -580,7 +583,12 @@
                                 </div>
                             </div>
 
-                            <img src='screenshots/railrecon.jpg' class='video' alt='railrecon screenshot' id='vrailrecon' />
+                            <img src="screenshots/railrecon.jpg" class="video" alt="railrecon screenshot" />
+
+                            <video id="vrailrecon" muted loop playsinline preload="none" style="position: absolute;" >
+                                <source src="previews/railrecon.mp4" type="video/mp4">
+                            </video>
+
                         </section>
                         <div class="projectInfo" style="display: none;">
                             <hr class="info" />
@@ -637,7 +645,12 @@
                                 </div>
                             </div>
 
-                            <img src='screenshots/mineblowers.jpg' class='video' alt='mineblowers screenshot' id='vmineblowers' />
+                            <img src="screenshots/mineblowers.jpg" class="video" alt="mineblowers screenshot" />
+
+                            <video id="vmineblowers" muted loop playsinline preload="none" style="position: absolute;" >
+                                <source src="previews/mineblowers.mp4" type="video/mp4">
+                            </video>
+
                         </section>
                         <div class="projectInfo" style="display: none;">
                             <hr class="info" />
@@ -694,7 +707,12 @@
                                 </div>
                             </div>
 
-                            <img src='screenshots/nfsu.jpg' class='video' alt='nfsu screenshot' id='vnfsu' />
+                            <img src="screenshots/nfsu.jpg" class="video" alt="nfsu screenshot" />
+
+                            <video id="vnfsu" muted loop playsinline preload="none" style="position: absolute;" >
+                                <source src="previews/nfsu.mp4" type="video/mp4">
+                            </video>
+
                         </section>
                         <div class="projectInfo" style="display: none;">
                             <hr class="info" />
@@ -753,7 +771,12 @@
                                 </div>
                             </div>
 
-                            <img src="screenshots/armulator.jpg" class="video" alt="Armulator screenshot" id="varmulator" />
+                            <img id="sarmulator" src="screenshots/armulator.jpg" class="video" alt="armulator screenshot" />
+
+                            <video id="varmulator" muted loop playsinline preload="none" style="position: absolute;" >
+                                <source src="previews/armulator.mp4" type="video/mp4">
+                            </video>
+
                         </section>
                         <div class="projectInfo" style="display: none;">
                             <hr class="info" />
@@ -810,7 +833,12 @@
                                 </div>
                             </div>
 
-                            <img src='screenshots/ocore.jpg' class='video' alt='ocore screenshot' id='vocore' />
+                            <img src="screenshots/ocore.jpg" class="video" alt="ocore screenshot" />
+
+                            <video id="vocore" muted loop playsinline preload="none" style="position: absolute;" >
+                                <source src="previews/ocore.mp4" type="video/mp4">
+                            </video>
+
                         </section>
                         <div class="projectInfo" style="display: none;">
                             <hr class="info" />
@@ -935,7 +963,12 @@
                                 </div>
                             </div>
 
-                            <img src='screenshots/switchbait.jpg' class='video' alt='switchbait screenshot' id='vswitchbait' />
+                            <img src="screenshots/switchbait.jpg" class="video" alt="switchbait screenshot" />
+
+                            <video id="vswitchbait" muted loop playsinline preload="none" style="position: absolute;" >
+                                <source src="previews/switchbait.mp4" type="video/mp4">
+                            </video>
+
                         </section>
                         <div class="projectInfo" style="display: none;">
                             <hr class="info" />
