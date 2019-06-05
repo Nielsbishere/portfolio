@@ -1,18 +1,23 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-
 <svg
    xmlns:dc="http://purl.org/dc/elements/1.1/"
    xmlns:cc="http://creativecommons.org/ns#"
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
    xmlns:svg="http://www.w3.org/2000/svg"
    xmlns="http://www.w3.org/2000/svg"
-   viewBox="0 0 128 128" width="256" height="256"
-   version="1.1">
-
-   <mask id="V">
-      <rect fill="#ffffff" width="100%" height="100%" x="0" y="0" />
-      <path fill="#000000" d="M 28,32 48,32 64,80 80,32 100,32, 72,105, 56,105 Z" />
-   </mask>
-
-    <path fill="#d0d0d0" mask="url(#V)" d="M 10,32 64,0 118,32 v 64 L 64,128 10,96 Z"/>
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   viewBox="0 0 128 128"
+   width="256"
+   height="256"
+   version="1.1"
+   id="svg850"
+   sodipodi:docname="perforce.svg"
+   inkscape:version="0.92.2 (5c3e80d, 2017-08-06)">
+  <path
+     style="fill:#fffff6;fill-opacity:1;stroke:none;stroke-width:0.00326878;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
+     d="M 74.638475,223.05827 21.285056,191.45225 21.280366,128.01593 21.275676,64.579595 74.639792,32.955604 128.00391,1.3316129 181.4393,32.96851 l 53.43539,31.636895 -0.0608,63.399365 -0.0608,63.39936 -48.57657,28.78908 c -26.71712,15.834 -50.7384,30.06754 -53.38063,31.63009 l -4.80405,2.84099 z m 97.457465,-85.94338 c 15.35516,-40.033299 27.91847,-72.888235 27.91847,-73.010971 0,-0.122736 -9.03784,-0.18984 -20.0841,-0.149123 l -20.08411,0.07403 -15.91757,47.711714 c -13.45969,40.34442 -15.96102,47.60042 -16.19899,46.99099 -0.15478,-0.39639 -7.33752,-21.8991 -15.96163,-47.78378 L 96.087813,63.884685 H 75.948197 c -19.063195,0 -20.129118,0.02696 -19.943259,0.504504 1.058705,2.720188 55.354422,144.273521 55.566842,144.867251 l 0.28449,0.79518 16.16059,-0.0745 16.1606,-0.0745 z"
+     id="path868"
+     inkscape:connector-curvature="0"
+     transform="scale(0.5)" />
 </svg>
