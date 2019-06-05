@@ -19,7 +19,9 @@
 
         <meta name="Author" content="Niels Brunekreef" />
 
-        <meta name="image" property="og:image" content="preview.png" />
+        <meta name="image" property="og:image" content="preview.jpg" />
+
+        <meta name="theme-color" content="#202020" />
 
         <meta name="Description" content="Niels Brunekreef Portfolio graphics and game programmer. C/C++, C#, Java, Assembly, Unity and Unreal Engine projects. Studies at Breda University of Applied Sciences and specializes in graphics optimization and architecture. Works on reverse engineering, creating and modding games." />
     
@@ -122,7 +124,7 @@
                 border-bottom-color: white;
             }
 
-            .display-5 {
+            .display-4 {
                 margin-top: 100px;
             }
 
@@ -152,6 +154,15 @@
 
             .logo {
                 min-width: 50px;
+                width: 13%;
+                height: 13%;
+                margin: auto;
+                padding: 2vh .5vw 2vh .5vw;
+            }
+
+            .logo-m {
+                min-width: 32px;
+                max-width: 64px;
                 width: 13%;
                 height: 13%;
                 margin: auto;
@@ -230,7 +241,7 @@
                 if(!vid.length)
                     return;
                                 
-                vid.replaceWith("<img src='screenshots/" + name + ".png' class='" + vid.attr("class") + " video' alt='" + name +" screenshot' id='v" + name + "' />");
+                vid.replaceWith("<img src='screenshots/" + name + ".jpg' class='" + vid.attr("class") + " video' alt='" + name +" screenshot' id='v" + name + "' />");
             }
             
             function hideProject(hideOverlay){
@@ -351,10 +362,6 @@
                         }
                     );
 
-                    $("#resumeContent").replaceWith(
-                        "<p class='text-center'>Resume cannot be displayed inline.<br/><a href='Niels Brunekreef Resume.pdf' target='_blank'>View here</a></p>"
-                    );
-
                 } else {
 
                     //Show tooltips
@@ -395,12 +402,6 @@
                             switchToProject(name, true, true);
                         }
                     )
-
-                    $("#resumeContent").replaceWith(
-                        "<object style='width: 100%;' id='resumePdf' type='application/pdf' data='Niels Brunekreef Resume.pdf#view=FitH'>" + 
-                            "<p class='text-center'>Resume cannot be displayed inline.<br/><a href='Niels Brunekreef Resume.pdf' target='_blank'>View here</a></p>" +
-                        "</object>"
-                    );
 
                 }
 
@@ -444,7 +445,7 @@
                 </ul>
             </div>
 
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar" aria-label="navbar toggler">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
@@ -457,7 +458,7 @@
             <header>
                 <div class="text-center">
                     <img src="favicon.ico" class="rounded" style="width: 64px; margin-right: 32px;  margin-top: -16px !important;" alt="Me" />
-                    <h2 class="display-5" style="display: inline;">About me</h2>
+                    <h2 class="display-4" style="display: inline;">About me</h2>
                 </div>
                 <div id="about" class="anchor"></div>
                 <hr />
@@ -475,7 +476,7 @@
 
             <!-- Projects -->
 
-            <h2 class="display-5 text-center">Projects</h2>
+            <h2 class="display-4 text-center">Projects</h2>
             <div id="projects" class="anchor"></div>
             <hr />
 
@@ -491,20 +492,20 @@
                                 <div class="d-flex h-100 text-center align-items-center">
                                     <div class="w-100">
 
-                                        <h1 class="display-6">Wisp</h1>
+                                        <h2 class="display-5">Wisp</h2>
                                         <h4>Realtime raytracing</h4>
 
-                                        <a class="icon-link" target="_blank" href="https://github.com/TeamWisp">
+                                        <a class="icon-link" target="_blank" rel="noopener" href="https://github.com/TeamWisp">
                                             <img class="icon-linked" src="icons/team.svg" alt="Team Wisp" />
                                         </a>
 
                                         <img class="icon" src="icons/desktop.svg" data-toggle="tooltip" data-placement="bottom" title="Windows" alt="Windows" />
 
-                                        <a class="icon-link" target="_blank" href="https://github.com/TeamWisp/Procedural-Ray-Tracing">
+                                        <a class="icon-link" target="_blank" rel="noopener" href="https://github.com/TeamWisp/Procedural-Ray-Tracing">
                                             <img class="icon-linked" src="icons/github.svg" alt="Ray tracing renderer on GitHub" />
                                         </a>
 
-                                        <a class="icon-link" target="_blank" href="https://twitter.com/wisprenderer">
+                                        <a class="icon-link" target="_blank" rel="noopener" href="https://twitter.com/wisprenderer">
                                             <img class="icon-linked" src="icons/twitter.svg" alt="Wisp renderer on Twitter" />
                                         </a><br />
 
@@ -512,7 +513,7 @@
                                 </div>
                             </div>
 
-                            <img src='screenshots/wisp.png' class='video' alt='wisp screenshot' id='vwisp' />
+                            <img src='screenshots/wisp.jpg' class='video' alt='wisp screenshot' id='vwisp' />
                         </section>
                         <div class="projectInfo" style="display: none;">
                             <hr class="info" />
@@ -554,17 +555,17 @@
                                 <div class="d-flex h-100 text-center align-items-center">
                                     <div class="w-100" style="z-index: 0;">
 
-                                        <h1 class="display-6">Rail recon</h1>
+                                        <h2 class="display-5">Rail recon</h2>
                                         <h4>Twin stick shooter</h4>
 
                                         <img class="icon" src="icons/team.svg" data-toggle="tooltip" data-placement="bottom" title="Triggered Studios" alt="Triggered Studios" />
                                         <img class="icon" src="icons/desktop.svg" data-toggle="tooltip" data-placement="bottom" title="Windows" alt="Windows" />
 
-                                        <a class="icon-link" target="_blank" href="http://rail-recon.com">
+                                        <a class="icon-link" target="_blank" rel="noopener" href="http://rail-recon.com">
                                             <img class="icon-linked" src="icons/website.svg" alt="Rail recon website" />
                                         </a>
 
-                                        <a class="icon-link" target="_blank" href="https://store.steampowered.com/app/746860/Rail_Recon/">
+                                        <a class="icon-link" target="_blank" rel="noopener" href="https://store.steampowered.com/app/746860/Rail_Recon/">
                                             <img class="icon-linked" src="icons/steam.svg" alt="View on steam" />
                                         </a>
 
@@ -574,7 +575,7 @@
                                 </div>
                             </div>
 
-                            <img src='screenshots/railrecon.png' class='video' alt='railrecon screenshot' id='vrailrecon' />
+                            <img src='screenshots/railrecon.jpg' class='video' alt='railrecon screenshot' id='vrailrecon' />
                         </section>
                         <div class="projectInfo" style="display: none;">
                             <hr class="info" />
@@ -620,7 +621,7 @@
                             <div class="overlay" id="mineblowers">
                                 <div class="d-flex h-100 text-center align-items-center">
                                     <div class="w-100">
-                                        <h1 class="display-6">Mineblowers</h1>
+                                        <h2 class="display-5">Mineblowers</h2>
                                         <h4>Custom controller game</h4>
 
                                         <img class="icon" src="icons/team.svg" data-toggle="tooltip" data-placement="bottom" title="Team Moose" alt="Team moose" />
@@ -631,7 +632,7 @@
                                 </div>
                             </div>
 
-                            <img src='screenshots/mineblowers.png' class='video' alt='mineblowers screenshot' id='vmineblowers' />
+                            <img src='screenshots/mineblowers.jpg' class='video' alt='mineblowers screenshot' id='vmineblowers' />
                         </section>
                         <div class="projectInfo" style="display: none;">
                             <hr class="info" />
@@ -669,16 +670,16 @@
                             <div class="overlay" id="nfsu">
                                 <div class="d-flex h-100 text-center align-items-center">
                                     <div class="w-100">
-                                        <h1 class="display-6">NFSU</h1>
+                                        <h2 class="display-5">NFSU</h2>
                                         <h4>NDS Rom editor</h4>
 
-                                        <a class="icon-link" target="_blank" href="https://github.com/Nielsbishere">
+                                        <a class="icon-link" target="_blank" rel="noopener" href="https://github.com/Nielsbishere">
                                             <img class="icon-linked" src="icons/solo.svg" alt="Nielsbishere solo project" />
                                         </a>
 
                                         <img class="icon" src="icons/desktop.svg" data-toggle="tooltip" data-placement="bottom" title="Windows" alt="Windows" />
 
-                                        <a class="icon-link" target="_blank" href="https://github.com/nfsu/NFS/tree/NFS_Reloaded">
+                                        <a class="icon-link" target="_blank" rel="noopener" href="https://github.com/nfsu/NFS/tree/NFS_Reloaded">
                                             <img class="icon-linked" src="icons/github.svg" alt="Nintendo File System NDS Rom Hacking Project on GitHub" />
                                         </a>
 
@@ -688,7 +689,7 @@
                                 </div>
                             </div>
 
-                            <img src='screenshots/nfsu.png' class='video' alt='nfsu screenshot' id='vnfsu' />
+                            <img src='screenshots/nfsu.jpg' class='video' alt='nfsu screenshot' id='vnfsu' />
                         </section>
                         <div class="projectInfo" style="display: none;">
                             <hr class="info" />
@@ -728,16 +729,16 @@
                             <div class="overlay" id="armulator">
                                 <div class="d-flex h-100 text-center align-items-center">
                                     <div class="w-100">
-                                        <h1 class="display-6">Armulator</h1>
+                                        <h2 class="display-5">Armulator</h2>
                                         <h4>ARM7/9 Thumb emulator</h4>
 
-                                        <a class="icon-link" target="_blank" href="https://github.com/Nielsbishere">
+                                        <a class="icon-link" target="_blank" rel="noopener" href="https://github.com/Nielsbishere">
                                             <img class="icon-linked" src="icons/solo.svg" alt="Nielsbishere solo project" />
                                         </a>
 
                                         <img class="icon" src="icons/desktop.svg" data-toggle="tooltip" data-placement="bottom" title="Desktop" alt="Desktop" />
 
-                                        <a class="icon-link" target="_blank" href="https://github.com/nfsu/NFS/blob/NFS_Reloaded/nfs/src/armulator.cpp">
+                                        <a class="icon-link" target="_blank" rel="noopener" href="https://github.com/nfsu/NFS/blob/NFS_Reloaded/nfs/src/armulator.cpp">
                                             <img class="icon-linked" src="icons/github.svg" alt="Nintendo ARM7 Thumb Mode Emulator" />
                                         </a>
 
@@ -747,7 +748,7 @@
                                 </div>
                             </div>
 
-                            <img src="screenshots/armulator.png" class="video" alt="Armulator screenshot" id="varmulator" />
+                            <img src="screenshots/armulator.jpg" class="video" alt="Armulator screenshot" id="varmulator" />
                         </section>
                         <div class="projectInfo" style="display: none;">
                             <hr class="info" />
@@ -784,17 +785,17 @@
                             <div class="overlay" id="ocore">
                                 <div class="d-flex h-100 text-center align-items-center">
                                     <div class="w-100">
-                                        <h1 class="display-6">Osomi Core</h1>
+                                        <h2 class="display-5">Osomi Core</h2>
                                         <h4>Cross platform framework</h4>
 
-                                        <a class="icon-link" target="_blank" href="https://github.com/Nielsbishere">
+                                        <a class="icon-link" target="_blank" rel="noopener" href="https://github.com/Nielsbishere">
                                             <img class="icon-linked" src="icons/solo.svg" alt="Nielsbishere solo project" />
                                         </a>
 
                                         <img class="icon" src="icons/desktop.svg" data-toggle="tooltip" data-placement="bottom" title="Windows" alt="Windows" />
                                         <img class="icon" src="icons/mobile.svg" data-toggle="tooltip" data-placement="bottom" title="Android" alt="Android" />
 
-                                        <a class="icon-link" target="_blank" href="https://github.com/oxsomi/core">
+                                        <a class="icon-link" target="_blank" rel="noopener" href="https://github.com/oxsomi/core">
                                             <img class="icon-linked" src="icons/github.svg" alt="Cross platform Vulkan framework" />
                                         </a>
 
@@ -804,7 +805,7 @@
                                 </div>
                             </div>
 
-                            <img src='screenshots/ocore.png' class='video' alt='ocore screenshot' id='vocore' />
+                            <img src='screenshots/ocore.jpg' class='video' alt='ocore screenshot' id='vocore' />
                         </section>
                         <div class="projectInfo" style="display: none;">
                             <hr class="info" />
@@ -855,16 +856,16 @@
                             <div class="overlay" id="harpoon">
                                 <div class="d-flex h-100 text-center align-items-center">
                                     <div class="w-100">
-                                        <h1 class="display-6">Harpoon</h1>
+                                        <h2 class="display-5">Harpoon</h2>
                                         <h4>Unity C# Injector</h4>
 
-                                        <a class="icon-link" target="_blank" href="https://github.com/Nielsbishere">
+                                        <a class="icon-link" target="_blank" rel="noopener" href="https://github.com/Nielsbishere">
                                             <img class="icon-linked" src="icons/solo.svg" alt="Nielsbishere solo project" />
                                         </a>
 
                                         <img class="icon" src="icons/desktop.svg" data-toggle="tooltip" data-placement="bottom" title="Windows" alt="Windows" />
 
-                                        <a class="icon-link" target="_blank" href="https://github.com/Nielsbishere/Harpoon">
+                                        <a class="icon-link" target="_blank" rel="noopener" href="https://github.com/Nielsbishere/Harpoon">
                                             <img class="icon-linked" src="icons/github.svg" alt="Unity C# Mono Injector" />
                                         </a>
 
@@ -876,7 +877,7 @@
                                 </div>
                             </div>
 
-                            <img src="screenshots/harpoon.png" class="video" alt="harpoon screenshot" />
+                            <img src="screenshots/harpoon.jpg" class="video" alt="harpoon screenshot" />
                         </section>
                         <div class="projectInfo" style="display: none;">
                             <hr class="info" />
@@ -917,7 +918,7 @@
                             <div class="overlay" id="switchbait">
                                 <div class="d-flex h-100 text-center align-items-center">
                                     <div class="w-100">
-                                        <h1 class="display-6">Switchbait</h1>
+                                        <h2 class="display-5">Switchbait</h2>
                                         <h4>Switch &amp; Windows project</h4>
 
                                         <img class="icon" src="icons/team.svg" data-toggle="tooltip" data-placement="bottom" title="Switchbait Team" alt="Switchbait Team" />
@@ -929,7 +930,7 @@
                                 </div>
                             </div>
 
-                            <img src='screenshots/switchbait.png' class='video' alt='switchbait screenshot' id='vswitchbait' />
+                            <img src='screenshots/switchbait.jpg' class='video' alt='switchbait screenshot' id='vswitchbait' />
                         </section>
                         <div class="projectInfo" style="display: none;">
                             <hr class="info" />
@@ -961,26 +962,26 @@
 
                 </article>
 
-                <h2 class="display-5 text-center">Contact me</h2>
+                <h2 class="display-4 text-center">Contact me</h2>
                 <div class="anchor" id="contact"></div>
                 <hr />
 
                 <div class="container col-md-6 col-md-offset-6">
                     <div class="text-center">
-                        <img class="logo-sm" src="icons/mail.svg" alt="Mail" />
-                        <a target="_blank" href="mailto:n@osomi.net" class="lead">n@osomi.net</a>
+                        <img class="logo-m" src="icons/mail.svg" alt="Mail" style="margin-left: -24px;" />
+                        <a target="_blank" rel="noopener" href="mailto:n@osomi.net" class="lead">n@osomi.net</a>
                     </div>
                     <div class="text-center">
-                        <img class="logo-sm" src="icons/linkedin.svg" alt="Linkedin" width="32px" height="32px" />
-                        <a target="_blank" href="https://www.linkedin.com/in/niels-brunekreef-644025177/" class="lead">Niels Brunekreef</a>
+                        <img class="logo-m" src="icons/linkedin.svg" alt="Linkedin" />
+                        <a target="_blank" rel="noopener" href="https://www.linkedin.com/in/niels-brunekreef-644025177/" class="lead">Niels Brunekreef</a>
                     </div>
                     <div class="text-center">
-                        <img class="logo-sm" src="icons/github.svg" alt="GitHub" />
-                        <a target="_blank" href="https://github.com/Nielsbishere" class="lead" style="margin-right: 1em; margin-left: 1em;">Nielsbishere</a>
+                        <img class="logo-m" src="icons/github.svg" alt="GitHub" />
+                        <a target="_blank" rel="noopener" href="https://github.com/Nielsbishere" class="lead" style="margin-right: 1em; margin-left: 1em;">Nielsbishere</a>
                     </div>
                 </div>
 
-                <h2 class="display-5 text-center">Competencies</h2>
+                <h2 class="display-4 text-center">Competencies</h2>
                 <div class="anchor" id="competencies"></div>
                 <hr />
 
@@ -1041,12 +1042,14 @@
 
                 <!-- Resume -->
 
-                <h2 class="display-5 text-center">Resume</h2>
+                <h2 class="display-4 text-center">Resume</h2>
                 <div class="anchor" id="resume"></div>
                 <hr />
 
                 <div class="col-md-6" style="margin: auto;" >
-                    <span id="resumeContent"></span>
+                    <object style="width: 100%;" id="resumePdf" type="application/pdf" data="Niels%20Brunekreef%20Resume.pdf#view=FitH">
+                        <p class="text-center">Resume cannot be displayed inline.<br/><a href="Niels%20Brunekreef%20Resume.pdf" target="_blank" rel="noopener">View here</a></p>
+                    </object>
                 </div>
 
             </div>
