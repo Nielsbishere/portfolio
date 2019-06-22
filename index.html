@@ -320,10 +320,16 @@
             var current = null;
             var selectedProject = null;
             var hoverTimeout = null;
-            var useHover = true;
+            var useHover = true, isInteractive = true;
             var nextHover = null;
 
             $(function () {
+
+                var params = new window.URLSearchParams(window.location.search);
+                isInteractive = !params.has("static");
+
+                if(!isInteractive)
+                    $(".projectInfo").show();
 
                 //Showing current year
 
@@ -348,7 +354,7 @@
                         e.stopPropagation();
                 });
 
-                if (touchDevice) {
+                if (touchDevice && isInteractive) {
                    
                     //Toggle tooltips if visible
 
@@ -365,7 +371,7 @@
                         }
                     );
 
-                } else {
+                } else if(isInteractive) {
 
                     //Show tooltips
 
