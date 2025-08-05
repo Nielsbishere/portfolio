@@ -1,0 +1,374 @@
+
+:root {
+    --primary: #007bff;
+    --primary-dark: #0056b3;
+    --primary-light: #3395ff;
+    --bg-dark: #101010;
+    --bg-medium: #202020;
+    --bg-light: #303030;
+    --bg-gradient: radial-gradient(circle, rgba(16,16,16,1) 27%, rgba(32,32,32,1) 81%, rgba(48,48,48,1) 100%);
+    --text-primary: #ffffff;
+    --text-secondary: #b0b0b0;
+    --border-color: rgba(255, 255, 255, 0.1);
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    --navbar-height: 60px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+a {
+    color: var(--primary);
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+a:hover {
+    color: var(--primary-light);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background-image: var(--bg-gradient);
+    color: var(--text-primary);
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0 0 1rem 0;
+    font-weight: 300;
+    letter-spacing: -0.02em;
+}
+
+.display-4 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    margin: 3rem 0 2rem;
+    text-align: center;
+    color: var(--text-primary);
+}
+
+.display-5 {
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    margin-bottom: 0.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+h4 {
+    font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+    color: var(--text-primary);
+    margin-top: 1.5rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+h5 {
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-secondary);
+    margin: 3rem 0 2rem;
+}
+
+video::-webkit-media-controls {
+    display: none !important;
+}
+
+section {
+    position: relative;
+    background-color: black;
+    aspect-ratio: 16 / 9;
+    width: 100%;
+    max-width: 100%;
+    margin: auto;
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 123, 255, 0.3);
+}
+
+.video, section video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+    z-index: 0;
+    border-radius: 12px;
+}
+
+.heightVideo {
+    width: auto;
+    height: 100%;
+}
+
+.widthVideo {
+    width: 100%;
+    height: auto;
+}
+
+.project {
+    margin-bottom: 3rem;
+    padding: 0 1.5rem;
+}
+
+section .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(to bottom, 
+        rgba(0, 0, 0, 0.3) 0%, 
+        rgba(0, 0, 0, 0.5) 100%);
+    z-index: 5;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+section .overlay:hover {
+    background: linear-gradient(to bottom, 
+        rgba(0, 0, 0, 0.3) 0%, 
+        rgba(0, 0, 0, 0.6) 100%);
+    border-color: var(--primary);
+}
+
+.overlay:not([selected]) {
+    cursor: pointer;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    min-height: var(--navbar-height);
+    background: linear-gradient(to right, #003d8a 0%, #0066cc 100%);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.navbar-brand  {
+    font-size: 1.1rem;
+    margin: 0;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+}
+
+.nav-link {
+    color: var(--text-primary) !important;
+    font-size: 0.95rem;
+    padding: 0.5rem 0;
+    transition: opacity 0.2s ease;
+}
+
+.nav-link:hover {
+    opacity: 0.8;
+}
+
+.container-fluid {
+    width: 100%;
+    max-width: 1600px;
+    margin: calc(var(--navbar-height) + 2rem) auto 2rem;
+    padding: 0 3rem;
+}
+
+header {
+    text-align: center;
+    padding: 2rem 0;
+}
+
+.anchor {
+    position: absolute;
+    margin-top: -100px;
+}
+
+.tooltip-inner, .tooltip {
+    z-index: 2;
+    background-color: var(--primary);
+    padding: 1px 4px 1px 4px;
+}
+
+.bs-tooltip-auto[x-placement^=bottom] .arrow::before, .bs-tooltip-bottom .arrow::before {
+    border-bottom-color: white;
+}
+
+hr.separator {
+    border: none;
+    height: 1px;
+    background: var(--primary);
+    margin: 3rem auto;
+    width: 90%;
+    opacity: 0.5;
+}
+
+.projectInfo {
+    margin: 1rem 12.5%;
+    width: 75%;
+}
+
+hr.info {
+    width: 100%;
+    padding-bottom: 10px; 
+    margin-bottom: 0px;
+    border-top: 5px dotted var(--primary);
+    opacity: 0.7;
+}
+
+h5 {
+    margin-top: 45px;
+}
+
+.logo {
+    min-width: 50px;
+    width: 13%;
+    height: 13%;
+    margin: auto;
+    filter: brightness(0.9);
+    padding: 2vh .5vw 2vh .5vw;
+}
+
+.logo:hover {
+    filter: brightness(1.1);
+    transform: scale(1.05);
+}
+
+
+.logo-m {
+    min-width: 32px;
+    max-width: 64px;
+    width: 13%;
+    height: auto;
+    margin: auto;
+    padding: 2vh .5vw 2vh .5vw;
+    vertical-align: middle;
+}
+
+.logo-sm {
+    min-width: 25px;
+    width: 7.5%;
+    height: 7.5%;
+    margin: auto;
+    padding: 2vh .5vw 2vh .5vw;
+    filter: brightness(0.9);
+    transition: all 0.2s ease;
+}
+
+.logo-sm:hover {
+    filter: brightness(1.1);
+    transform: scale(1.05);
+}
+
+.logo-xl {
+    width: 40%;
+    max-width: 33vw;
+    filter: brightness(0.9);
+    transition: all 0.2s ease;
+}
+
+.logo-xl:hover {
+    filter: brightness(1.1);
+    transform: scale(1.05);
+}
+
+.icon, .icon-linked {
+    width: 24px;
+    height: 24px;
+    margin: 0 0.25rem;
+    vertical-align: middle;
+    opacity: 0.9;
+    transition: all 0.2s ease;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.8));
+}
+
+.icon-linked:hover {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+.display-5 {
+	margin-top: 32px;
+}
+
+ .lead {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+}
+
+footer {
+    text-align: center;
+    padding: 2rem 0;
+    margin-top: 4rem;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+footer a {
+    color: var(--primary);
+}
+
+@media (max-width: 768px) {
+	
+    .container-fluid {
+        margin-top: 80px !important;
+        padding: 0 1rem;
+    }
+	
+    .navbar {
+        padding: 0 1rem;
+    }
+    
+    .display-4 {
+        font-size: 2.5rem;
+        margin-top: 2rem;
+    }
+    
+    .display-5 {
+        font-size: 1.75rem;
+    }
+    
+    .project {
+        margin-bottom: 2rem;
+        padding: 0 0.5rem;
+    }
+    
+    .projectInfo {
+        padding: 1rem;
+        margin: 1rem 5%;
+        width: 90%;
+    }
+}
+
+/* Find a better solution for this, but in between this area, our icons start clipping */
+@media screen and (max-width: 900px) and (min-width: 700px) {
+  .col-md-6 {
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+  }
+
+}

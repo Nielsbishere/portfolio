@@ -2,437 +2,73 @@
 <html lang="en">
 
     <head>
-    
         <meta charset="utf-8" />
-    
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     
         <!-- Setup icon and website keywords / title -->
     
-        <link rel="icon" href="favicon.ico" type="image/x-icon" />
-    
-        <title>Niels Brunekreef Portfolio - Graphics Programmer</title>
-    
-        <meta name="Keywords" content="Niels, Brunekreef, Portfolio, Graphics, Game, Programmer, Engineer, Programming, C++, CPP, C, C#, CSharp, Assembly, Asm, ARM, ARM7, Thumb mode, ARM9, Java, JavaScript, PHP, CSS, HTML, HTML5, VBS, Bash, Batch, CMake, MySQL, JQuery, Bootstrap, Swift, OpenGL, OpenGL 4.5, ES, OpenGL ES 2.0, OpenGL ES, GLES, GLESv2, Vulkan, DirectX, D3D, D3D11, D3D12, DirectX11, DirectX12, Vulkan, Switch, Nintendo, DS, Windows, Android, SDK, NDK, Linux, Raspberry pi, Visual Studio, Notepad++, MSVC, MinGW Makefiles, RenderDoc, NSight, Qt, Qt5, RTX, DXR, Raytracing, Rasterizer, Compute, Shader, Glsl, Hlsl, Unreal Engine, Unity Engine, Perforce, GitHub, Jira, Trello, Graphics, Programmer, Engine, Reverse Engineering, Portfolio" />
-    
-        <meta name="Title" property="og:title" content="Graphics programmer - Niels Brunekreef" />
-
+        <link rel="icon" href="favicon.png" type="image/x-icon" />
+        <title>Niels Brunekreef Portfolio - Senior Graphics Programmer</title>
+        <meta name="Title" property="og:title" content="Niels Brunekreef - Senior graphics programmer" />
         <meta name="Author" content="Niels Brunekreef" />
-
-        <meta name="image" property="og:image" content="preview.jpg" />
-
+        <meta name="image" property="og:image" content="preview.png" />
         <meta name="theme-color" content="#202020" />
 
-        <meta name="Description" content="Niels Brunekreef Portfolio graphics and game programmer. C/C++, C#, Java, Assembly, Unity and Unreal Engine projects. Studies at Breda University of Applied Sciences and specializes in graphics optimization and architecture. Works on reverse engineering, creating and modding games." />
+        <meta 
+            name="Description" 
+            content="
+				Portfolio of Niels Brunekreef — Senior Graphics Programmer specializing in real-time rendering, raytracing, GPU systems, and shader tooling. 
+				Developer at Lumion, leading efforts on DXR integration, shader infrastructure, and performance optimization. 
+				Experienced in C++, HLSL, Vulkan, DirectX 12, and cross-platform graphics. 
+				Passionate about emulation, modding, and building custom engines and tools.
+            " 
+        />
+
+        <meta 
+            name="Keywords" 
+            content="
+				Niels Brunekreef, graphics programmer, raytracing, DXR, DirectX12, D3D12, Vulkan, HLSL, GLSL, C++, shader programming, GPU performance, real-time rendering,
+				engine development, architecture visualization, Lumion, Core3, graphics framework, shader tooling, compute, GPU systems, raytraced reflections, path tracing,
+				game development, Unreal Engine, Unity, modding, reverse engineering, emulation, ARM9, ARM7, NDS, OpenGL, Qt, CMake, RenderDoc, NSight, PIX, Visual Studio,
+				GitHub, shader compiler, DXC, SPIR-V, cross-platform rendering, low-level programming, senior graphics engineer, Breda University of Applied Sciences
+            " 
+        />
     
-        <!-- Setup stylesheet -->
+        <!-- Setup stylesheets -->
     
         <link rel="stylesheet" href="deps/bootstrap-4.3.1.min.css" />
-    
-        <!-- Custom styles and scripts -->
-    
-        <style>
-    
-            html {
-                scroll-behavior: smooth;
-            }
-
-            video::-webkit-media-controls {
-                display: none !important;
-            }
-    
-            section {
-                position: relative;
-                background-color: black;
-                min-height: 20rem;
-                width: 100%;
-                overflow: hidden;
-            }
-    
-            .video, section video {
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                min-width: 100%;
-                z-index: 0;
-                -ms-transform: translateX(-50%) translateY(-50%);
-                -moz-transform: translateX(-50%) translateY(-50%);
-                -webkit-transform: translateX(-50%) translateY(-50%);
-                transform: translateX(-50%) translateY(-50%);
-            }
-
-            #varmulator, #sarmulator {
-                -ms-transform: translateX(-19%) translateY(-50%);
-                -moz-transform: translateX(-19%) translateY(-50%);
-                -webkit-transform: translateX(-19%) translateY(-50%);
-                transform: translateX(-19%) translateY(-50%);
-            }
-
-            .heightVideo {
-                width: auto;
-                height: 100%;
-            }
-
-            .widthVideo {
-                width: 100%;
-                height: auto;
-            }
-    
-            .project, section {
-                margin-bottom: 20px;
-            }
-    
-            section .overlay {
-                position: absolute;
-                top: 0;
-                left: 0;
-                height: 100%;
-                width: 100%;
-                background-color: rgba(0, 0, 0, 0.4);
-                z-index: 5;
-                border: 1px solid white;
-            }
-    
-            .bg-primary, .btn-primary, .badge-primary, .alert-primary {
-                background-color: #0066cc;
-            }
-    
-            .navbar {
-                background-color: #0044aa;
-            }
-    
-            hr {
-                border-top: 1px solid #cccccc;
-                margin-top: 20px;
-                margin-left: 15px;
-                margin-right: 15px;
-                margin-bottom: 25px;
-            }
-    
-            .anchor {
-                position: absolute;
-                margin-top: -160px;
-            }
-
-            .tooltip-inner, .tooltip {
-                z-index: 2;
-                background-color: #0066cc;
-                padding: 1px 4px 1px 4px;
-            }
-
-            .bs-tooltip-auto[x-placement^=bottom] .arrow::before, .bs-tooltip-bottom .arrow::before {
-                border-bottom-color: white;
-            }
-
-            .display-4 {
-                margin-top: 100px;
-            }
-
-            hr {
-                margin-left: 5%;
-                margin-right: 5%;
-            }
-
-            .projectInfo {
-                margin-left: 12.5%;
-                margin-right: 12.5%;
-                width: 75%;
-            }
-
-            hr.info {
-                width: 100%;
-                margin-left: -5%; 
-                margin-right: -5%;
-                padding-bottom: 10px; 
-                margin-bottom: 0px;
-                border-top: 5px dotted white;
-            }
-
-            h5 {
-                margin-top: 45px;
-            }
-
-            .logo {
-                min-width: 50px;
-                width: 13%;
-                height: 13%;
-                margin: auto;
-                padding: 2vh .5vw 2vh .5vw;
-            }
-
-            .logo-m {
-                min-width: 32px;
-                max-width: 64px;
-                width: 13%;
-                height: 13%;
-                margin: auto;
-                padding: 2vh .5vw 2vh .5vw;
-            }
-
-            .logo-sm {
-                min-width: 25px;
-                width: 7.5%;
-                height: 7.5%;
-                margin: auto;
-                padding: 2vh .5vw 2vh .5vw;
-            }
-
-            .logo-xl {
-                width: 40%;
-                max-width: 33vw;
-            }
-
-            .icon, .icon-linked {
-                width: 24px;
-                height: 24px;
-            }
-
-            body {
-                background-image: radial-gradient(circle, rgba(16,16,16,1) 27%, rgba(32,32,32,1) 81%, rgba(48,48,48,1) 100%);
-            }
-			
-			.overlay:not([selected]) {
-				cursor: pointer;
-			}
-
-        </style>
+        <link rel="stylesheet" href="index.css" />
     
     </head>
 
     <body>
 
-        <!-- Scripts & deps; jquery, popper and bootstrap -->
+        <!-- Scripts & deps -->
 
         <script src="deps/jquery-3.4.0.min.js"></script>
         <script src="deps/popper-1.14.7.min.js"></script>
         <script src="deps/bootstrap-4.3.1.min.js"></script>
 
-        <script>
-
-            function playVid(name, hideOverlay){
-                
-                var vid = $("#v" + name);
-
-                $("#" + name).attr("selected", true);
-
-                if(!vid.length)
-                    return;
-
-                vid.show();
-                vid[0].play();
-
-                $("#v" + name).get(0).play();
-
-                if(hideOverlay)
-                    $("#" + name).animate({
-                        opacity: 0
-                    });
-            }
-
-            function stopVid(name, hideOverlay){
-                
-                var vid = $("#v" + name);
-
-                $("#" + name).removeAttr("selected");
-
-                if(hideOverlay)
-                    $("#" + name).animate({
-                        opacity: 1
-                    });
-
-                if(!vid.length)
-                    return;
-                                
-                vid.hide();
-                vid[0].currentTime = 0;
-            }
-            
-            function hideProject(hideOverlay){
-            
-                if(current != null)
-                    stopVid(current, hideOverlay);
-            
-                if(selectedProject != null){
-                    selectedProject.hide(500);
-                    selectedProject = null;
-                }
-            
-            }
-
-            function switchToProject(name, hideOverlay, sameIsToggle){
-                
-                var vid = $("#v" + name);
-
-                var dist = null, prevHeight = null;
-
-                if(current != null){
-                    var prev = $("#" + current);
-                    prevHeight = prev.offset().top;
-                    dist = prev.parent().parent().find(".projectInfo").height();
-                }
-
-                if (current == name){
-
-                    if(sameIsToggle){
-                        hideProject(hideOverlay);
-                        current = null;
-                    }
-
-                    return;
-                }
-
-                hideProject(hideOverlay);
-
-                var curr = $("#" + name);
-                selectedProject = curr.parent().parent().find(".projectInfo");
-                selectedProject.show(500);
-                var prev = current;
-                current = name;
-
-                var offset = curr.offset().top - 96;
-
-                if(dist != null && offset >= prevHeight)
-                    offset -= dist;
-
-                $(window).scrollTop(offset);
-    
-                if (vid.length == 0){
-                    if(hideOverlay)
-                        $("#" + name).animate({
-                            opacity: 0
-                        });
-                } else
-                    playVid(current, hideOverlay);
-            }
-
-            function updateAspect(){
-
-                $("video, .video").each(function () {
-                    if ($(this).parent().width() * 9 >= $(this).parent().height() * 16)
-                        $(this).attr("class", "widthVideo video");
-                    else
-                        $(this).attr("class", "heightVideo video");
-                });
-
-                $("#resumePdf").height($("#resumePdf").width() * 1.5);
-            }
-
-            var current = null;
-            var selectedProject = null;
-            var hoverTimeout = null;
-            var useHover = true, isInteractive = true;
-            var nextHover = null;
-
-            $(function () {
-
-                var params = new window.URLSearchParams(window.location.search);
-                isInteractive = !params.has("static");
-
-                if(!isInteractive)
-                    $(".projectInfo").show();
-
-                //Showing current year
-
-                if (new Date().getFullYear() != 2019)
-                    $(".year").replaceWith("2019 - " + new Date().getFullYear());
-
-                //Handle video aspect (clamp to overlay size)
-
-                setTimeout(updateAspect, 100);
-                $(window).resize(updateAspect);
-
-                //If you use a touch screen, the overlay is used as a video, otherwise it's a link
-
-                var touchDevice = (navigator.maxTouchPoints || "ontouchstart" in document.documentElement);
-
-                //Disable clicking on links when hidden
-
-                $(".icon-link, .icon").click(function(e){
-                    if($(this).is("a") && $(this).parent().parent().parent().css("opacity") != 1)
-                        e.preventDefault();
-                    else
-                        e.stopPropagation();
-                });
-
-                if (touchDevice && isInteractive) {
-                   
-                    //Toggle tooltips if visible
-
-                    $('[data-toggle="tooltip"]').click(function () {
-                        if($(this).parent().parent().parent().css("opacity") == 1)
-                            $(this).tooltip("toggle");
-                    });
-
-                    //Playing and stopping videos
-                    $(".overlay").click(
-                        function (e) {
-                            var name = $(this).attr("id");
-                            switchToProject(name, true, true);
-                        }
-                    );
-
-                } else if(isInteractive) {
-
-                    //Show tooltips
-
-                    // $('[data-toggle="tooltip"]').tooltip();
-
-                    $('[data-toggle="tooltip"]').hover(function(){
-                        if($(this).parent().parent().parent().css("opacity") == 1)
-                            $(this).tooltip("toggle");
-                    });
-
-                    //Videos as gifs
-
-                    $(".overlay").hover(
-                        function () {
-                            var name = $(this).attr("id");
-
-                            if(useHover){
-                                hoverTimeout = setTimeout(function(){
-                                    switchToProject(name, false, false);
-                                }, 200);
-                                nextHover = name;
-                            }
-                        },
-                        function () {
-                            nextHover = null;
-                            if(hoverTimeout != null){
-                                clearTimeout(hoverTimeout);
-                                hoverTimeout = null;
-                            }
-                        }
-                    );
-
-                    $(".overlay").click(
-                        function(){
-                            useHover = false;
-                            var name = $(this).attr("id");
-                            switchToProject(name, true, true);
-                        }
-                    )
-
-                }
-
-            });
-        </script>
+        <script src="index.js"></script>
 
         <!-- Navbar -->
 
         <nav class="navbar fixed-top navbar-expand-lg navbar-dark" style="border-bottom: 1px solid black;">
 
-            <a class="navbar-brand" href="#" style="padding-top: .5em;">
-                <h6>Niels Brunekreef</h6>
-            </a>
+            <a class="navbar-brand mr-4" href="#">Niels Brunekreef</a>
 
             <div class="ml-auto" style="padding-right: 1em;">
-                <a href="https://github.com/Nielsbishere">
-                    <img src="icons/github.svg" width="32" height="32" alt="GitHub" />
+                <a href="https://github.com/Nielsbishere" style="margin-right: 8px;">
+                    <img src="svgs/github.svg" width="32" height="32" alt="GitHub" />
                 </a>
                 <a href="https://www.linkedin.com/in/niels-brunekreef-644025177/">
-                    <img src="icons/linkedin.svg" width="32" height="32" alt="LinkedIn" />
+                    <img src="svgs/linkedin.svg" width="32" height="32" alt="LinkedIn" />
                 </a>
             </div>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar" aria-label="navbar toggler">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
             <div class="collapse navbar-collapse" id="collapsibleNavbar">
                 <ul class="navbar-nav ml-auto">
@@ -443,20 +79,16 @@
                         <a class="nav-link" href="#projects">Projects</a>
                     </li>
                     <li class="nav-item">
+                    <a class="nav-link" href="#resume">Resume</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="#contact">Contact me</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#competencies">Competencies</a>
                     </li>
-                    <li class="nav-item">
-                    <a class="nav-link" href="#resume">Resume</a>
-                    </li>
                 </ul>
             </div>
-
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar" aria-label="navbar toggler">
-                <span class="navbar-toggler-icon"></span>
-            </button>
 
         </nav>
 
@@ -466,57 +98,155 @@
 
             <header>
                 <div class="text-center">
-                    <img src="favicon.ico" class="rounded" style="width: 64px; margin-right: 32px;  margin-top: -16px !important;" alt="Me" />
-                    <h2 class="display-4" style="display: inline;">About me</h2>
+                    <img src="favicon.png" class="rounded" style="width: 64px; margin-right: 32px;  margin-top: -35px !important;" alt="Me" />
+                    <h2 class="display-5" style="display: inline;">About&nbsp;me</h2>
                 </div>
                 <div id="about" class="anchor"></div>
-                <hr />
+            <hr class="separator" />
 
                 <div class="row">
                     <div class="col-md-6" style="margin: auto;">
                         <p class="lead">
-                            My passion lies at <b>graphics</b> & <b>game programming</b>, which I   study at <a href="https://buas.nl">Breda University of Applied Sciences </a>.
-                            I specialize in graphics optimization & architecture. My hobbies are    reverse engineering and modding games, which is what sparked my interest   into programming; coding mods and plugins in Java. Afterwards, I  expanded my knowledge to other languages.<br />
-                            On this page are my favorite projects that demonstrate my work best,    these include C#, C, C++, Unity and Unreal projects.
+							I'm a graphics and game programmer with a passion for real-time rendering, GPU systems, and low-level tooling.<br />
+							I studied at <a href="https://buas.nl" target="_blank">Breda University of Applied Sciences</a> and now work at Lumion, where I've contributed to the raytracing backend, shader tooling, and rendering R&D.<br />
+							Outside of work, I enjoy reverse engineering, emulation, and building engines from scratch.<br />
+							My journey started with Minecraft mods and evolved into custom tools and frameworks.<br />
+							This portfolio showcases a selection of projects: including industry contributions, solo frameworks, released games, and low-level modding tools.
                         </p>
                     </div>
                 </div>
             </header>
 
-            <!-- Projects -->
-
-            <h2 class="display-4 text-center">Projects</h2>
             <div id="projects" class="anchor"></div>
-            <hr />
+
+            <!-- Rendering -->
+
+            <h2 class="display-5 text-center">Rendering (Offline & Real-Time)</h2>
+            <div id="rendering" class="anchor"></div>
+            <hr class="separator" />
 
             <div class="container-fluid">
 
                 <article class="row">
 
+                    <!-- Lumion -->
+
+                    <div class="col-md-6 project">
+                        
+                        <section>
+                            <div class="overlay" id="lumion">
+                                <div class="d-flex h-100 text-center align-items-center">
+                                    <div class="w-100">
+
+                                        <h2 class="display-5">Lumion</h2>
+                                        <h4>Rendering for architects</h4>
+
+                                        <a class="icon-link" target="_blank" rel="noopener" href="https://lumion.com/about">
+                                            <img class="icon-linked" src="svgs/team.svg" alt="Act-3D B.V." data-toggle="tooltip" data-placement="bottom" title="Act-3D B.V." />
+                                        </a>
+
+                                        <img class="icon" src="svgs/desktop.svg" data-toggle="tooltip" data-placement="bottom" title="Windows" alt="Windows" />
+
+                                        <a class="icon-link" target="_blank" rel="noopener" href="https://lumion.com">
+                                            <img class="icon-linked" src="svgs/website.svg" alt="Ray tracing renderer for architects" data-toggle="tooltip" data-placement="bottom" title="Lumion.com"  />
+                                        </a>
+
+                                        <img class="icon" src="svgs/hlsl.svg" data-toggle="tooltip" data-placement="bottom" title="HLSL" alt="HLSL" />
+                                        <img class="icon" src="svgs/cpp.svg" data-toggle="tooltip" data-placement="bottom" title="C++" alt="CPP" />
+
+                                        <br />
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <img src="screenshots/lumion.jpg" class="video" alt="lumion screenshot" />
+
+                            <video id="vlumion" muted loop playsinline preload="none" style="position: absolute;" >
+                                <source src="previews/lumion.mp4" type="video/mp4">
+                            </video>
+                            
+                        </section>
+
+                        <div class="projectInfo" style="display: none;">
+                            <hr class="info" />
+                            <h4>Description</h4>
+                            <p class="small">
+								Lumion is a widely-used real-time architectural visualization tool. At Lumion (Act-3D), I contributed to modernizing its legacy Effects11 rasterizer into a pathtracer using DirectX 12 Raytracing. <br />
+								My work focused on raytracing integration, porting, GPU performance & debugging tools, shader tooling, and R&D features.
+                            </p>
+                            <h4>Information</h4>
+                            <p class="small">
+                                <i>Duration:</i> September 2019 - present <br />
+								<i>Role:</i> Intern → Junior → Senior Graphics Programmer <br />
+                                <i>Skills:</i> C++, HLSL, DirectX12, DXR, Shader/GPU tooling <br />
+                                <i>Tools:</i> Visual Studio, PIX, NSight, Git, CMake, Jira, RenderDoc <br />
+                                <i>Team members:</i> Act-3D graphics and engine teams
+                            </p>
+                            <h4>Contributions</h4>
+                            <p class="small">
+								• Integrated DXR 1.1: BLAS/TLAS, SBT, inline RT, and RT collections<br />
+        						• Unified raster + raytracing: bindless rendering, V-Buffer, and instance management <br />
+								• Implemented denoising: NRD (ReLAX, ReBLUR, Sigma), OIDN/OIDN2<br />
+								• Developed features: raytraced water, grass, glass, shadows, GI, and fake caustics<br />
+								• Prototyped GPU kD-tree building (photon mapping/caustics), advanced RT grass, and RT characters<br />
+								• Created shader tooling: SM4/5 to SM6+ HLSL migration, reflection, and shader includes<br />
+								• Improved offline + runtime shader pipelines with multi-threading and shader variants<br />
+								• Tooling: (debug/perf) markers, crash diagnostics, memory allocations exporter<br />
+								• Open-source contributions: DXC, HlslTools, DirectX-Headers
+                            </p>
+							
+							<h4>Trailers</h4>
+							<p class="small text-center">
+								<a href="https://www.youtube.com/watch?v=_RnZbVXTrWk" target="_blank" rel="noopener">
+									Watch official Lumion 2024 trailer
+								</a> – © Act-3D B.V. <br />
+								Features I contributed to in this version include <br />
+								(real-time) denoising, RT glass, and fake caustics.
+							</p>
+							
+							<p class="small text-center">
+								<a href="https://www.youtube.com/watch?v=mwmkZyuEw2o" target="_blank" rel="noopener">
+									Watch official Lumion 2023 trailer
+								</a> – © Act-3D B.V. <br />
+								Features I contributed to in this version include reflections, shadows, and GI.
+							</p>
+
+                            <hr class="info" />
+                        </div>
+
+                    </div>
+					
                     <!-- Wisp -->
 
                     <div class="col-md-6 project">
+                        
                         <section>
                             <div class="overlay" id="wisp">
                                 <div class="d-flex h-100 text-center align-items-center">
                                     <div class="w-100">
 
                                         <h2 class="display-5">Wisp</h2>
-                                        <h4>Realtime raytracing</h4>
+                                        <h4>Real-time raytracing</h4>
 
                                         <a class="icon-link" target="_blank" rel="noopener" href="https://github.com/TeamWisp">
-                                            <img class="icon-linked" src="icons/team.svg" alt="Team Wisp" />
+                                            <img class="icon-linked" src="svgs/team.svg" alt="Team Wisp" />
                                         </a>
 
-                                        <img class="icon" src="icons/desktop.svg" data-toggle="tooltip" data-placement="bottom" title="Windows" alt="Windows" />
+                                        <img class="icon" src="svgs/desktop.svg" data-toggle="tooltip" data-placement="bottom" title="Windows" alt="Windows" />
 
                                         <a class="icon-link" target="_blank" rel="noopener" href="https://github.com/TeamWisp/Procedural-Ray-Tracing">
-                                            <img class="icon-linked" src="icons/github.svg" alt="Ray tracing renderer on GitHub" />
+                                            <img class="icon-linked" src="svgs/github.svg" alt="Ray tracing renderer on GitHub" />
                                         </a>
 
                                         <a class="icon-link" target="_blank" rel="noopener" href="https://twitter.com/wisprenderer">
-                                            <img class="icon-linked" src="icons/twitter.svg" alt="Wisp renderer on Twitter" />
-                                        </a><br />
+                                            <img class="icon-linked" src="svgs/twitter.svg" alt="Wisp renderer on Twitter" />
+                                        </a>
+
+                                        <img class="icon" src="svgs/cpp.svg" data-toggle="tooltip" data-placement="bottom" title="C++" alt="CPP" />
+                                        <img class="icon" src="svgs/hlsl.svg" data-toggle="tooltip" data-placement="bottom" title="HLSL" alt="HLSL" />
+
+                                        <br />
 
                                     </div>
                                 </div>
@@ -529,37 +259,193 @@
                             </video>
                             
                         </section>
+
                         <div class="projectInfo" style="display: none;">
                             <hr class="info" />
                             <h4>Description</h4>
                             <p class="small">
-                                Wisp is a real time raytracing library that can be integrated into your favorite engine or tool, made by a team of nine students.
-                                It is currently used in a Maya extension that allows you to view a deferred, full raytracing, hybrid and path traced preview of the current scene. <br />
-                                The goal of the project is to allow artists to have a quick overview of what their end-product would look like; saving time and increasing their workflow.
-                                Maya currently doesn't provide that in the regular viewport, so the deferred preview is a step up to view the effects of modeling real-time.
+                                Wisp was a real-time raytracing library that could've been integrated into your favorite engine or tool, made by a team of nine students.
+                                It was used in a Maya extension that allowed you to view a deferred, full raytracing, hybrid and path traced preview of the current scene. <br />
+                                The goal of the project was to allow artists to have a quick overview of what their end-product would look like; saving time and improving their workflow.
+                                Maya didn't provide that in the regular viewport, so the deferred preview was a step up to view the effects of modeling real-time.
                                 Previewing the reflections, global illumination and shadows is a nice bonus for RTX and GTX Pascal cards.
                             </p>
                             <h4>Information</h4>
                             <p class="small">
-                                <i>Duration:</i> October 2018 - present <br />
+                                <i>Duration:</i> October 2018 - December 2019 <br />
                                 <i>Role:</i> Graphics/Optimization programmer <br />
-                                <i>Skills:</i> C++, HLSL, DirectX12, Raytracing <br />
+                                <i>Skills:</i> C++, HLSL, DirectX12, DXR, Raytracing <br />
                                 <i>Tools:</i> GitHub/Git, Sourcetree, CMake, Visual Studio, Jira, PIX, Nsight <br />
                                 <i>Team members:</i> 8 graphics programmers, 1 engine programmer
                             </p>
-                            <h4>Tasks</h4>
+                            <h4>Contributions</h4>
                             <p class="small">
-                                Raytraced reflections <br />
-                                Variable roughness; filtering reflections (spatial reconstruction) <br />
-                                Optimizations, refactoring and bug fixing<br />
-                                Frustum culling<br />
-                                Basic deferred rendering <br />
-                                Scene graph parenting <br />
+                                • Raytraced reflections <br />
+                                • Variable roughness; filtering reflections (spatial reconstruction) <br />
+                                • Optimizations, refactoring and bug fixing<br />
+                                • Frustum culling<br />
+                                • Basic deferred rendering <br />
+                                • Scene graph parenting <br />
+                            </p>
+
+                            <hr class="info" />
+                        </div>
+
+                    </div>
+
+                </article>
+			</div>
+
+            <!-- Frameworks -->
+
+            <h2 class="display-5 text-center">Cross-platform frameworks</h2>
+            <div id="frameworks" class="anchor"></div>
+            <hr class="separator" />
+
+            <div class="container-fluid">
+                <article class="row">
+
+                    <!-- Oxsomi Core 3 -->
+
+                    <div class="col-md-6 project">
+                        <section>
+                            <div class="overlay" id="ocore">
+                                <div class="d-flex h-100 text-center align-items-center">
+                                    <div class="w-100">
+                                        <h2 class="display-5">OxC3</h2>
+                                        <h4>Cross-platform framework</h4>
+
+                                        <a class="icon-link" target="_blank" rel="noopener" href="https://github.com/Nielsbishere">
+                                            <img class="icon-linked" src="svgs/solo.svg" alt="Nielsbishere solo project" />
+                                        </a>
+
+                                        <img class="icon" src="svgs/desktop.svg" data-toggle="tooltip" data-placement="bottom" title="Windows" alt="Windows" />
+                                        <img class="icon" src="svgs/linux.svg" data-toggle="tooltip" data-placement="bottom" title="Linux" alt="Linux" />
+                                        <img class="icon" src="svgs/apple.svg" data-toggle="tooltip" data-placement="bottom" title="MacOS" alt="MacOS" />
+                                        <img class="icon" src="svgs/mobile.svg" data-toggle="tooltip" data-placement="bottom" title="Android" alt="Android" />
+
+                                        <a class="icon-link" target="_blank" rel="noopener" href="https://github.com/oxsomi/core">
+                                            <img class="icon-linked" src="svgs/github.svg" alt="Cross-platform Vulkan framework" />
+                                        </a>
+
+                                        <img class="icon" src="svgs/hlsl.svg" data-toggle="tooltip" data-placement="bottom" title="HLSL" alt="HLSL" />
+                                        <img class="icon" src="svgs/c.svg" data-toggle="tooltip" data-placement="bottom" title="C" alt="C" />
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <img src="screenshots/ocore.jpg" class="video" alt="ocore screenshot" />
+
+                            <video id="vocore" muted loop playsinline preload="none" style="position: absolute;" >
+                                <source src="previews/ocore.mp4" type="video/mp4">
+                            </video>
+
+                        </section>
+                        <div class="projectInfo" style="display: none;">
+                            <hr class="info" />
+                            <h4>Description</h4>
+                            <p class="small">
+								Oxsomi Core 3 is a C framework that abstracts graphics and platform APIs, with Vulkan and DirectX12 backends with raytracing support, a shader pipeline targeting DXIL and SPIR‑V, and runs across Windows, Linux, macOS, and Android. <br />
+								Built entirely from scratch, it includes systems for memory management, math/vector types, platform abstraction, file I/O, encryption, hashing, and custom file formats.<br />
+								Core 3 evolved from Core 1, which had a Vulkan-only renderer and supported Android and Windows.
+                            </p>
+                            <h4>Information</h4>
+                            <p class="small">
+                                <i>Duration:</i> December 2017 - present <br />
+                                <i>Role:</i> Sole developer <br />
+                                <i>APIs:</i> Vulkan, D3D12 <br />
+                                <i>Architectures:</i> x86_64, aarch64 <br />
+                                <i>Platforms:</i> Windows, Android, Linux, macOS <br />
+                                <i>Languages:</i> C, HLSL, Python <br />
+                                <i>Tools:</i> Git/GitHub, CMake, Conan, Visual Studio, Android NDK, NSight, Renderdoc, PIX <br />
+                                <i>Libraries (Only if compiler is enabled):</i> dxc, spirv-reflect, spirv-tools <br />
+                            </p>
+                            <h4>Contributions</h4>
+                            <p class="small">
+								• Designed cross-platform abstraction layer (file system, windowing, threading)<br />
+								• Implemented Vulkan + DirectX 12 backends <br />
+								• Added raytracing support <br />
+								• Developed shader toolchain for HLSL targeting DXIL and SPIR-V via DXC/spirv-tools <br />
+								• Built runtime reflection system using custom annotation syntax, spirv-reflect and forked d3d12shader.h <br />
+								• Created archive file format for packed resources (shaders, pipelines, assets) <br />
+								• Implemented vector math & container libraries and memory helpers (double free, memleak, etc.) <br />
+								• Added encryption & hashing functions used across the framework <br />
+								• Built multi-platform build pipeline using CMake + Conan (x86_64 + ARM64) <br />
+								• Enabled deployment to Windows, macOS, Linux, and Android using platform SDKs
                             </p>
 
                             <hr class="info" />
                         </div>
                     </div>
+
+                    <!-- Switchbait -->
+
+                    <div class="col-md-6 project">
+                        <section>
+                            <div class="overlay" id="switchbait">
+                                <div class="d-flex h-100 text-center align-items-center">
+                                    <div class="w-100">
+                                        <h2 class="display-5">Switchbait</h2>
+                                        <h4>Switch &amp; Windows project</h4>
+
+                                        <img class="icon" src="svgs/team.svg" data-toggle="tooltip" data-placement="bottom" title="Switchbait Team" alt="Switchbait Team" />
+                                        <img class="icon" src="svgs/desktop.svg" data-toggle="tooltip" data-placement="bottom" title="Windows" alt="Windows" />
+                                        <img class="icon" src="svgs/switch.svg" data-toggle="tooltip" data-placement="bottom" title="Nintendo Switch" alt="Switch" />
+                                        <img class="icon" src="svgs/cpp.svg" data-toggle="tooltip" data-placement="bottom" title="C++" alt="CPP" />
+                                        <img class="icon" src="svgs/glsl.svg" alt="GLSL" data-toggle="tooltip" data-placement="bottom" title="GLSL" />
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <img src="screenshots/switchbait.jpg" class="video" alt="switchbait screenshot" />
+
+                            <video id="vswitchbait" muted loop playsinline preload="none" style="position: absolute;" >
+                                <source src="previews/switchbait.mp4" type="video/mp4">
+                            </video>
+
+                        </section>
+                        <div class="projectInfo" style="display: none;">
+                            <hr class="info" />
+                            <h4>Description</h4>
+                            <p class="small">
+                                Switchbait was a custom voxel engine, created for a top-down shooter and mainly meant as a learning opportunity for everyone in the team.
+                                We each had our goals set (optimization, serialization, etc.) and improved the engine with these points. <br />
+                                Unfortunately, the game's direction wasn't aligned with the engine's capabilities and the producers pushed the game to areas the engine wasn't built for.
+                            </p>
+                            <h4>Information</h4>
+                            <p class="small">
+                                <i>Duration:</i> May 2018 - June 2018 <br />
+                                <i>Role:</i> Graphics, optimization and gameplay programmer <br />
+                                <i>Skills:</i> OpenGL, GLSL, C++, Nintendo switch and Windows development <br />
+                                <i>Tools:</i> Perforce, Jira, Visual Studio <br />
+                                <i>Team members:</i> 18 people
+                            </p>
+                            <h4>Contributions</h4>
+                            <p class="small">
+                                • Spawning and maintaining particles through compute shaders <br />
+                                • Creating a particle editing tool useable for artists <br />
+                                • Implementing a batching system (multi draw indirect) to prevent draw call overhead <br />
+                                • Basic mesh culling and instancing
+                            </p>
+
+                            <hr class="info" />
+                        </div>
+                    </div>
+
+                </article>
+
+			</div>
+
+            <!-- Games & Modding -->
+
+            <h2 class="display-5 text-center">Games & Modding</h2>
+            <div id="games" class="anchor"></div>
+            <hr class="separator" />
+
+            <div class="container-fluid">
+                <article class="row">
 
                     <!-- Rail recon -->
 
@@ -572,18 +458,19 @@
                                         <h2 class="display-5">Rail recon</h2>
                                         <h4>Twin stick shooter</h4>
 
-                                        <img class="icon" src="icons/team.svg" data-toggle="tooltip" data-placement="bottom" title="Triggered Studios" alt="Triggered Studios" />
-                                        <img class="icon" src="icons/desktop.svg" data-toggle="tooltip" data-placement="bottom" title="Windows" alt="Windows" />
+                                        <img class="icon" src="svgs/team.svg" data-toggle="tooltip" data-placement="bottom" title="Triggered Studios" alt="Triggered Studios" />
+                                        <img class="icon" src="svgs/desktop.svg" data-toggle="tooltip" data-placement="bottom" title="Windows" alt="Windows" />
 
                                         <a class="icon-link" target="_blank" rel="noopener" href="http://rail-recon.com">
-                                            <img class="icon-linked" src="icons/website.svg" alt="Rail recon website" />
+                                            <img class="icon-linked" src="svgs/website.svg" alt="Rail recon website" />
                                         </a>
 
                                         <a class="icon-link" target="_blank" rel="noopener" href="https://store.steampowered.com/app/746860/Rail_Recon/">
-                                            <img class="icon-linked" src="icons/steam.svg" alt="View on steam" />
+                                            <img class="icon-linked" src="svgs/steam.svg" alt="View on steam" />
                                         </a>
 
-                                        <img class="icon" src="icons/unreal.svg" data-toggle="tooltip" data-placement="bottom" title="Unreal Engine 4 C++" alt="UE4 C++" />
+                                        <img class="icon" src="svgs/unreal.svg" data-toggle="tooltip" data-placement="bottom" title="Unreal Engine 4" alt="UE4" />
+                                        <img class="icon" src="svgs/cpp.svg" data-toggle="tooltip" data-placement="bottom" title="C++" alt="CPP" />
 
                                     </div>
                                 </div>
@@ -613,25 +500,157 @@
                                 <i>Tools:</i> Perforce, Visual Studio, Hacknplan <br />
                                 <i>Team members:</i> 4 programmers, 4 artists, 2 designers, 1 producer, 1 audio designer
                             </p>
-                            <h4>Tasks</h4>
+                            <h4>Contributions</h4>
                             <p class="small">
-                                Implementation and communication of mechanics: <br>
-                                - Energy; shield & charge system <br />
-                                - Gameplay elements such as triggerable buttons, doors, rotators, exit door <br />
-                                Implementation of graphical effects and gameplay: <br />
-                                - Charging station animation and logic <br />
-                                - Door animations and logic <br />
-                                Communication with designers, artist and producers
+                                • Implementation and communication of mechanics: <br>
+                                • &nbsp;&nbsp;Energy; shield & charge system <br />
+                                • &nbsp;&nbsp;Gameplay elements such as triggerable buttons, doors, rotators, exit door <br />
+                                • Implementation of graphical effects and gameplay: <br />
+                                • &nbsp;&nbsp;Charging station animation and logic <br />
+                                • &nbsp;&nbsp;Door animations and logic <br />
+                                • Communication with designers, artist and producers
                             </p>
 
                             <hr class="info" />
                         </div>
                     </div>
 
-                </article>
+                    <!-- Harpoon -->
+
+                    <div class="col-md-6 project">
+                        <section>
+                            <div class="overlay" id="harpoon">
+                                <div class="d-flex h-100 text-center align-items-center">
+                                    <div class="w-100">
+                                        <h2 class="display-5">Harpoon</h2>
+                                        <h4>Unity C# Injector</h4>
+
+                                        <a class="icon-link" target="_blank" rel="noopener" href="https://github.com/Nielsbishere">
+                                            <img class="icon-linked" src="svgs/solo.svg" alt="Nielsbishere solo project" />
+                                        </a>
+
+                                        <img class="icon" src="svgs/desktop.svg" data-toggle="tooltip" data-placement="bottom" title="Windows" alt="Windows" />
+
+                                        <a class="icon-link" target="_blank" rel="noopener" href="https://github.com/Nielsbishere/Harpoon">
+                                            <img class="icon-linked" src="svgs/github.svg" alt="Unity C# Mono Injector" />
+                                        </a>
+
+                                        <img class="icon" src="svgs/unity.svg" data-toggle="tooltip" data-placement="bottom" title="Unity C#" alt="Unity C#" />
+
+                                        <img class="icon" src="svgs/cpp.svg" data-toggle="tooltip" data-placement="bottom" title="C++" alt="CPP" />
+                                        <img class="icon" src="svgs/c.svg" data-toggle="tooltip" data-placement="bottom" title="C" alt="C" />
+                                        <img class="icon" src="svgs/csharp.svg" alt="C#" data-toggle="tooltip" data-placement="bottom" title="C#" />
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <img src="screenshots/harpoon.jpg" class="video" alt="harpoon screenshot" />
+                        </section>
+                        <div class="projectInfo" style="display: none;">
+                            <hr class="info" />
+                            <h4>Description</h4>
+                            <p class="small">
+                                Harpoon was a project that was used in Shiploader; a modloader for the game Raft. This API was intended to be used by the modding community as an alternative.
+                                This was due to the existing modding tool using the source code of the game and distributing it and mods being very version dependent. <br />
+                                The alternative was code injection and not just patching a dll; where an executable requests Unity to load mods, which use a library for wrapping the low-level code. <br />
+                                This is accomplished by loading a C DLL into memory, which calls functions provided onto a heap; these functions are Unity mono functions, which load a C# dll and execute it.
+                                The C# dll is then able to access everything in Unity through C# reflection and Harmony through patching functions
+                                (<a href="https://github.com/Nielsbishere/Harpoon/blob/master/docs/main.md">More info here</a>).
+                            </p>
+                            <h4>Information</h4>
+                            <p class="small">
+                                <i>Duration:</i> August 2018 - February 2019 <br />
+                                <i>Role:</i> Programmer <br />
+                                <i>Skills:</i> C, C++, C#, Unity, Harmony, Code injection, Mono injection, Reflection, Reverse engineering <br />
+                                <i>Tools:</i> GitHub, Sourcetree, Visual Studio <br />
+                                <i>Team members:</i> Solo project, but used in team project
+                            </p>
+                            <h4>Contributions</h4>
+                            <p class="small">
+                                • Getting an understanding of how the Windows API works with multiple processes <br />
+                                • Being able to call functions in other programs through the WinApi <br />
+                                • Loading and executing a payload in a different address space (defeating ASLR) <br />
+                                • Using mono to load dlls into C# <br />
+                                • Using C# reflection and patching an already existing program
+                            </p>
+
+                            <hr class="info" />
+                        </div>
+                    </div>
+				</article>
 
                 <article class="row">
 
+                    <!-- NDS File System Utilities -->
+
+                    <div class="col-md-6 project">
+                        <section>
+                            <div class="overlay" id="nfsu">
+                                <div class="d-flex h-100 text-center align-items-center">
+                                    <div class="w-100">
+                                        <h2 class="display-5">NDS Tooling</h2>
+                                        <h4>NDS Rom editor & Armulator</h4>
+
+                                        <a class="icon-link" target="_blank" rel="noopener" href="https://github.com/Nielsbishere">
+                                            <img class="icon-linked" src="svgs/solo.svg" alt="Nielsbishere solo project" />
+                                        </a>
+
+                                        <img class="icon" src="svgs/desktop.svg" data-toggle="tooltip" data-placement="bottom" title="Windows" alt="Windows" />
+
+                                        <a class="icon-link" target="_blank" rel="noopener" href="https://github.com/nfsu/NFS/tree/NFS_Reloaded">
+                                            <img class="icon-linked" src="svgs/github.svg" alt="NDS File System Rom Hacking Project on GitHub" />
+                                        </a>
+
+                                        <a class="icon-link" target="_blank" rel="noopener" href="https://github.com/nfsu/Armulator">
+                                            <img class="icon-linked" src="svgs/github.svg" alt="Armulator on GitHub" />
+                                        </a>
+
+                                        <img class="icon" src="svgs/qt.svg" data-toggle="tooltip" data-placement="bottom" title="Qt 5" alt="Qt5" />
+                                        <img class="icon" src="svgs/cpp.svg" data-toggle="tooltip" data-placement="bottom" title="C++" alt="CPP" />
+										<img class="icon" src="svgs/arm.svg" data-toggle="tooltip" data-placement="bottom" title="ARM9/ARM7" alt="ARM Assembly" />
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <img src="screenshots/nfsu.jpg" class="video" alt="nfsu screenshot" />
+
+                            <video id="vnfsu" muted loop playsinline preload="none" style="position: absolute;" >
+                                <source src="previews/nfsu.mp4" type="video/mp4">
+                            </video>
+
+                        </section>
+                        <div class="projectInfo" style="display: none;">
+                            <hr class="info" />
+                            <h4>Description</h4>
+                            <p class="small">
+								A combined suite of tools for reverse engineering NDS games.<br />
+								NFSU is a modular ROM editor that supports viewing and editing palettes, tilemaps, archives, and other formats common in DS games. <br />
+								Armulator is a custom ARM9/7 emulator written in C++ to step through compiled DS game code. Together, they enable modding, visualization, and runtime code analysis of DS binaries.
+                            </p>
+                            <h4>Information</h4>
+                            <p class="small">
+                                <i>Duration:</i> On & Off during November 2017 - September 2021 <br />
+                                <i>Role:</i> UI, tool and emulation programmer <br />
+                                <i>Languages:</i> Qt, C++, GLSL, OpenGL, ARM/Thumb assembly <br />
+                                <i>Tools:</i> Perforce, Trello, GitHub, CMake, Visual Studio <br />
+                                <i>Team members:</i> Solo project, with feedback from friends & colleagues and help on creating icons
+                            </p>
+                            <h4>Contributions</h4>
+                            <p class="small">
+								• Built GUI editor for parsing NDS formats (palette, tilemap, archive) <br />
+								• Created custom struct parser using C++ templates and dynamic type layouts <br />
+								• Wrote shaders for BGR5-tiled image previews with OpenGL <br />
+								• Built archive/tree view for dynamic loading of NARC and other DS-specific formats <br />
+								• Developed custom ARM7TDMI/ARM9 (Thumb + ARM) emulator in C++ <br />
+								• Implemented instruction decoder, memory mapper, and simple CPU pipeline <br />
+								• Added disassembler, step-through debugger, and assembler
+                            </p>
+
+                            <hr class="info" />
+                        </div>
+                    </div>
 
                     <!-- Mineblowers -->
 
@@ -643,9 +662,9 @@
                                         <h2 class="display-5">Mineblowers</h2>
                                         <h4>Custom controller game</h4>
 
-                                        <img class="icon" src="icons/team.svg" data-toggle="tooltip" data-placement="bottom" title="Team Moose" alt="Team moose" />
-                                        <img class="icon" src="icons/desktop.svg" data-toggle="tooltip" data-placement="bottom" title="Windows" alt="Windows" />
-                                        <img class="icon" src="icons/unreal.svg" data-toggle="tooltip" data-placement="bottom" title="Unreal Engine 4 Blueprints" alt="UE4 Blueprints" />
+                                        <img class="icon" src="svgs/team.svg" data-toggle="tooltip" data-placement="bottom" title="Team Moose" alt="Team moose" />
+                                        <img class="icon" src="svgs/desktop.svg" data-toggle="tooltip" data-placement="bottom" title="Windows" alt="Windows" />
+                                        <img class="icon" src="svgs/unreal.svg" data-toggle="tooltip" data-placement="bottom" title="Unreal Engine 4 Blueprints" alt="UE4 Blueprints" />
 
                                     </div>
                                 </div>
@@ -676,72 +695,11 @@
                                 <i>Tools:</i> Perforce, Trello <br />
                                 <i>Team members:</i> 2 programmers, 3 artists, 3 designers
                             </p>
-                            <h4>Tasks</h4>
+                            <h4>Contributions</h4>
                             <p class="small">
-                                Implementation of the spline system of the cart and procedural generation of the rails. <br />
-                                Worked together with designers to get the spline editing system to be more user-friendly. <br />
-                                Worked on the death system alongside another programmer.
-                            </p>
-
-                            <hr class="info" />
-                        </div>
-                    </div>
-
-                    <!-- Nintendo File System Utilities -->
-
-                    <div class="col-md-6 project">
-                        <section>
-                            <div class="overlay" id="nfsu">
-                                <div class="d-flex h-100 text-center align-items-center">
-                                    <div class="w-100">
-                                        <h2 class="display-5">NFSU</h2>
-                                        <h4>NDS Rom editor</h4>
-
-                                        <a class="icon-link" target="_blank" rel="noopener" href="https://github.com/Nielsbishere">
-                                            <img class="icon-linked" src="icons/solo.svg" alt="Nielsbishere solo project" />
-                                        </a>
-
-                                        <img class="icon" src="icons/desktop.svg" data-toggle="tooltip" data-placement="bottom" title="Windows" alt="Windows" />
-
-                                        <a class="icon-link" target="_blank" rel="noopener" href="https://github.com/nfsu/NFS/tree/NFS_Reloaded">
-                                            <img class="icon-linked" src="icons/github.svg" alt="Nintendo File System NDS Rom Hacking Project on GitHub" />
-                                        </a>
-
-                                        <img class="icon" src="icons/qt.svg" data-toggle="tooltip" data-placement="bottom" title="Qt 5" alt="Qt5" />
-
-                                    </div>
-                                </div>
-                            </div>
-
-                            <img src="screenshots/nfsu.jpg" class="video" alt="nfsu screenshot" />
-
-                            <video id="vnfsu" muted loop playsinline preload="none" style="position: absolute;" >
-                                <source src="previews/nfsu.mp4" type="video/mp4">
-                            </video>
-
-                        </section>
-                        <div class="projectInfo" style="display: none;">
-                            <hr class="info" />
-                            <h4>Description</h4>
-                            <p class="small">
-                                NFSU (Nintendo File System Utils) is a project created for parsing a Nintendo ds rom.
-                                This was done since the current modding tools are very fragmented and there's a tool for every separate functionality, reducing the workflow. <br />
-                                The goal is to have an expandable editor allowing for extensions and editing of files on the fly, without exporting and reimporting them for everything you do.
-                            </p>
-                            <h4>Information</h4>
-                            <p class="small">
-                                <i>Duration:</i> November 2017 - present <br />
-                                <i>Role:</i> UI & tool programmer / reverse engineer <br />
-                                <i>Skills:</i> Qt, C++, GLSL, OpenGL, reverse engineering, binary file parsing, problem solving, C++ template magic <br />
-                                <i>Tools:</i> Perforce, Trello, Sourcetree, GitHub, CMake, Visual Studio <br />
-                                <i>Team members:</i> Solo project, with feedback from friends & colleagues and help on creating icons
-                            </p>
-                            <h4>Tasks</h4>
-                            <p class="small">
-                                Parsing nds files and their file system, alongside palette, tilemap, map, archive and other files. <br />
-                                Creation of a file explorer with descriptions on each file type. <br />
-                                Creating an expandible struct parser through C++ templates. <br />
-                                Writing shader code and CPU code for parsing older texture types and dealing with tiled BGR5 images.
+                                • Implementation of the spline system of the cart and procedural generation of the rails. <br />
+                                • Worked together with designers to get the spline editing system to be more user-friendly. <br />
+                                • Worked on the death system alongside another programmer.
                             </p>
 
                             <hr class="info" />
@@ -749,353 +707,91 @@
                     </div>
 
                 </article>
+				
+                <!-- Resume -->
 
-                <article class="row">
-                    <!-- Armulator -->
+                <h2 class="display-5 text-center">Resume</h2>
+                <div class="anchor" id="resume"></div>
+                <hr class="separator" />
 
-                    <div class="col-md-6 project">
-                        <section>
-                            <div class="overlay" id="armulator">
-                                <div class="d-flex h-100 text-center align-items-center">
-                                    <div class="w-100">
-                                        <h2 class="display-5">Armulator</h2>
-                                        <h4>ARM7/9 Thumb emulator</h4>
+                <div class="col-md-6" style="margin: auto;" >
+                    <object style="width: 100%;" id="resumePdf" type="application/pdf" data="niels_brunekreef_resume.pdf#view=FitH">
+                        <p class="text-center">Resume cannot be displayed inline on mobile.<br/><a href="Niels%20Brunekreef%20Resume.pdf" target="_blank" rel="noopener">View here</a></p>
+                    </object>
+                </div>
 
-                                        <a class="icon-link" target="_blank" rel="noopener" href="https://github.com/Nielsbishere">
-                                            <img class="icon-linked" src="icons/solo.svg" alt="Nielsbishere solo project" />
-                                        </a>
-
-                                        <img class="icon" src="icons/desktop.svg" data-toggle="tooltip" data-placement="bottom" title="Desktop" alt="Desktop" />
-
-                                        <a class="icon-link" target="_blank" rel="noopener" href="https://github.com/nfsu/NFS/blob/NFS_Reloaded/nfs/src/armulator.cpp">
-                                            <img class="icon-linked" src="icons/github.svg" alt="Nintendo ARM7 Thumb Mode Emulator" />
-                                        </a>
-
-                                        <img class="icon" src="icons/cpp.svg" data-toggle="tooltip" data-placement="bottom" title="C++" alt="CPP" />
-
-                                    </div>
-                                </div>
-                            </div>
-
-                            <img id="sarmulator" src="screenshots/armulator.jpg" class="video" alt="armulator screenshot" />
-
-                            <video id="varmulator" muted loop playsinline preload="none" style="position: absolute;" >
-                                <source src="previews/armulator.mp4" type="video/mp4">
-                            </video>
-
-                        </section>
-                        <div class="projectInfo" style="display: none;">
-                            <hr class="info" />
-                            <h4>Description</h4>
-                            <p class="small">
-                                Armulator is a basic ARM9/ARM7 Thumb emulator, which was created as both a learning project for assembly and as a part of the NFSU project.
-                                It is not actively used in the project it was meant for, though it can be used to emulate a decent part of the thumb instruction set. <br />
-                                The main idea of this is to provide the users of the Nintendo ds rom hacking project a way of reading, potentially writing and stepping through arm assembly.
-                            </p>
-                            <h4>Information</h4>
-                            <p class="small">
-                                <i>Duration:</i> February 2019 - present <br />
-                                <i>Role:</i> Low-level programmer <br />
-                                <i>Skills:</i> (ARM9/ARM7 Thumb) Assembly, C++, Emulation <br />
-                                <i>Tools:</i> GitHub, Sourcetree, Visual Studio, CMake <br />
-                                <i>Team members:</i> Solo project
-                            </p>
-                            <h4>Tasks</h4>
-                            <p class="small">
-                                Getting an understanding of low-level assembly. <br />
-                                Implementing assembly concepts in C++ to emulate (registers, banks, etc.). <br />
-                                Implementation of opcodes through a technical document.
-                            </p>
-
-                            <hr class="info" />
-                        </div>
-                    </div>
-
-
-                    <!-- Osomi Core -->
-
-                    <div class="col-md-6 project">
-                        <section>
-                            <div class="overlay" id="ocore">
-                                <div class="d-flex h-100 text-center align-items-center">
-                                    <div class="w-100">
-                                        <h2 class="display-5">Osomi Core</h2>
-                                        <h4>Cross platform framework</h4>
-
-                                        <a class="icon-link" target="_blank" rel="noopener" href="https://github.com/Nielsbishere">
-                                            <img class="icon-linked" src="icons/solo.svg" alt="Nielsbishere solo project" />
-                                        </a>
-
-                                        <img class="icon" src="icons/desktop.svg" data-toggle="tooltip" data-placement="bottom" title="Windows" alt="Windows" />
-                                        <img class="icon" src="icons/mobile.svg" data-toggle="tooltip" data-placement="bottom" title="Android" alt="Android" />
-
-                                        <a class="icon-link" target="_blank" rel="noopener" href="https://github.com/oxsomi/core">
-                                            <img class="icon-linked" src="icons/github.svg" alt="Cross platform Vulkan framework" />
-                                        </a>
-
-                                        <img class="icon" src="icons/vulkan.svg" data-toggle="tooltip" data-placement="bottom" title="Vulkan" alt="Vulkan" width="24" />
-
-                                    </div>
-                                </div>
-                            </div>
-
-                            <img src="screenshots/ocore.jpg" class="video" alt="ocore screenshot" />
-
-                            <video id="vocore" muted loop playsinline preload="none" style="position: absolute;" >
-                                <source src="previews/ocore.mp4" type="video/mp4">
-                            </video>
-
-                        </section>
-                        <div class="projectInfo" style="display: none;">
-                            <hr class="info" />
-                            <h4>Description</h4>
-                            <p class="small">
-                                Osomi core is a cross platform framework, designed to be API and platform independent.
-                                It is created with Vulkan, Android and Windows in mind, so it has things like memory management (CPU & GPU), file management, input and serialization. <br />
-                                Other features include shader reflection, custom file types for models (to support sized shader inputs), shaders (to support reflection) and more.
-                                The architecture is created to be abstract so that the user doesn't have to think about platform/API specifics.
-                            </p>
-                            <h4>Information</h4>
-                            <p class="small">
-                                <i>Duration:</i> December 2017 - present <br />
-                                <i>Role:</i> Graphics/engine/architecture programmer <br />
-                                <i>Skills:</i>
-                                Vulkan, GLSL, C++17, Bash, Windows, Android, Shader compiler, Custom shader language, Custom file types, Resource baking, Serialization, C++ templates,
-                                GPU & CPU Memory management, File management, Manual fbx & obj parsing, Node management, Architecture, Procedural generation, Optimization, Shader reflection
-                                <br />
-                                <i>Tools:</i> Git/GitHub, Sourcetree, CMake, Jira, Visual Studio, Appveyor, Travis, MSBuild, RenderDoc, Notepad++ <br />
-                                <i>Libraries:</i> zlib, rapidjson, stbi, spirv-cross, glslang, spirv-tools, vulkan <br />
-                                <i>Team members:</i> Solo project
-                            </p>
-                            <h4>Tasks</h4>
-                            <p class="small">
-                                Packaging a build and resources for both Windows and Android. <br />
-                                Using the Android NDK and Windows API to create an application which handles inputs. <br />
-                                Rendering to a surface on both Android & Windows and handling their platform-dependent traits. <br />
-                                Creating a basic serializer and handling custom file types. <br />
-                                Handling CPU & GPU & File memory management. <br />
-                                Baking and handling conversions to custom file types. <br />
-                                Handling tools and multiple platform development. <br />
-                                Understanding and implementation of various data types.
-                            </p>
-
-                            <hr class="info" />
-                        </div>
-                    </div>
-
-
-                </article>
-
-                <article class="row">
-
-                    <!-- Harpoon -->
-
-                    <div class="col-md-6 project">
-                        <section>
-                            <div class="overlay" id="harpoon">
-                                <div class="d-flex h-100 text-center align-items-center">
-                                    <div class="w-100">
-                                        <h2 class="display-5">Harpoon</h2>
-                                        <h4>Unity C# Injector</h4>
-
-                                        <a class="icon-link" target="_blank" rel="noopener" href="https://github.com/Nielsbishere">
-                                            <img class="icon-linked" src="icons/solo.svg" alt="Nielsbishere solo project" />
-                                        </a>
-
-                                        <img class="icon" src="icons/desktop.svg" data-toggle="tooltip" data-placement="bottom" title="Windows" alt="Windows" />
-
-                                        <a class="icon-link" target="_blank" rel="noopener" href="https://github.com/Nielsbishere/Harpoon">
-                                            <img class="icon-linked" src="icons/github.svg" alt="Unity C# Mono Injector" />
-                                        </a>
-
-                                        <img class="icon" src="icons/unity.svg" data-toggle="tooltip" data-placement="bottom" title="Unity C#" alt="Unity C#" />
-
-                                        <img class="icon" src="icons/c.svg" data-toggle="tooltip" data-placement="bottom" title="C" alt="C" />
-
-                                    </div>
-                                </div>
-                            </div>
-
-                            <img src="screenshots/harpoon.jpg" class="video" alt="harpoon screenshot" />
-                        </section>
-                        <div class="projectInfo" style="display: none;">
-                            <hr class="info" />
-                            <h4>Description</h4>
-                            <p class="small">
-                                Harpoon was a project that was used in Shiploader; a modloader for the game Raft. This API was intended to be used by the modding community as an alternative.
-                                This was due to the existing modding tool using the source code of the game and distributing it and mods being very version dependent. <br />
-                                The alternative was code injection and not just patching a dll; where an executable requests Unity to load mods, which use a library for wrapping the low-level code. <br />
-                                This is accomplished by loading a C DLL into memory, which calls functions provided onto a heap; these functions are Unity mono functions, which load a C# dll and execute it.
-                                The C# dll is then able to access everything in Unity through C# reflection and Harmony through patching functions
-                                (<a href="https://github.com/Nielsbishere/Harpoon/blob/master/docs/main.md">More info here</a>).
-                            </p>
-                            <h4>Information</h4>
-                            <p class="small">
-                                <i>Duration:</i> August 2018 - February 2019 <br />
-                                <i>Role:</i> Programmer <br />
-                                <i>Skills:</i> C, C++, C#, Unity, Harmony, Code injection, Mono injection, Reflection, Reverse engineering <br />
-                                <i>Tools:</i> GitHub, Sourcetree, Visual Studio <br />
-                                <i>Team members:</i> Solo project, but used in team project
-                            </p>
-                            <h4>Tasks</h4>
-                            <p class="small">
-                                Getting an understanding of how the Windows API works with multiple processes. <br />
-                                Being able to call functions in other programs through the WinApi. <br />
-                                Loading and executing a payload in a different address space (defeating ASLR). <br />
-                                Using mono to load dlls into C#. <br />
-                                Using C# reflection and patching an already existing program.
-                            </p>
-
-                            <hr class="info" />
-                        </div>
-                    </div>
-
-                    <!-- Switchbait -->
-
-                    <div class="col-md-6 project">
-                        <section>
-                            <div class="overlay" id="switchbait">
-                                <div class="d-flex h-100 text-center align-items-center">
-                                    <div class="w-100">
-                                        <h2 class="display-5">Switchbait</h2>
-                                        <h4>Switch &amp; Windows project</h4>
-
-                                        <img class="icon" src="icons/team.svg" data-toggle="tooltip" data-placement="bottom" title="Switchbait Team" alt="Switchbait Team" />
-                                        <img class="icon" src="icons/desktop.svg" data-toggle="tooltip" data-placement="bottom" title="Windows" alt="Windows" />
-                                        <img class="icon" src="icons/switch.svg" data-toggle="tooltip" data-placement="bottom" title="Nintendo Switch" alt="Switch" />
-                                        <img class="icon" src="icons/cpp.svg" data-toggle="tooltip" data-placement="bottom" title="C++" alt="CPP" />
-
-                                    </div>
-                                </div>
-                            </div>
-
-                            <img src="screenshots/switchbait.jpg" class="video" alt="switchbait screenshot" />
-
-                            <video id="vswitchbait" muted loop playsinline preload="none" style="position: absolute;" >
-                                <source src="previews/switchbait.mp4" type="video/mp4">
-                            </video>
-
-                        </section>
-                        <div class="projectInfo" style="display: none;">
-                            <hr class="info" />
-                            <h4>Description</h4>
-                            <p class="small">
-                                Switchbait was a custom voxel engine, created for a top-down shooter and mainly meant as a learning opportunity for everyone in the team.
-                                We each had our goals set (optimization, serialization, etc.) and improved the engine with these points. <br />
-                                Unfortunately, the game's direction wasn't aligned with the engine's capabilities and the producers pushed the game to areas the engine wasn't built for.
-                            </p>
-                            <h4>Information</h4>
-                            <p class="small">
-                                <i>Duration:</i> May 2018 - June 2018 <br />
-                                <i>Role:</i> Graphics, optimization and gameplay programmer <br />
-                                <i>Skills:</i> OpenGL, GLSL, C++, Nintendo switch and Windows development <br />
-                                <i>Tools:</i> Perforce, Jira, Visual Studio <br />
-                                <i>Team members:</i> 18 people
-                            </p>
-                            <h4>Tasks</h4>
-                            <p class="small">
-                                Spawning and maintaining particles through compute shaders. <br />
-                                Creating a particle editing tool useable for artists. <br />
-                                Implementing a batching system (multi draw indirect) to prevent draw call overhead. <br />
-                                Basic mesh culling and instancing.
-                            </p>
-
-                            <hr class="info" />
-                        </div>
-                    </div>
-
-                </article>
-
-                <h2 class="display-4 text-center">Contact me</h2>
+                <h2 class="display-5 text-center">Contact me</h2>
                 <div class="anchor" id="contact"></div>
-                <hr />
+                <hr class="separator" />
 
                 <div class="container col-md-6 col-md-offset-6">
                     <div class="text-center">
-                        <img class="logo-m" src="icons/mail.svg" alt="Mail" style="margin-left: -24px;" />
+                        <img class="logo-m" src="svgs/mail.svg" alt="Mail" style="margin-left: -24px;" />
                         <a target="_blank" rel="noopener" href="mailto:n@osomi.net" class="lead">n@osomi.net</a>
                     </div>
                     <div class="text-center">
-                        <img class="logo-m" src="icons/linkedin.svg" alt="Linkedin" />
+                        <img class="logo-m" src="svgs/linkedin.svg" alt="Linkedin" />
                         <a target="_blank" rel="noopener" href="https://www.linkedin.com/in/niels-brunekreef-644025177/" class="lead">Niels Brunekreef</a>
                     </div>
                     <div class="text-center">
-                        <img class="logo-m" src="icons/github.svg" alt="GitHub" />
+                        <img class="logo-m" src="svgs/github.svg" alt="GitHub" />
                         <a target="_blank" rel="noopener" href="https://github.com/Nielsbishere" class="lead" style="margin-right: 1em; margin-left: 1em;">Nielsbishere</a>
                     </div>
                 </div>
 
-                <h2 class="display-4 text-center">Competencies</h2>
+                <h2 class="display-5 text-center">Competencies</h2>
                 <div class="anchor" id="competencies"></div>
-                <hr />
+                <hr class="separator" />
 
                 <div class="container col-md-8 col-md-offset-8" style="max-width: 900px;">
 
                     <h5 class="text-center" id="graphics">Graphics frameworks</h5>
 
                     <div class="row">
-                        <img src="icons/vulkan_big.svg" alt="Vulkan 1.1" data-toggle="tooltip" data-placement="bottom" title="Vulkan 1.1" class="logo" />
-                        <img src="icons/dx12.svg" alt="DirectX 12" data-toggle="tooltip" data-placement="bottom" title="DirectX 12" class="logo" />
-                        <img src="icons/qt.svg" alt="Qt5" data-toggle="tooltip" data-placement="bottom" title="Qt5" class="logo-sm" />
-                        <img src="icons/opengl.svg" alt="OpenGL 4.4" data-toggle="tooltip" data-placement="bottom" title="OpenGL 4.4+" class="logo" />
-                        <img src="icons/opengles.svg" alt="OpenGL ES 2.0" data-toggle="tooltip" data-placement="bottom" title="OpenGL ES 2.0" class="logo" />
-                        <img src="icons/dx11.svg" alt="DirectX 11" data-toggle="tooltip" data-placement="bottom" title="DirectX 11" class="logo" />
+                        <img src="svgs/vulkan_big.svg" alt="Vulkan 1.3" data-toggle="tooltip" data-placement="bottom" title="Vulkan 1.3" class="logo" />
+                        <img src="svgs/dx12.svg" alt="DirectX 12 (Ultimate)" data-toggle="tooltip" data-placement="bottom" title="DirectX 12 (Ultimate)" class="logo" />
+                        <img src="svgs/opengl.svg" alt="OpenGL 4.6" data-toggle="tooltip" data-placement="bottom" title="OpenGL 4.6+" class="logo" />
+                        <img src="svgs/opengles.svg" alt="OpenGL ES 2.0" data-toggle="tooltip" data-placement="bottom" title="OpenGL ES 2.0" class="logo" />
+                        <img src="svgs/dx11.svg" alt="DirectX 11" data-toggle="tooltip" data-placement="bottom" title="DirectX 11" class="logo" />
                     </div>
 
                     <h5 class="text-center" id="languages">Languages</h5>
 
                     <div class="row">
-                        <img src="icons/cpp.svg" alt="C++17" data-toggle="tooltip" data-placement="bottom" title="C++17" class="logo-sm" />
-                        <img src="icons/csharp.svg" alt="C# 6" data-toggle="tooltip" data-placement="bottom" title="C# 6" class="logo-sm" />
-                        <img src="icons/java.svg" alt="Java 7" data-toggle="tooltip" data-placement="bottom" title="Java 7" class="logo-sm" />
-                        <img src="icons/c.svg" alt="C99" data-toggle="tooltip" data-placement="bottom" title="C99" class="logo-sm" />
-                        <img src="icons/javascript.svg" alt="JavaScript 5" data-toggle="tooltip" data-placement="bottom" title="JavaScript 5" class="logo-sm" />
-                        <img src="icons/glsl.svg" alt="GLSL 1.20 & 3.3+" data-toggle="tooltip" data-placement="bottom" title="GLSL 1.20 & 3.3+" class="logo-sm" />
-                        <img src="icons/hlsl.svg" alt="HLSL 6+" data-toggle="tooltip" data-placement="bottom" title="HLSL 6+" class="logo-sm" />
-                        <img src="icons/arm.svg" alt="ARM9 Assembly" data-toggle="tooltip" data-placement="bottom" title="ARM9 Assembly" class="logo-sm" />
-                        <img src="icons/python.svg" alt="Python 3.7" data-toggle="tooltip" data-placement="bottom" title="Python 3.7" class="logo-sm" />
-                        <img src="icons/css3.svg" alt="CSS 3" data-toggle="tooltip" data-placement="bottom" title="CSS 3" class="logo-sm" />
-                        <img src="icons/html5.svg" alt="HTML 5" data-toggle="tooltip" data-placement="bottom" title="HTML 5" class="logo-sm" />
+                        <img src="svgs/c.svg" alt="C17" data-toggle="tooltip" data-placement="bottom" title="C17" class="logo-sm" />
+                        <img src="svgs/hlsl.svg" alt="HLSL 2021" data-toggle="tooltip" data-placement="bottom" title="HLSL 2021" class="logo-sm" />
+                        <img src="svgs/cpp.svg" alt="C++25" data-toggle="tooltip" data-placement="bottom" title="C++25" class="logo-sm" />
+                        <img src="svgs/csharp.svg" alt="C# 6" data-toggle="tooltip" data-placement="bottom" title="C# 6" class="logo-sm" />
+                        <img src="svgs/glsl.svg" alt="GLSL 1.20 & 3.3+" data-toggle="tooltip" data-placement="bottom" title="GLSL 1.20 & 3.3+" class="logo-sm" />
                     </div>
 
                     <h5 class="text-center" id="tools">Tools</h5>
 
                     <div class="row">
-                        <img src="icons/git.svg" alt="Git/GitHub" data-toggle="tooltip" data-placement="bottom" title="Git/GitHub" class="logo-sm" />
-                        <img src="icons/vs.svg" alt="Visual Studio 2019" data-toggle="tooltip" data-placement="bottom" title="Visual Studio 2019" class="logo-sm" />
-                        <img src="icons/cmake.svg" alt="CMake" data-toggle="tooltip" data-placement="bottom" title="CMake" class="logo-sm" />
-                        <img src="icons/renderdoc.svg" alt="RenderDoc" data-toggle="tooltip" data-placement="bottom" title="RenderDoc" class="logo-sm" />
-                        <img src="icons/spirv.svg" alt="SPIR-V" data-toggle="tooltip" data-placement="bottom" title="SPIR-V" class="logo" />
-                        <img src="icons/trello.svg" alt="Trello" data-toggle="tooltip" data-placement="bottom" title="Trello" class="logo-sm" />
-                        <img src="icons/nvidia.svg" alt="Nsight" data-toggle="tooltip" data-placement="bottom" title="Nsight" class="logo-sm" />
-                        <img src="icons/pix.svg" alt="Pix" data-toggle="tooltip" data-placement="bottom" title="PIX" class="logo-sm" />
-                        <img src="icons/perforce.svg" alt="Perforce" data-toggle="tooltip" data-placement="bottom" title="Perforce" class="logo-sm" />
-                        <img src="icons/jira.svg" alt="Jira" data-toggle="tooltip" data-placement="bottom" title="Jira" class="logo-sm" />
+                        <img src="svgs/qt.svg" alt="Qt5" data-toggle="tooltip" data-placement="bottom" title="Qt5" class="logo-sm" />
+                        <img src="svgs/git.svg" alt="Git/GitHub" data-toggle="tooltip" data-placement="bottom" title="Git/GitHub" class="logo-sm" />
+                        <img src="svgs/vs.svg" alt="Visual Studio 2022" data-toggle="tooltip" data-placement="bottom" title="Visual Studio 2022" class="logo-sm" />
+                        <img src="svgs/cmake.svg" alt="CMake" data-toggle="tooltip" data-placement="bottom" title="CMake" class="logo-sm" />
+                        <img src="svgs/renderdoc.svg" alt="RenderDoc" data-toggle="tooltip" data-placement="bottom" title="RenderDoc" class="logo-sm" />
+                        <img src="svgs/spirv.svg" alt="SPIR-V" data-toggle="tooltip" data-placement="bottom" title="SPIR-V" class="logo" />
+                        <img src="svgs/trello.svg" alt="Trello" data-toggle="tooltip" data-placement="bottom" title="Trello" class="logo-sm" />
+                        <img src="svgs/nvidia.svg" alt="Nsight" data-toggle="tooltip" data-placement="bottom" title="Nsight" class="logo-sm" />
+                        <img src="svgs/pix.svg" alt="Pix" data-toggle="tooltip" data-placement="bottom" title="PIX" class="logo-sm" />
+                        <img src="svgs/perforce.svg" alt="Perforce" data-toggle="tooltip" data-placement="bottom" title="Perforce" class="logo-sm" />
+                        <img src="svgs/jira.svg" alt="Jira" data-toggle="tooltip" data-placement="bottom" title="Jira" class="logo-sm" />
                     </div>
 
                     <h5 class="text-center" id="engines">Engines</h5>
 
                     <div class="row">
                         <div style="margin: auto;">
-                            <img src="icons/unreal_big.svg" alt="Unreal Engine 4" data-toggle="tooltip" data-placement="bottom" title="Unreal Engine 4" class="logo-xl float-left" />
-                            <img src="icons/unity_big.svg" style="padding-top: 10%;" alt="Unity 5" data-toggle="tooltip" data-placement="bottom" title="Unity 5" class="logo-xl float-right" />
+                            <img src="svgs/unreal_big.svg" alt="Unreal Engine 4" data-toggle="tooltip" data-placement="bottom" title="Unreal Engine 4" class="logo-xl float-left" />
+                            <img src="svgs/unity_big.svg" style="padding-top: 10%;" alt="Unity 5" data-toggle="tooltip" data-placement="bottom" title="Unity 5" class="logo-xl float-right" />
                         </div>
                     </div>
 
                 </div>
-
-                <!-- Resume -->
-
-                <h2 class="display-4 text-center">Resume</h2>
-                <div class="anchor" id="resume"></div>
-                <hr />
-
-                <div class="col-md-6" style="margin: auto;" >
-                    <object style="width: 100%;" id="resumePdf" type="application/pdf" data="Niels%20Brunekreef%20Resume.pdf#view=FitH">
-                        <p class="text-center">Resume cannot be displayed inline.<br/><a href="Niels%20Brunekreef%20Resume.pdf" target="_blank" rel="noopener">View here</a></p>
-                    </object>
-                </div>
-
+				
             </div>
 
         </div>
